@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">StockWatcher4</string>
+    <string name="action_settings">Build 3.1.0 \u0020\u0020\u0020 25 Apr 2017</string>
+    <string name="add_button">Add a New Stock Symbol</string>
+    <string name="add_owned">: Add to Owned List</string>
+    <string name="add_watch">: Add to Watch List</string>
+    <string name="change_parameter">: Change Parameter</string>
+    <string name="add_buy_block">: Buy Block of\u0020</string>
+    <string name="detail">\u0020Detail</string>
+    <string name="refresh_button_moving">Refresh Stock Quotes</string>
+    <string name="refresh_button_stationary">Refresh Stock Quotes</string>
+    <string name="title_bar_icon">Title Bar Icon</string>
+    <string name="empty_list">List is Empty</string>
+    
+</resources>

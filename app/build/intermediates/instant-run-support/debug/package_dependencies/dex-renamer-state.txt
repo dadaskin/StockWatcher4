@@ -1,0 +1,7 @@
+#Thu Apr 27 15:42:30 PDT 2017
+base.0=C\:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_869bbbace4a114d2cb20fe906d871673c333fc86
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-v4-18.0.0_acb5476b572c39af2bd1241cf807e86a21e4235d\\classes.dex
+base.1=C\:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-v4-18.0.0_acb5476b572c39af2bd1241cf807e86a21e4235d
+file.0=C\:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_869bbbace4a114d2cb20fe906d871673c333fc86\\classes.dex

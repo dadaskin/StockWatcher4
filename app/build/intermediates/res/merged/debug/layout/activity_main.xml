@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/list_background_color"
+    tools:context="./presenterMainActivity" >
+    
+    <fragment
+        android:id="@+id/footer_fragment"
+        android:name="com.adaskin.android.stockwatcher4.fragments.ToolbarFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        tools:layout="@Layout/toolbar_fragment" />
+        
+   <com.adaskin.android.stockwatcher4.adapters.NonSwipableViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/footer_fragment"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin" 
+        tools:context=".MainActivity" />
+   
+   
+</RelativeLayout>
+
+
