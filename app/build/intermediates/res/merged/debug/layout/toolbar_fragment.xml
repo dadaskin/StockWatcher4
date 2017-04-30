@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#005000"
-    tools:context=".MainActivity$ToolbarFragment" >
+    tools:context=".MainActivity" >
     
     <ImageButton android:id="@+id/add_button"
                  android:layout_width="48dip"

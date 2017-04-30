@@ -3,15 +3,18 @@ Stock Watcher Update Tasks
 DONE  Download latest versions of Android Studio and various tools
 DONE  Get Emulators to emulate Galaxy S4
 DONE  Import StockWatcher project to Android Studio
-	  Preliminary testing of StockWatcher in Android Studio
-	  - Blocks don't display when symbol is tapped. (Sometimes)
-	  - Putting the latest apk onto emulator directly shows same symptoms, so
+DONE  Preliminary testing of StockWatcher in Android Studio
+?	  - Blocks don't display when symbol is tapped. (Sometimes)
+?	  - Putting the latest apk onto emulator directly shows same symptoms, so
 	      this may be a problem with the emulator.
-	  - Non-displaying blocks seem to be random, a symbol works one time and doesn't another.
-	  - Try on tablet (Android 4.4)  Old APK works properly (directly installed)
-	  - Try installing source from Android Studio onto tablet.
-	  Commit and Push existing StockWatcher code to public git repository
-	  Test, Test, Test
+?	  - Non-displaying blocks seem to be random, a symbol works one time and doesn't another.
+DONE  - Try on tablet (Android 4.4)  Old APK works properly (directly installed)
+DONE  - Try installing source from Android Studio onto tablet.  Works properly.  Ignore emulator weirdness for now.
+	  
+~	  Commit and Push existing StockWatcher code to public git repository
+?	  - Can't push to GitHub, but I do have the local Git repository.
+	  - Code Analysis shows a few errors and >100 warnings.  Fix these.
+	  Test, Test, Test on Tablet
 	  Add database import/export/file management code to StockWatcher per
             http://stackoverflow.com/questions/6540906/simple-export-and-import-of-a-sqlite-database-on-android
 	  Test, Test, Test.
