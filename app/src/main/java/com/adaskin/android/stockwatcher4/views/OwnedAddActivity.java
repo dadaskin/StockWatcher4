@@ -92,7 +92,6 @@ public class OwnedAddActivity extends ActionBarActivity {
             startActivityForResult(intent, Constants.BUY_BLOCK_ADD_ACTIVITY);
     	} else {
     		Toast.makeText(this, Constants.EMPTY_FIELD_ERR_MSG, Toast.LENGTH_LONG).show();
-    		return;
     	}
     }
     

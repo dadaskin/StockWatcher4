@@ -6,8 +6,8 @@ import android.support.v4.app.ListFragment;
 abstract public class ListFragmentBase extends ListFragment {
 
 	public interface ListFragmentListener {
-		public void quoteAddedOrMoved();
-		public void moveToOwned(Intent data);
+		void quoteAddedOrMoved();
+		void moveToOwned(Intent data);
 	}
 	
 	public abstract void addAQuote();

@@ -23,7 +23,7 @@ public class AccountSelectionFragment extends DialogFragment {
 	
 	// An interface to be implemented on the hosting activity for the OK button
 	public interface AlertOkListener {
-		public void onOkClick(int position);
+		void onOkClick(int position);
 	}
 
 	// Required empty constructor
@@ -97,7 +97,7 @@ public class AccountSelectionFragment extends DialogFragment {
         List<AccountModel> accountList = new LinkedList<AccountModel>();
         for (int i=0; i< nameArray.length; i++) {
         	String name = nameArray[i].toString();
-        	int color = colorArray[i].intValue();
+        	int color = colorArray[i];
         	accountList.add(new AccountModel(name,color));
         }
 		

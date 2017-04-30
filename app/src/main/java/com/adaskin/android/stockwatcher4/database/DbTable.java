@@ -170,7 +170,7 @@ public class DbTable {
 		for (int i = 0; i < num; i++) {
 			if (i != 0)
 				buf.append(delimiter);
-			buf.append((String)list.get(i));
+			buf.append(list.get(i));
 		}
 		return buf.toString();
 	}

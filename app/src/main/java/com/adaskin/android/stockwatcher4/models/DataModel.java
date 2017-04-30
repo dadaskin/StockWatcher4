@@ -1,6 +1,5 @@
 package com.adaskin.android.stockwatcher4.models;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -130,7 +129,6 @@ public class DataModel implements Parcelable{
 		quote.mStatus = Status.WATCH;
 		quote.mBuyBlockList = new ArrayList<BuyBlock>();
 		mDbAdapter.changeQuoteRecord(id, quote);
-		return;
 	}
 	
 	public StockQuote findStockQuoteBySymbol(String symbol) {

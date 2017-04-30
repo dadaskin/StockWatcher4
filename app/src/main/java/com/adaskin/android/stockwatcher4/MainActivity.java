@@ -301,7 +301,7 @@ public class MainActivity extends ActionBarActivity
 	    		 msg = "The symbols: ";
 	    		 for (String s : invalidSymbolList) {
 	    			 msg += s;
-	    			 if (s != lastSymbol) {
+	    			 if (!s.equals(lastSymbol)) {
 	    				 msg += ",";
 	    			 }
 	    		 }
@@ -337,7 +337,7 @@ public class MainActivity extends ActionBarActivity
 			Float prevClose = parseFloatOrNA(fields[5]);
 			
 			// FullName may have "," in it and be split
-			String fullName = (String)(fields[6]);
+			String fullName = fields[6];
 			int fieldsRead = 7;
 			while (fields.length > fieldsRead)
 			{
@@ -380,17 +380,13 @@ public class MainActivity extends ActionBarActivity
 	    }
 		
 	    private boolean isSymbolValid(StockQuote quote, float prevClose) {
-	    	if ( (quote.mPPS < Constants.MINIMUM_SIGNIFICANT_VALUE) &&
-	    	     (quote.mDivPerShare < Constants.MINIMUM_SIGNIFICANT_VALUE) &&
-	    	     (quote.mYrMin < Constants.MINIMUM_SIGNIFICANT_VALUE) &&
-	    	     (quote.mYrMax < Constants.MINIMUM_SIGNIFICANT_VALUE) &&
-	    	     (prevClose < Constants.MINIMUM_SIGNIFICANT_VALUE)
-	    	   ) {
-	    		return false;
-	    	} 
-	    	
-	    	return true;
-	    }
+			return !((quote.mPPS < Constants.MINIMUM_SIGNIFICANT_VALUE) &&
+					(quote.mDivPerShare < Constants.MINIMUM_SIGNIFICANT_VALUE) &&
+					(quote.mYrMin < Constants.MINIMUM_SIGNIFICANT_VALUE) &&
+					(quote.mYrMax < Constants.MINIMUM_SIGNIFICANT_VALUE) &&
+					(prevClose < Constants.MINIMUM_SIGNIFICANT_VALUE));
+
+		}
 	}
 	
 	

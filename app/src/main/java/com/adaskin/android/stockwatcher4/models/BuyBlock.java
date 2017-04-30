@@ -79,7 +79,7 @@ public class BuyBlock implements Parcelable{
     	SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.US);
 		String dateString = in.readString();
 		try {
-			mBuyDate= (Date)sdf.parse(dateString);
+			mBuyDate= sdf.parse(dateString);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

@@ -51,8 +51,8 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
         DbAdapter dbAdapter = new DbAdapter(this);
         dbAdapter.open();
         
-		mParentId = dbAdapter.fetchQuoteIdFromSymbol(mSymbol);
-        mQuote = dbAdapter.fetchQuoteObjectFromId(mParentId);
+		long parentId = dbAdapter.fetchQuoteIdFromSymbol(mSymbol);
+        mQuote = dbAdapter.fetchQuoteObjectFromId(parentId);
         dbAdapter.close();
         
         registerForContextMenu(findViewById(android.R.id.list));
@@ -135,7 +135,6 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
 		super.onCreateContextMenu(menu, v, menuInfo);
 		MenuInflater mi = getMenuInflater();
 		mi.inflate(R.menu.longpress_buyblock, menu);
-		return;
 	}
 
 	@Override

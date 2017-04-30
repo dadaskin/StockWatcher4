@@ -7,11 +7,9 @@ import com.adaskin.android.stockwatcher4.models.BuyBlock;
 import com.adaskin.android.stockwatcher4.models.StockQuote;
 
 public class SeedData {
-	
-	   private DbAdapter mDbAdapter;
-	   
-	   public SeedData(DbAdapter dba) {
-	   	   mDbAdapter = dba;
+
+	public SeedData(DbAdapter dba) {
+		DbAdapter mDbAdapter = dba;
 
   	   
 	   	   // Last Update date/time
@@ -223,8 +221,8 @@ public class SeedData {
 		private StockQuote createDALSeed() {
 			Date date0 = new Date(112,  1, 22);  // Actually: 2012,  2, 22
 			Date date1 = new Date(113,  1, 22);  // Actually: 2013,  2, 22
-			Date date2 = new Date(113,  4, 01);  // Actually: 2013,  5, 01
-			Date date3 = new Date(113,  9, 01);  // Actually: 2013, 10, 01
+			Date date2 = new Date(113,  4, 1);  // Actually: 2013,  5, 01
+			Date date3 = new Date(113,  9, 1);  // Actually: 2013, 10, 01
 			
 			BuyBlock bb0 = new BuyBlock(date0, 200f, 9.99f, 0.07f, 0f, 0f, Constants.ACCOUNT_IRA);
 			BuyBlock bb1 = new BuyBlock(date1, 200f, 7.99f, 0.07f, 0f, 0f, Constants.ACCOUNT_JOINT);

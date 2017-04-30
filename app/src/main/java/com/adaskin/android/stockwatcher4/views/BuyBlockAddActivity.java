@@ -36,7 +36,6 @@ public class BuyBlockAddActivity extends ActionBarActivity implements AlertOkLis
 	private Calendar mCalendar;
 	private String mSymbol;
 	private Button mDateButton;
-	private Button mAccountChangeButton;
 	private int mAccountColor;
 	private SimpleDateFormat mDateFormatter = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.US);
 	
@@ -49,8 +48,8 @@ public class BuyBlockAddActivity extends ActionBarActivity implements AlertOkLis
         mSymbol = getIntent().getStringExtra(Constants.BUY_BLOCK_SYMBOL_KEY);
         mDateButton = (Button)findViewById(R.id.buy_block_date);
         mDateButton.setOnClickListener(mDateButtonOnClickListener);
-        mAccountChangeButton = (Button)findViewById(R.id.buy_block_account_change_button);
-        mAccountChangeButton.setOnClickListener(mAccountChangeButtonOnClickListener);
+        Button accountChangeButton = (Button)findViewById(R.id.buy_block_account_change_button);
+        accountChangeButton.setOnClickListener(mAccountChangeButtonOnClickListener);
         mDateButton.setText(mDateFormatter.format(mCalendar.getTime()));
         mAccountColor = Constants.ACCOUNT_UNKNOWN;
         TextView accountColorBlock = (TextView)findViewById(R.id.buy_block_account_color_field);

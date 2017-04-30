@@ -26,8 +26,8 @@ public class ToolbarFragment extends Fragment {
 	ToolbarListener activityCallback;
 	
 	public interface ToolbarListener {
-		public void addButtonClicked();
-		public void refreshButtonClicked();
+		void addButtonClicked();
+		void refreshButtonClicked();
 	}
 
 	@Override
