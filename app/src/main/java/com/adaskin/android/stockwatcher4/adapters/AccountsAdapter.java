@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.adaskin.android.stockwatcher4.R;
 import com.adaskin.android.stockwatcher4.models.AccountModel;
+import com.adaskin.android.stockwatcher4.utilities.Constants;
 
 public class AccountsAdapter extends ArrayAdapter<AccountModel> {
 
@@ -28,18 +29,28 @@ public class AccountsAdapter extends ArrayAdapter<AccountModel> {
 		
 		AccountModel account = getItem(position);
 		TextView nameView = (TextView)convertView.findViewById(R.id.dialog_account_name_text_view);
-		nameView.setText(account.getName());
-
 		TextView colorView = (TextView)convertView.findViewById(R.id.dialog_account_color_field);
-		colorView.setBackgroundColor(account.getColor());
-		
+		if (account != null) {
+			nameView.setText(account.getName());
+			colorView.setBackgroundColor(account.getColor());
+		}
+		else {
+			nameView.setText("Unknown");
+			colorView.setBackgroundColor(Constants.ACCOUNT_UNKNOWN);
+		}
+
 		return convertView;
 	}
 
 	
 	@Override
 	public long getItemId(int position) {
-		return getItem(position).getName().hashCode();
+
+		AccountModel item = getItem(position);
+		if (item != null)
+			return item.getName().hashCode();
+
+		return -1L;
 	}
 
 

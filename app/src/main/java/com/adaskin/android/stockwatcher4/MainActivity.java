@@ -237,8 +237,13 @@ public class MainActivity extends ActionBarActivity
 	
 	public  List<StockQuote> mQuoteList = new ArrayList<StockQuote>();
 
-	
-	
+	public void refreshButtonClicked(View view) {
+	}
+
+	public void addButtonClicked(View view) {
+	}
+
+
 	private class DoNetworkTask extends AsyncTask<String, Integer, String> {
 		
 		private List<String> mInvalidSymbolList;
@@ -264,7 +269,7 @@ public class MainActivity extends ActionBarActivity
 				HttpResponse execute = client.execute(httpGet);
 				InputStream content = execute.getEntity().getContent();
 				BufferedReader buffer = new BufferedReader(new InputStreamReader(content));
-				String s = "";
+				String s;
 				StockQuote q;
 				while ((s = buffer.readLine()) != null){
 					q = parseLine(s);
@@ -293,7 +298,7 @@ public class MainActivity extends ActionBarActivity
 	    	 int length = invalidSymbolList.size();
 	    	 if (length == 0)  return;
 	    	 
-	    	 String msg = null;
+	    	 String msg;
 	    	 String lastSymbol = invalidSymbolList.get(length-1);
 	    	 if (invalidSymbolList.size() == 1)	 {
 	    		 msg = "The symbol: " + invalidSymbolList.get(0) + " is invalid.\nDeleting."; 

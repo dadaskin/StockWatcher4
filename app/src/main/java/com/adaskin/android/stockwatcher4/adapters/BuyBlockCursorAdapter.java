@@ -77,8 +77,7 @@ public class BuyBlockCursorAdapter extends SimpleCursorAdapter{
 	public void bindView(View view, Context context, Cursor cursor) {
 
 		ViewHolder holder = (ViewHolder)view.getTag();
-		Resources resources = context.getResources();
-	   
+
 		// Color
 		int colorValue = cursor.getInt(mAccountIdx);
 		holder.colorView.setBackgroundColor(colorValue);

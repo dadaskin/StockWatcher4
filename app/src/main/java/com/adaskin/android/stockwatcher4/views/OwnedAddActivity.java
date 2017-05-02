@@ -101,8 +101,12 @@ public class OwnedAddActivity extends ActionBarActivity {
         	return false;
         }
         
-        try { 
-        	Float.parseFloat(mGainTargetField.getText().toString());
+        try {
+			// Here we just want to know if the text is a double, we don't really care what
+			// the actual value is.   C# would do this with a Double.tryParse() method, but
+			// Java doesn't have anything like that.
+			//noinspection ResultOfMethodCallIgnored
+			Float.parseFloat(mGainTargetField.getText().toString());
         } catch (NumberFormatException e) {
         	e.printStackTrace();
         	return false;

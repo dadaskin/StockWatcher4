@@ -128,7 +128,7 @@ public class GenericDetailsActivity extends ActionBarActivity {
 				HttpResponse execute = client.execute(httpGet);
 				InputStream content = execute.getEntity().getContent();
 				BufferedReader buffer = new BufferedReader(new InputStreamReader(content));
-				String s = "";
+				String s;
 
 				while ((s = buffer.readLine()) != null) {
 					int idxA = s.indexOf(matchString);

@@ -50,9 +50,6 @@ public class AccountSelectionFragment extends DialogFragment {
         int accountColor = bundle.getInt("color");
         int index = AccountModel.getBlockColorIndex(accountColor);
         
-        CharSequence[] accountNameArray = new CharSequence[0];
-		accountNameArray = AccountModel.getBlockAccountNameList().toArray(accountNameArray); 
-        
 		LayoutInflater inflator = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View layout = inflator.inflate(R.layout.account_list, null);
 		mLv = (ListView)layout.findViewById(R.id.account_list);

@@ -187,4 +187,6 @@ public class BuyBlockAddActivity extends ActionBarActivity implements AlertOkLis
 	}
 
 
+    public void chooseAccountColorClicked(View view) {
+    }
 }

@@ -1,10 +1,7 @@
 package com.adaskin.android.stockwatcher4.models;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -38,8 +35,6 @@ public class DataModel implements Parcelable{
 	}
 
 	public void addOwned(String symbol, float gainTargetPct, BuyBlock firstBuyBlock) {
-		SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.US);
-		Date buyDate = firstBuyBlock.mBuyDate;
 		StockQuote q = new StockQuote(symbol, 0.0f, 0.0f, gainTargetPct);
 		q.mBuyBlockList.add(firstBuyBlock);
 		addNewStockQuote(q);

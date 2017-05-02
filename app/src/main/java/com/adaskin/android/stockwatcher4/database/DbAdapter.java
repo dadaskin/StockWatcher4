@@ -443,7 +443,7 @@ public class DbAdapter {
     // Converts DB value of status field into Status enum
 	public Status getStatus(Cursor cursor) {
 		int idx = cursor.getColumnIndex(Q_STATUS);
-		if ((cursor == null) || cursor.isClosed()) { return Status.SOLD; }
+		if (cursor.isClosed()) { return Status.SOLD; }
 		String statusString = cursor.getString(idx);
 		Status status = statusFromString(statusString);
 		return status;
