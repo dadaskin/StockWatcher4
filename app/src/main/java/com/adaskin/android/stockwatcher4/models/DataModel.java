@@ -30,7 +30,7 @@ public class DataModel implements Parcelable{
 	}
 	
 	// Constructor for Parcelable
-	public DataModel (Parcel in) {
+	private DataModel(Parcel in) {
 		readFromParcel(in);
 	}
 
@@ -79,7 +79,7 @@ public class DataModel implements Parcelable{
 
 	}
 	
-	public void addNewStockQuote(StockQuote newQuote) {
+	private void addNewStockQuote(StockQuote newQuote) {
 		// Check to see if this symbol is already in the master list
 	    boolean foundMatch = false;
 	    float existingStrikePrice = 0f;

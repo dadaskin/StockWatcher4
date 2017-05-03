@@ -111,9 +111,9 @@
                 android:layout_gravity="center_vertical"
                 android:text="Change Account"
                 android:textColor="@color/button_text_color"
-                android:onClick="chooseAccountColorClicked"
                 android:layout_marginLeft="10sp"
                 />
+
     </LinearLayout>
     
     

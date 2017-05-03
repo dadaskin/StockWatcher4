@@ -25,8 +25,8 @@ import android.widget.Toast;
 public class GenericDetailsActivity extends ActionBarActivity {
 
 	
-	protected StockQuote mQuote;
-	protected String mSymbol;
+	StockQuote mQuote;
+	String mSymbol;
 
 	public GenericDetailsActivity() {
 		super();
@@ -50,8 +50,7 @@ public class GenericDetailsActivity extends ActionBarActivity {
 		    if (!extras.mAnalystOpinion.contains("N/A"))
 		    {
 		    	try {
-		    	    float opinionFloat = Float.parseFloat(extras.mAnalystOpinion);
-		    	    q.mAnalystsOpinion = opinionFloat;
+					q.mAnalystsOpinion = Float.parseFloat(extras.mAnalystOpinion);
 		    	} catch (NumberFormatException e) 	{
 		    		q.mAnalystsOpinion = this.getPlaceholderAnalystsOpinion();
 		    	}
@@ -73,16 +72,14 @@ public class GenericDetailsActivity extends ActionBarActivity {
 		if (inputString.length() < 1)
 			return "";
 
-		String returnString = inputString.replaceAll("&amp;","&");
-
-		return returnString;
+		return inputString.replaceAll("&amp;","&");
 	}
 	
-	protected void updateDisplayWithExtraInfo() {
+	void updateDisplayWithExtraInfo() {
 		// Override this in the subclass
 	}
 	
-	protected void setTitleString() {
+	void setTitleString() {
 		ActionBar actionBar = this.getSupportActionBar();
 	
 		actionBar.setDisplayShowCustomEnabled(true);
@@ -94,16 +91,16 @@ public class GenericDetailsActivity extends ActionBarActivity {
 		actionBar.setCustomView(customTitleView);
 	}
 
-	protected float getPlaceholderAnalystsOpinion() {
-		float fakeOpinion = 9.9f;
-		return fakeOpinion;
+	@SuppressWarnings("SameReturnValue")
+	private float getPlaceholderAnalystsOpinion() {
+		return 9.9f;
 	}
 
 	
     // Initiates asynchronous task to get complete full name and analysts opinion.
 	// When completed successfully an event will be raised that will be handled by the
 	// subclasses to put the new information into the quote and update the view.
-	protected void requestExtraQuoteInformation(String symbol) {
+	void requestExtraQuoteInformation(String symbol) {
 	
     	String urlString = "http://finance.yahoo.com/q/ao?s="  + symbol +"+Analyst+Opinion";
   	   

@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 //the same instance.
 public class DbHelper extends SQLiteOpenHelper {
 
-	public static DbHelper mInstance = null;
+	private static DbHelper mInstance = null;
 	
 	
 	// Private constructor

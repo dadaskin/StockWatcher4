@@ -17,13 +17,13 @@ import android.widget.TextView;
 
 public class ToolbarFragment extends Fragment {
 
-	static private Activity mActivity;
-	static private TextView mDateTextView;
-	static private TextView mTimeTextView;
+	private Activity mActivity;
+	private TextView mDateTextView;
+	private TextView mTimeTextView;
 	
 	private View mRefreshButtonView;
 	
-	ToolbarListener activityCallback;
+	private ToolbarListener activityCallback;
 	
 	public interface ToolbarListener {
 		void addButtonClicked();
@@ -89,15 +89,14 @@ public class ToolbarFragment extends Fragment {
 	}
 
 	
-	public void addButtonClicked(View v) {
+	private void addButtonClicked(View v) {
 		activityCallback.addButtonClicked();
 	}
 
 	
-	public void refreshButtonClicked(View v) {
+	private void refreshButtonClicked(View v) {
 		mRefreshButtonView = v;
 		activityCallback.refreshButtonClicked();
-		// updateLastUpdateStrings();
 	}
 
 	

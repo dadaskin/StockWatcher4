@@ -13,39 +13,37 @@ import com.adaskin.android.stockwatcher4.R;
 import com.adaskin.android.stockwatcher4.database.DbAdapter;
 import com.adaskin.android.stockwatcher4.utilities.Constants;
 
+import java.util.Locale;
+
 public class BuyBlockCursorAdapter extends SimpleCursorAdapter{
 
 	static class ViewHolder {
-		protected TextView colorView;
-		protected TextView dateView;
-		protected TextView numSharesView;
-		protected TextView ppsBuyView;
-		protected TextView pctChangeSinceBuyView;
-		protected TextView effYieldView;
+		TextView colorView;
+		TextView dateView;
+		TextView numSharesView;
+		TextView ppsBuyView;
+		TextView pctChangeSinceBuyView;
+		TextView effYieldView;
 	}
 
-	public final Context mContext;
-	public final int mLayoutId;
-	public final LayoutInflater mInflater;
-	public final int mAccountIdx;
-	public final int mDateIdx;
-	public final int mNumSharesIdx;
-	public final int mPPSBuyIdx;
-	public final int mPctChangeSinceBuyIdx;
-	public final int mEffYieldIdx;
+
+	private final LayoutInflater mInflater;
+	private final int mAccountIdx;
+	private final int mDateIdx;
+	private final int mNumSharesIdx;
+	private final int mPPSBuyIdx;
+	private final int mPctChangeSinceBuyIdx;
+	private final int mEffYieldIdx;
 	
-	public final float mGainTarget;
+	private final float mGainTarget;
 
 	
 	public BuyBlockCursorAdapter(Context context, 
-			                     int layoutId, 
 			                     Cursor cursor,
 			                     float gainTarget,
 			                     String[] fields,
 			                     int[] ids) {	                    
-		super(context, layoutId, cursor, fields, ids, 0);
-		mContext = context;
-        mLayoutId = layoutId;
+		super(context, R.layout.buy_block_row, cursor, fields, ids, 0);
         mInflater = LayoutInflater.from(context);
         
         mAccountIdx = cursor.getColumnIndex(DbAdapter.B_ACCOUNT);
@@ -61,7 +59,7 @@ public class BuyBlockCursorAdapter extends SimpleCursorAdapter{
 
 	@Override
 	public View newView(Context context, Cursor cursor, ViewGroup parent) {
-		View view = mInflater.inflate(mLayoutId, parent, false);
+		View view = mInflater.inflate(R.layout.buy_block_row, parent, false);
 		ViewHolder  holder = new ViewHolder();
 		holder.colorView = (TextView)view.findViewById(R.id.account_color_field_id);
 		holder.dateView = (TextView)view.findViewById(R.id.date_field_id);
@@ -88,11 +86,11 @@ public class BuyBlockCursorAdapter extends SimpleCursorAdapter{
 			
 		// Number of Shares
 		float numShares = cursor.getFloat(mNumSharesIdx);
-		holder.numSharesView.setText(String.format(Constants.NUM_SHARES_FORMAT, numShares));
+		holder.numSharesView.setText(String.format(Locale.US,Constants.NUM_SHARES_FORMAT, numShares));
 			
 		// Buy prices per share
 		float ppsBuy = cursor.getFloat(mPPSBuyIdx);
-		holder.ppsBuyView.setText(String.format(Constants.CURRENCY_FORMAT, ppsBuy));
+		holder.ppsBuyView.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, ppsBuy));
 			
 		// % change since buy
 	    float chngVsBuy = cursor.getFloat(mPctChangeSinceBuyIdx);
@@ -102,7 +100,7 @@ public class BuyBlockCursorAdapter extends SimpleCursorAdapter{
 	    // Effective Yield
 	    float effYield = cursor.getFloat(mEffYieldIdx);
 	    if (effYield > Constants.POSITVE_ONE_DECIMAL_LIMIT) {
-   		    holder.effYieldView.setText(String.format(Constants.PERCENTAGE_FORMAT, effYield));
+   		    holder.effYieldView.setText(String.format(Locale.US,Constants.PERCENTAGE_FORMAT, effYield));
 	    } else {
 	    	holder.effYieldView.setText("--");
 	    }
@@ -111,9 +109,9 @@ public class BuyBlockCursorAdapter extends SimpleCursorAdapter{
 	private void showZeroWithoutSign(TextView view, float value) {
 		if ((value < Constants.POSITVE_ONE_DECIMAL_LIMIT) &&
         	(value > Constants.NEGATIVE_ONE_DECIMAL_LIMIT))	{
-			view.setText(String.format(Constants.PERCENTAGE_FORMAT, 0.0f));
+			view.setText(String.format(Locale.US,Constants.PERCENTAGE_FORMAT, 0.0f));
         } else {
-        	view.setText(String.format(Constants.PERCENTAGE_FORMAT, value));
+        	view.setText(String.format(Locale.US,Constants.PERCENTAGE_FORMAT, value));
         }
 	}
 	

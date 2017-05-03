@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:2:1-45:12
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:2:1-46:12
 	package
 		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:3:5-48
 		INJECTED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml
@@ -31,7 +31,7 @@ ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\Androi
 	android:name
 		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:10:22-64
 application
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:11:5-43:19
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:11:5-44:19
 MERGED from [com.android.support:appcompat-v7:18.0.0] C:\Users\Dave\.android\build-cache\ea3548368ac2d3f761245df73bde1fb7545bac71\output\AndroidManifest.xml:19:5-20
 	android:label
 		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:14:9-41
@@ -93,3 +93,7 @@ ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\Androi
 		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:41:19-51
 	android:name
 		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:40:19-64
+activity#com.adaskin.android.stockwatcher4.views.GenericDetailsActivity
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:43:9-66
+	android:name
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:43:19-63

@@ -37,7 +37,7 @@ public class BuyBlockAddActivity extends ActionBarActivity implements AlertOkLis
 	private String mSymbol;
 	private Button mDateButton;
 	private int mAccountColor;
-	private SimpleDateFormat mDateFormatter = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.US);
+	private final SimpleDateFormat mDateFormatter = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.US);
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +63,7 @@ public class BuyBlockAddActivity extends ActionBarActivity implements AlertOkLis
 	private void setTitleString()
 	{
 		ActionBar actionBar = this.getSupportActionBar();
-        //actionBar.setDisplayShowTitleEnabled(true);
-		
+
 		actionBar.setDisplayShowCustomEnabled(true);
 		actionBar.setDisplayShowTitleEnabled(false);
 		LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -114,7 +113,7 @@ public class BuyBlockAddActivity extends ActionBarActivity implements AlertOkLis
     
     
     // Date Picker methods
-	private OnClickListener mDateButtonOnClickListener = new View.OnClickListener() {
+	private final OnClickListener mDateButtonOnClickListener = new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
 			showDatePicker();
@@ -138,14 +137,14 @@ public class BuyBlockAddActivity extends ActionBarActivity implements AlertOkLis
 	
 
 	// Account change methods
-	private OnClickListener mAccountChangeButtonOnClickListener = new View.OnClickListener() {
+	private final OnClickListener mAccountChangeButtonOnClickListener = new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			showAccountSelectionDialog(Constants.ACCOUNT_SELECTION_DIALOG);
+			showAccountSelectionDialog();
 		}
 	};
-	
-    private void showAccountSelectionDialog(int dialogId){
+
+	 private void showAccountSelectionDialog(){
     	FragmentManager manager = getSupportFragmentManager();
     	AccountSelectionFragment accountFragment = new AccountSelectionFragment();
     	
@@ -172,21 +171,18 @@ public class BuyBlockAddActivity extends ActionBarActivity implements AlertOkLis
     	accountNameView.setText(accountName);
 	}
 	
-	
-	@Override
-	protected void onPause() {
-		// TODO Auto-generated method stub
-		super.onPause();
-		
-	}
+//  Do we need to handle these?   Enhancement F2.
+//	@Override
+//	protected void onPause() {
+//		// TODO Auto-generated method stub
+//		super.onPause();
+//
+//	}
+//
+//	@Override
+//	protected void onResume() {
+//		// TODO Auto-generated method stub
+//		super.onResume();
+//	}
 
-	@Override
-	protected void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
-	}
-
-
-    public void chooseAccountColorClicked(View view) {
-    }
 }

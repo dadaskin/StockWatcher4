@@ -31,8 +31,7 @@ public class WatchAddActivity extends ActionBarActivity {
 	private void setTitleString()
 	{
 		ActionBar actionBar = this.getSupportActionBar();
-		//actionBar.setDisplayShowTitleEnabled(true);
-		
+
 		actionBar.setDisplayShowCustomEnabled(true);
 		actionBar.setDisplayShowTitleEnabled(false);
 		LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -101,11 +100,10 @@ public class WatchAddActivity extends ActionBarActivity {
 	}
 
     private String createAlertDuplicateMessage(String symbol) {
-     	String msg = "Symbol: " + symbol + " is a Duplicate.\nIgnoring this input.";
-    	return msg;
+		return "Symbol: " + symbol + " is a Duplicate.\nIgnoring this input.";
     }
  
-    private DialogInterface.OnClickListener mAlertConfirmListener = 
+    private final DialogInterface.OnClickListener mAlertConfirmListener =
     		new DialogInterface.OnClickListener() {
 				
 				@Override

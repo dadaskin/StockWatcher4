@@ -71,18 +71,18 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
     	TextView gainField = (TextView)findViewById(R.id.owned_gain_target_field);
     	
     	nameField.setText(mQuote.mFullName);
-		ppsField.setText(String.format(Constants.CURRENCY_FORMAT, mQuote.mPPS));
-		String divPSAndYieldMsg = String.format(Constants.CURRENCY_FORMAT, mQuote.mDivPerShare) +
+		ppsField.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, mQuote.mPPS));
+		String divPSAndYieldMsg = String.format(Locale.US,Constants.CURRENCY_FORMAT, mQuote.mDivPerShare) +
 				                  "  (" +
-				                  String.format(Constants.PERCENTAGE_FORMAT, mQuote.mDivPerShare*100f/mQuote.mPPS) +
+				                  String.format(Locale.US,Constants.PERCENTAGE_FORMAT, mQuote.mDivPerShare*100f/mQuote.mPPS) +
 				                  ")";
      	divPSField.setText(divPSAndYieldMsg);
 		
-        analOpField.setText(String.format(Constants.OPINION_FORMAT, mQuote.mAnalystsOpinion)); 
-        yrMinField.setText(String.format(Constants.CURRENCY_FORMAT, mQuote.mYrMin));
-        yrMaxField.setText(String.format(Constants.CURRENCY_FORMAT, mQuote.mYrMax));
-        strikeField.setText(String.format(Constants.CURRENCY_FORMAT, mQuote.mStrikePrice));
-        gainField.setText(String.format(Constants.PERCENTAGE_FORMAT, mQuote.mPctGainTarget));
+        analOpField.setText(String.format(Locale.US,Constants.OPINION_FORMAT, mQuote.mAnalystsOpinion));
+        yrMinField.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, mQuote.mYrMin));
+        yrMaxField.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, mQuote.mYrMax));
+        strikeField.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, mQuote.mStrikePrice));
+        gainField.setText(String.format(Locale.US,Constants.PERCENTAGE_FORMAT, mQuote.mPctGainTarget));
         
         ListView blockListView = (ListView)findViewById(android.R.id.list);
         
@@ -104,10 +104,10 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
         		                R.id.buy_pps_field_id,
         		                R.id.chng_buy_field_id,
         		                R.id.eff_div_field_id};
-        
-        BuyBlockCursorAdapter bbca
-               = new BuyBlockCursorAdapter(this, R.layout.buy_block_row, cursor, mQuote.mPctGainTarget, fields, ids);
-        
+
+		BuyBlockCursorAdapter bbca
+				= new BuyBlockCursorAdapter(this, cursor, mQuote.mPctGainTarget, fields, ids);
+
         blockListView.setAdapter(bbca);
         
         requestExtraQuoteInformation(mQuote.mSymbol);
@@ -122,13 +122,11 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
 		if (mQuote.mAnalystsOpinion == 0.0f) {
 			analOpField.setText("--");
 		} else {
-		    analOpField.setText(String.format(Constants.OPINION_FORMAT, mQuote.mAnalystsOpinion));
+		    analOpField.setText(String.format(Locale.US,Constants.OPINION_FORMAT, mQuote.mAnalystsOpinion));
 		}
 		
 	}
 
-    
-    
 	// Create context menu and dispatch selections
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
@@ -307,10 +305,8 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
     	} catch(ParseException e) {
 			e.printStackTrace();
     	}
-    	
-    	BuyBlock newBuyBlock = new BuyBlock(buyDate, numShares, buyPrice, commissionPS, 0.0f, 0.0f, accountColor); 
-    
-    	return newBuyBlock;
+
+		return new BuyBlock(buyDate, numShares, buyPrice, commissionPS, 0.0f, 0.0f, accountColor);
     }	
 	
 

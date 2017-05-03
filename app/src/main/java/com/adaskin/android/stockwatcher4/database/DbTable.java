@@ -11,7 +11,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-public class DbTable {
+class DbTable {
 
 	private static final String LAST_UPDATE_TABLE_CREATE =
 		"create table " + DbAdapter.LAST_UPDATE_TABLE + " (" +	
@@ -146,7 +146,7 @@ public class DbTable {
  		}
 	}
 
-	public static List<String> getColumns(SQLiteDatabase db, String tableName) {
+	private static List<String> getColumns(SQLiteDatabase db, String tableName) {
 		List<String> ar = null;
 		Cursor c = null;
 		try {
@@ -164,7 +164,8 @@ public class DbTable {
 		return ar;
 	}
 	
-	public static String join(List<String> list, String delimiter) {
+	@SuppressWarnings("SameParameterValue")
+	private static String join(List<String> list, String delimiter) {
 		StringBuilder buf = new StringBuilder();
 		int num = list.size();
 		for (int i = 0; i < num; i++) {

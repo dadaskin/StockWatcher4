@@ -14,6 +14,8 @@ import com.adaskin.android.stockwatcher4.database.DbAdapter;
 import com.adaskin.android.stockwatcher4.utilities.Constants;
 import com.adaskin.android.stockwatcher4.utilities.Status;
 
+import java.util.Locale;
+
 public class QuoteCursorAdapter extends SimpleCursorAdapter {
 
 	private static class ViewHolder {
@@ -24,7 +26,6 @@ public class QuoteCursorAdapter extends SimpleCursorAdapter {
 		 TextView lastQView;
 	}
 	
-	private final int mLayoutId;
 	private final LayoutInflater mInflater;
 	private final int mOverallAccountIdx;
 	private final int mSymbolIdx;
@@ -33,21 +34,19 @@ public class QuoteCursorAdapter extends SimpleCursorAdapter {
 	private final int mStrikeIdx;
 	private final int mGainTargetIdx;
 	
-	public final int mNormalBackgroundColor;
-	public final int mBuyBackgroundColor;
-    public final int mSellBackgroundColor;
+	private final int mNormalBackgroundColor;
+	private final int mBuyBackgroundColor;
+    private final int mSellBackgroundColor;
     
-    public final int mNeutralTextColor;
-    public final int mPositiveDayChangeTextColor;
-    public final int mNegativeTextColor;
+    private final int mNeutralTextColor;
+    private final int mPositiveDayChangeTextColor;
+    private final int mNegativeTextColor;
 		
 	public QuoteCursorAdapter(Context context, 
-			                  int layoutId, 
 			                  Cursor cursor,
 			                  String[] fields, 
 			                  int[] ids) {
-		super(context, layoutId, cursor, fields, ids, 0);
-		mLayoutId = layoutId;
+		super(context, R.layout.quote_row, cursor, fields, ids, 0);
 		mInflater = LayoutInflater.from(context);
 
 		mOverallAccountIdx = cursor.getColumnIndex(DbAdapter.Q_ACCOUNT_COLOR);
@@ -69,7 +68,7 @@ public class QuoteCursorAdapter extends SimpleCursorAdapter {
 
 	@Override
 	public View newView(Context context, Cursor cursor, ViewGroup parent) {
-		View view = mInflater.inflate(mLayoutId, parent, false);
+		View view = mInflater.inflate(R.layout.quote_row, parent, false);
 		ViewHolder holder = new ViewHolder();
 		holder.accountView = (TextView)view.findViewById(R.id.overall_account_color_field_id);
 		holder.symbolView = (TextView)view.findViewById(R.id.symbol_field_id);
@@ -100,7 +99,7 @@ public class QuoteCursorAdapter extends SimpleCursorAdapter {
         
     	// PPS
         float pps = cursor.getFloat(mPPSIdx);
-        holder.ppsView.setText(String.format(Constants.CURRENCY_FORMAT, pps));
+        holder.ppsView.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, pps));
        	float strikePrice = cursor.getFloat(mStrikeIdx);
     	adjustPPSFieldColor(holder.ppsView, strikePrice, pps);
         
@@ -112,12 +111,9 @@ public class QuoteCursorAdapter extends SimpleCursorAdapter {
         // Change since buy (Owned) or Strike Price (Watch)
         if (status == Status.WATCH) {
         	float strike = cursor.getFloat(mStrikeIdx);
-        	holder.lastQView.setText(String.format(Constants.CURRENCY_FORMAT, strike));
+        	holder.lastQView.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, strike));
         	holder.lastQView.setBackgroundColor(mNormalBackgroundColor);
         } else {
-//        	mDbAdapter.open();
-//        	float changeSinceBuy = mDbAdapter.getBestChangeSinceBuy(symbol);
-//        	mDbAdapter.close();
         	dbAdapter.open();
         	float changeSinceBuy = dbAdapter.getBestChangeSinceBuy(symbol);
         	dbAdapter.close();
@@ -130,9 +126,9 @@ public class QuoteCursorAdapter extends SimpleCursorAdapter {
 	private void showZeroWithoutSign(TextView view, float value) {
 		if ((value < Constants.POSITVE_ONE_DECIMAL_LIMIT) &&
         	(value > Constants.NEGATIVE_ONE_DECIMAL_LIMIT))	{
-			view.setText(String.format(Constants.PERCENTAGE_FORMAT, 0.0f));
+			view.setText(String.format(Locale.US,Constants.PERCENTAGE_FORMAT, 0.0f));
         } else {
-        	view.setText(String.format(Constants.PERCENTAGE_FORMAT, value));
+        	view.setText(String.format(Locale.US,Constants.PERCENTAGE_FORMAT, value));
         }
 	}
 

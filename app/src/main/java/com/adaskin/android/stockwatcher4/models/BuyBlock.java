@@ -21,7 +21,7 @@ public class BuyBlock implements Parcelable{
 	public int mAccountColor;
 	
 	// Calculated fields
-	public float mTotalDividend;
+	private float mTotalDividend;
 	public float mEffDivYield;
 	public float mPctChangeSinceBuy;
 
@@ -51,7 +51,7 @@ public class BuyBlock implements Parcelable{
 	
 	// -------- Implementation of Parcelable Interface --------
 	// Constructor used when re-contructing object from a parcel
-	public BuyBlock(Parcel in) {
+	private BuyBlock(Parcel in) {
 		readFromParcel(in);
 	}
 

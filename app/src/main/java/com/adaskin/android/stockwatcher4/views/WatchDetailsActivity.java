@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class WatchDetailsActivity extends GenericDetailsActivity {
 	
 	@Override
@@ -40,17 +42,17 @@ public class WatchDetailsActivity extends GenericDetailsActivity {
     	TextView strikeField = (TextView)findViewById(R.id.watch_strike_price_field);
     	
     	nameField.setText(mQuote.mFullName);
-		ppsField.setText(String.format(Constants.CURRENCY_FORMAT, mQuote.mPPS));
-		String divPSAndYieldMsg = String.format(Constants.CURRENCY_FORMAT, mQuote.mDivPerShare) +
+		ppsField.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, mQuote.mPPS));
+		String divPSAndYieldMsg = String.format(Locale.US,Constants.CURRENCY_FORMAT, mQuote.mDivPerShare) +
                 "  (" +
-                String.format(Constants.PERCENTAGE_FORMAT, mQuote.mDivPerShare*100f/mQuote.mPPS) +
+                String.format(Locale.US,Constants.PERCENTAGE_FORMAT, mQuote.mDivPerShare*100f/mQuote.mPPS) +
                 ")";
         divPSField.setText(divPSAndYieldMsg);
         
-        analOpField.setText(String.format(Constants.OPINION_FORMAT, mQuote.mAnalystsOpinion)); 
-        yrMinField.setText(String.format(Constants.CURRENCY_FORMAT, mQuote.mYrMin));
-        yrMaxField.setText(String.format(Constants.CURRENCY_FORMAT, mQuote.mYrMax));
-		strikeField.setText(String.format(Constants.CURRENCY_FORMAT, mQuote.mStrikePrice));
+        analOpField.setText(String.format(Locale.US,Constants.OPINION_FORMAT, mQuote.mAnalystsOpinion));
+        yrMinField.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, mQuote.mYrMin));
+        yrMaxField.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, mQuote.mYrMax));
+		strikeField.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, mQuote.mStrikePrice));
 		
         requestExtraQuoteInformation(mQuote.mSymbol);
     }
@@ -61,7 +63,7 @@ public class WatchDetailsActivity extends GenericDetailsActivity {
 		TextView analOpField = (TextView)findViewById(R.id.watch_anal_op_field);
 		
 		nameField.setText(mQuote.mFullName);
-		analOpField.setText(String.format(Constants.OPINION_FORMAT, mQuote.mAnalystsOpinion));
+		analOpField.setText(String.format(Locale.US,Constants.OPINION_FORMAT, mQuote.mAnalystsOpinion));
 		
 	}
 	
@@ -80,8 +82,7 @@ public class WatchDetailsActivity extends GenericDetailsActivity {
 			DbAdapter dbAdapter = new DbAdapter(this);
 			dbAdapter.open();
 			dbAdapter.removeQuoteRecord(mQuote.mSymbol);
-			float newStrikePrice = intent.getFloatExtra(Constants.PARAM_NEW_VALUE_BUNDLE_KEY, 0.0f);
-			mQuote.mStrikePrice = newStrikePrice;
+			mQuote.mStrikePrice = intent.getFloatExtra(Constants.PARAM_NEW_VALUE_BUNDLE_KEY, 0.0f);
 			dbAdapter.createQuoteRecord(mQuote);
 			dbAdapter.close();
 			fillData();

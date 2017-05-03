@@ -981,10 +981,8 @@ containing a value of this type.
         public static final int app_name=0x7f0b0012;
         public static final int change_parameter=0x7f0b0013;
         public static final int detail=0x7f0b0014;
-        public static final int empty_list=0x7f0b0015;
-        public static final int refresh_button_moving=0x7f0b0016;
-        public static final int refresh_button_stationary=0x7f0b0017;
-        public static final int title_bar_icon=0x7f0b0018;
+        public static final int refresh_button_moving=0x7f0b0015;
+        public static final int refresh_button_stationary=0x7f0b0016;
     }
     public static final class style {
         /**  API 11 theme customizations can go here. 

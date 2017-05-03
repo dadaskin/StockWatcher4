@@ -48,6 +48,7 @@
             android:name="com.adaskin.android.stockwatcher4.views.ChangeParameterActivity"
             android:label="@string/app_name" >
         </activity>
+        <activity android:name="com.adaskin.android.stockwatcher4.views.GenericDetailsActivity" />
     </application>
 
 </manifest>

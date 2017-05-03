@@ -1,6 +1,7 @@
 package com.adaskin.android.stockwatcher4.utilities;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import com.adaskin.android.stockwatcher4.database.DbAdapter;
 import com.adaskin.android.stockwatcher4.models.BuyBlock;
@@ -9,37 +10,35 @@ import com.adaskin.android.stockwatcher4.models.StockQuote;
 public class SeedData {
 
 	public SeedData(DbAdapter dba) {
-		DbAdapter mDbAdapter = dba;
 
-  	   
-	   	   // Last Update date/time
-	   	   mDbAdapter.createLastUpdateRecord("Aug 31, 2012", "12:22 PM PDT");
+		// Last Update date/time
+	   	   dba.createLastUpdateRecord("Aug 31, 2012", "12:22 PM PDT");
 	   	   
 	   	   // OWNED
-	       mDbAdapter.createQuoteRecord(createASeed());
-	       mDbAdapter.createQuoteRecord(createACCLSeed());
-	       mDbAdapter.createQuoteRecord(createACASSeed());
-           mDbAdapter.createQuoteRecord(createAZNSeed());	       
-	       mDbAdapter.createQuoteRecord(createBTISeed());
-	       mDbAdapter.createQuoteRecord(createCMISeed());
-	       mDbAdapter.createQuoteRecord(createDALSeed());
-	       mDbAdapter.createQuoteRecord(createDUKSeed());
-	       mDbAdapter.createQuoteRecord(createECOLSeed());
-	       mDbAdapter.createQuoteRecord(createFSeed());
-	       mDbAdapter.createQuoteRecord(createLSRCXSeed());
+	       dba.createQuoteRecord(createASeed());
+	       dba.createQuoteRecord(createACCLSeed());
+	       dba.createQuoteRecord(createACASSeed());
+           dba.createQuoteRecord(createAZNSeed());
+	       dba.createQuoteRecord(createBTISeed());
+	       dba.createQuoteRecord(createCMISeed());
+	       dba.createQuoteRecord(createDALSeed());
+	       dba.createQuoteRecord(createDUKSeed());
+	       dba.createQuoteRecord(createECOLSeed());
+	       dba.createQuoteRecord(createFSeed());
+	       dba.createQuoteRecord(createLSRCXSeed());
 	       
-	       mDbAdapter.createQuoteRecord(createGESeed());
-	       mDbAdapter.createQuoteRecord(createMOSeed());
-	       mDbAdapter.createQuoteRecord(createRGRSeed());
-           mDbAdapter.createQuoteRecord(createSWHCSeed());
-	       mDbAdapter.createQuoteRecord(createVLCCFSeed());
-	       mDbAdapter.createQuoteRecord(createVVCSeed());
-	       mDbAdapter.createQuoteRecord(createUALSeed());
-	       mDbAdapter.createQuoteRecord(createHISeed());
-	       mDbAdapter.createQuoteRecord(createMSFTSeed());
-	       mDbAdapter.createQuoteRecord(createOSeed());
-	       mDbAdapter.createQuoteRecord(createPHKSeed());
-	       mDbAdapter.createQuoteRecord(createPMSeed());
+	       dba.createQuoteRecord(createGESeed());
+	       dba.createQuoteRecord(createMOSeed());
+	       dba.createQuoteRecord(createRGRSeed());
+           dba.createQuoteRecord(createSWHCSeed());
+	       dba.createQuoteRecord(createVLCCFSeed());
+	       dba.createQuoteRecord(createVVCSeed());
+	       dba.createQuoteRecord(createUALSeed());
+	       dba.createQuoteRecord(createHISeed());
+	       dba.createQuoteRecord(createMSFTSeed());
+	       dba.createQuoteRecord(createOSeed());
+	       dba.createQuoteRecord(createPHKSeed());
+	       dba.createQuoteRecord(createPMSeed());
 //	       mDbAdapter.createQuoteRecord(createSESeed());
 //	       mDbAdapter.createQuoteRecord(createTSeed());
 //	       mDbAdapter.createQuoteRecord(createTEGSeed());
@@ -66,8 +65,8 @@ public class SeedData {
 //	       mDbAdapter.createQuoteRecord(createJNJSeed());
 	       
 	       // WATCH
-	       mDbAdapter.createQuoteRecord(createNLYSeed());
-	       mDbAdapter.createQuoteRecord(createABTSeed());
+	       dba.createQuoteRecord(createNLYSeed());
+	       dba.createQuoteRecord(createABTSeed());
 	   }
 	
 
@@ -77,8 +76,8 @@ public class SeedData {
 		float pps = 38.00f;
 		float divPS = 0.4f;
 		
-		Date date0 = new Date(100,  5,  2);  // Actually: 2000, 06, 2
-	
+	    Date date0 = (new GregorianCalendar(2000, 5, 2)).getTime(); // Actually: 2000-06-02
+
 		BuyBlock bb0 = new BuyBlock(date0,  10.0f, 19.80f, 0.07f, divPS, 0.0f, Constants.ACCOUNT_JOINT);
 		
 		StockQuote q = new StockQuote("A", pps, divPS, 200f);
@@ -91,8 +90,8 @@ public class SeedData {
 			float pps = 15.0f;
 			float divPS = 0.0f;
 			
-			Date date0 = new Date(103, 0, 22);  // Actually: 2003,  1, 22
-			Date date1 = new Date(109, 7, 10);  // Actually: 2009,  8, 10
+			Date date0 = (new GregorianCalendar(2003, 0, 22)).getTime();  // Actually: 2003,  1, 22
+			Date date1 = (new GregorianCalendar(2009, 7, 10)).getTime();  // Actually: 2009,  8, 10
 			
 			BuyBlock bb0 = new BuyBlock(date0, 100.0f, 23.66f, 0.07f, divPS, 0.0f, Constants.ACCOUNT_JOINT);
 			BuyBlock bb1 = new BuyBlock(date1,  99.0f,  3.22f, 0.07f, divPS, 0.0f, Constants.ACCOUNT_JOINT);
@@ -732,13 +731,11 @@ public class SeedData {
 //	    }
 	    
   	    private StockQuote createNLYSeed() {
-	    	StockQuote q = new StockQuote("NLY", 15.93f, 14.00f, 2.00f, 17.75f, 15.27f);
-	    	return q;
+			return new StockQuote("NLY", 15.93f, 14.00f, 2.00f, 17.75f, 15.27f);
 	    }
 	    
 	    private StockQuote createABTSeed() {
-	    	StockQuote q = new StockQuote("ABT", 64.96f, 50.0f, 2.04f, 72.47f, 52.05f);
-	    	return q;
+			return new StockQuote("ABT", 64.96f, 50.0f, 2.04f, 72.47f, 52.05f);
 	    }
 	    
 //	    public  void testSeedData() {

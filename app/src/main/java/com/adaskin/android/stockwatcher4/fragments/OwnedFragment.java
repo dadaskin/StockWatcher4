@@ -33,7 +33,7 @@ import com.adaskin.android.stockwatcher4.R;
 
 public class OwnedFragment extends ListFragmentBase {
 
-	ListFragmentListener activityCallback;
+	private ListFragmentListener activityCallback;
 	private int mTopVisiblePosition = -1;
 	private int mTopPadding = -1;
 		
@@ -175,8 +175,7 @@ public class OwnedFragment extends ListFragmentBase {
         		               R.id.last_q_field_id};
         
         QuoteCursorAdapter qcs = new QuoteCursorAdapter(getActivity(), 
-        		                                        R.layout.quote_row, 
-        		                                        cursor, 
+        		                                        cursor,
         		                                        fields,
         		                                        ids);
         

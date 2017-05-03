@@ -50,9 +50,8 @@ public class MainActivity extends ActionBarActivity
 	private ActionBar mActionBar;
 	private SectionsPagerAdapter mPagerAdapter;
 	private NonSwipableViewPager mViewPager;
-	public View mCustomTitleView;
 
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -72,10 +71,10 @@ public class MainActivity extends ActionBarActivity
 		actionBar.setDisplayShowCustomEnabled(true);
 		actionBar.setDisplayShowTitleEnabled(false);
 		LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		mCustomTitleView = inflator.inflate(R.layout.custom_main_titlebar, null);
-		TextView tv = (TextView)mCustomTitleView.findViewById(R.id.custom_title);
+		View customTitleView = inflator.inflate(R.layout.custom_main_titlebar, null);
+		TextView tv = (TextView) customTitleView.findViewById(R.id.custom_title);
 		tv.setText(getString(R.string.app_name));
-		actionBar.setCustomView(mCustomTitleView);
+		actionBar.setCustomView(customTitleView);
 	}
 	
 	// Handle Pager and Fragments
@@ -164,7 +163,7 @@ public class MainActivity extends ActionBarActivity
 		
 	}
 
-    public void networkTaskCompleted()
+    private void networkTaskCompleted()
     {
 		UpdateDateStringsInDB();
         ToolbarFragment toolbarFragment = (ToolbarFragment)getSupportFragmentManager().findFragmentById(R.id.footer_fragment);
@@ -234,8 +233,6 @@ public class MainActivity extends ActionBarActivity
 		mPagerAdapter.moveToOwned(data);
 		mViewPager.setCurrentItem(0);
 	}
-	
-	public  List<StockQuote> mQuoteList = new ArrayList<StockQuote>();
 
 	public void refreshButtonClicked(View view) {
 	}
@@ -246,8 +243,8 @@ public class MainActivity extends ActionBarActivity
 
 	private class DoNetworkTask extends AsyncTask<String, Integer, String> {
 		
-		private List<String> mInvalidSymbolList;
-        private Context mContext;
+		private final List<String> mInvalidSymbolList;
+        private final Context mContext;
 		
 		
 		public DoNetworkTask(Context context) {
@@ -270,11 +267,8 @@ public class MainActivity extends ActionBarActivity
 				InputStream content = execute.getEntity().getContent();
 				BufferedReader buffer = new BufferedReader(new InputStreamReader(content));
 				String s;
-				StockQuote q;
 				while ((s = buffer.readLine()) != null){
-					q = parseLine(s);
-					mQuoteList.add(q);
-					//parseLine(s);
+					parseLine(s);
 				}
 			} catch(Exception e) {
 				e.printStackTrace();

@@ -22,9 +22,9 @@ import android.database.sqlite.SQLiteDatabase;
 public class DbAdapter {
 	
 	// String constants
-	public static final String ST_OWNED = "OWNED";
-	public static final String ST_WATCH = "WATCH";
-	public static final String ST_SOLD = "SOLD";
+	private static final String ST_OWNED = "OWNED";
+	private static final String ST_WATCH = "WATCH";
+	private static final String ST_SOLD = "SOLD";
 	
 	// Database constants
 	public static final String DATABASE_NAME = "stockwatcher4";
@@ -65,7 +65,7 @@ public class DbAdapter {
     public static final String B_PARENT = "buy_parent";                     // integer foreign key
     public static final String B_ACCOUNT = "buy_account";                   // integer foreign key    
     
-    private Context mContext;
+    private final Context mContext;
     private SQLiteDatabase mDb;
     private DbHelper mDbHelper;
     
@@ -131,8 +131,7 @@ public class DbAdapter {
  
     public long createLastUpdateRecord(String dateString, String timeString) {
     	ContentValues cv = createLastUpdateCV(dateString, timeString);
-    	long newRow = mDb.insert(LAST_UPDATE_TABLE, "", cv);
-    	return newRow;
+		return mDb.insert(LAST_UPDATE_TABLE, "", cv);
     }
     
     // OK
@@ -149,10 +148,9 @@ public class DbAdapter {
     }
     
     // OK
-    public long createBuyBlockRecord(BuyBlock block, long parentId) {
+	private long createBuyBlockRecord(BuyBlock block, long parentId) {
         ContentValues cv = createBuyBlockCV(block, parentId);
-        long newRow = mDb.insert(BUY_BLOCK_TABLE, "", cv);
-        return newRow;
+		return mDb.insert(BUY_BLOCK_TABLE, "", cv);
     }
 
 // Read methods
@@ -237,7 +235,7 @@ public class DbAdapter {
     
     // User must manage cursor
     // OK
-    public Cursor fetchQuoteRecordFromId(long id) {
+	private Cursor fetchQuoteRecordFromId(long id) {
     	String[] params = new String[] { String.valueOf(id) };
     	String sql = "select * from " + QUOTE_TABLE + " where " + Q_ROW_ID + "=?";
     	Cursor cursor = mDb.rawQuery(sql, params);
@@ -350,7 +348,7 @@ public class DbAdapter {
     
     // User must manage cursor
     // OK
-    public Cursor fetchAllQuoteRecords() {
+	private Cursor fetchAllQuoteRecords() {
     	String sql = "select " + Q_ROW_ID + " as _id, * from " + QUOTE_TABLE;
     	Cursor cursor = mDb.rawQuery(sql, new String[] {});
     	cursor.moveToFirst();
@@ -371,23 +369,21 @@ public class DbAdapter {
     				   B_PARENT + "=? and " + B_DATE + "=?", 
     				   new String[] { String.valueOf(id), dateString });
     	}
-    	
-    	int row = mDb.update(QUOTE_TABLE,
-    			                  quoteCV, 
-    			                  Q_ROW_ID + "=?", 
-    			                  new String[] {String.valueOf(id)});
-    	return row;
+
+		return mDb.update(QUOTE_TABLE,
+                                  quoteCV,
+                                  Q_ROW_ID + "=?",
+                                  new String[] {String.valueOf(id)});
     }
     
     
     public int changeBuyBlockRecord(long parentId, BuyBlock newBuyBlock) {
     	ContentValues bbCV = createBuyBlockCV(newBuyBlock, parentId);
     	String dateString = bbCV.getAsString(B_DATE);
-		int row = mDb.update(BUY_BLOCK_TABLE, 
-			                 bbCV, 
-				             B_PARENT + "=? and " + B_DATE + "=?", 
+		return mDb.update(BUY_BLOCK_TABLE,
+			                 bbCV,
+				             B_PARENT + "=? and " + B_DATE + "=?",
 				             new String[] { String.valueOf(parentId), dateString });
-    	return row;
     }
     
  // Delete methods
@@ -445,8 +441,7 @@ public class DbAdapter {
 		int idx = cursor.getColumnIndex(Q_STATUS);
 		if (cursor.isClosed()) { return Status.SOLD; }
 		String statusString = cursor.getString(idx);
-		Status status = statusFromString(statusString);
-		return status;
+		return statusFromString(statusString);
 	}
     
 	// OK

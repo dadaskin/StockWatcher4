@@ -72,7 +72,7 @@ public class AccountSelectionFragment extends DialogFragment {
         return mDlg;
 	}
 	
-	private View.OnClickListener mOkListener = new View.OnClickListener() {
+	private final View.OnClickListener mOkListener = new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
 			int position = mLv.getCheckedItemPosition();

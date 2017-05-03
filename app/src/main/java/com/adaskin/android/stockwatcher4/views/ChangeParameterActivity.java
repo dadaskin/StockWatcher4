@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class ChangeParameterActivity extends ActionBarActivity {
 
 	private String mParamName;
@@ -39,10 +41,7 @@ public class ChangeParameterActivity extends ActionBarActivity {
 	private void setTitleString()
 	{
 		ActionBar actionBar = this.getSupportActionBar();
-  	    //actionBar.setDisplayShowTitleEnabled(true);
-		
-        //actionBar.setDisplayShowTitleEnabled(true);
-		
+
 		actionBar.setDisplayShowCustomEnabled(true);
 		actionBar.setDisplayShowTitleEnabled(false);
 		LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -71,7 +70,7 @@ public class ChangeParameterActivity extends ActionBarActivity {
     	nameView.setText("Change \"" + paramName +"\" parameter on " + symbol);
     	
     	TextView oldValueView = (TextView)findViewById(R.id.param_change_old_value);
-    	oldValueView.setText("Old Value: " + String.format(format, oldValue));
+    	oldValueView.setText("Old Value: " + String.format(Locale.US,format, oldValue));
     }
     
     public void doneButtonClicked(View v) {

@@ -440,10 +440,8 @@ int string add_watch 0x7f0b0011
 int string app_name 0x7f0b0012
 int string change_parameter 0x7f0b0013
 int string detail 0x7f0b0014
-int string empty_list 0x7f0b0015
-int string refresh_button_moving 0x7f0b0016
-int string refresh_button_stationary 0x7f0b0017
-int string title_bar_icon 0x7f0b0018
+int string refresh_button_moving 0x7f0b0015
+int string refresh_button_stationary 0x7f0b0016
 int style AppBaseTheme 0x7f080000
 int style AppTheme 0x7f08003a
 int style CustomTheme 0x7f08003b

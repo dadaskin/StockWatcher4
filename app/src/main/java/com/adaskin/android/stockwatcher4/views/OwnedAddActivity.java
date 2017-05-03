@@ -46,8 +46,6 @@ public class OwnedAddActivity extends ActionBarActivity {
         	mFromOwned = false;
         	mSymbolField.setText(symbol);
         }
-        
-        
 	}
 	
 	private void setTitleString()
@@ -63,8 +61,7 @@ public class OwnedAddActivity extends ActionBarActivity {
 		tv.setText(getString(R.string.app_name) + getString(R.string.add_owned));
 		actionBar.setCustomView(customTitleView);
 	}
-	
-	
+
 	@Override
 	public void onBackPressed() {
         Intent returnIntent = new Intent();
@@ -126,11 +123,10 @@ public class OwnedAddActivity extends ActionBarActivity {
 	}
 
     private String createAlertDuplicateMessage(String symbol) {
-     	String msg = "Symbol: " + symbol + " is a Duplicate.\nIgnoring this input.";
-    	return msg;
+		return "Symbol: " + symbol + " is a Duplicate.\nIgnoring this input.";
     }
     
-    private DialogInterface.OnClickListener mAlertConfirmListener = 
+    private final DialogInterface.OnClickListener mAlertConfirmListener =
     		new DialogInterface.OnClickListener() {
 				
 				@Override
@@ -168,10 +164,8 @@ public class OwnedAddActivity extends ActionBarActivity {
     	} catch(ParseException e) {
 			e.printStackTrace();
     	}
-    	
-    	BuyBlock newBuyBlock = new BuyBlock(buyDate, numShares, buyPrice, commissionPS, 0.0f, 0.0f, accountColor); 
-    
-    	return newBuyBlock;
+
+		return new BuyBlock(buyDate, numShares, buyPrice, commissionPS, 0.0f, 0.0f, accountColor);
     }
     
     private void grabInfoAndReturn() {

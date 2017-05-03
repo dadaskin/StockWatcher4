@@ -81,22 +81,12 @@ public class StockQuote  implements Parcelable  {
 	 
 	// -------- Methods -------- 
     public void compute(float lastClosePPS) {
-        //float avgCommissionPS = 0.0f;
-        //float sumCommissionPS = 0.0f;
-    	//if (mBuyBlockList != null)
-	    //{
-		//    for (BuyBlock block: mBuyBlockList) {
-		//        block.computeChange(mPPS);
-		//        sumCommissionPS += block.mBuyCommissionPerShare;
-	    //	}
-		//
-		//    int n = mBuyBlockList.size();
-		//    if (n > 0) {
-		//        avgCommissionPS = sumCommissionPS/n;
-		//    }
-		//
-		//    mPctChangeSinceBuy = findBestChangeSinceBuy();
-	    //}
+    	if (mBuyBlockList != null) {
+		    for (BuyBlock block: mBuyBlockList)
+		        block.computeChange(mPPS);
+
+		    mPctChangeSinceBuy = findBestChangeSinceBuy();
+	    }
 	    
     	// Don't use commission to compute change since last close
 	    if (lastClosePPS > .0001) {
@@ -150,7 +140,7 @@ public class StockQuote  implements Parcelable  {
 	// -------- Implementation of Parcelable interface --------- 
 
     // Constructor for Parcelable
-    public StockQuote(Parcel in){
+	private StockQuote(Parcel in){
 	    readFromParcel(in);
     }
 	 

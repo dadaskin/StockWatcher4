@@ -46,9 +46,9 @@ import android.widget.DatePicker;
  */
 public class DatePickerDialogFragment extends DialogFragment {
     
-    public static final String YEAR = "Year";
-    public static final String MONTH = "Month";
-    public static final String DAY = "Day";
+    private static final String YEAR = "Year";
+    private static final String MONTH = "Month";
+    private static final String DAY = "Day";
     
     private OnDateSetListener mListener;
 

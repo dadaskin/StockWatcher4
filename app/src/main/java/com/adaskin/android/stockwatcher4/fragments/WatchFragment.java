@@ -28,7 +28,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class WatchFragment extends ListFragmentBase {
 	
-	ListFragmentListener activityCallback;
+	private ListFragmentListener activityCallback;
 	private int mSelectedPosition = -1;
 
 	public WatchFragment() {
@@ -168,8 +168,7 @@ public class WatchFragment extends ListFragmentBase {
         		               R.id.last_q_field_id};
         
         QuoteCursorAdapter qcs = new QuoteCursorAdapter(getActivity(), 
-        		                                        R.layout.quote_row, 
-        		                                        cursor, 
+        		                                        cursor,
         		                                        fields,
         		                                        ids);
         
