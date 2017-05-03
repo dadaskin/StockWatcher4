@@ -106,15 +106,10 @@ public class DataModel implements Parcelable{
 		mMasterList.add(newQuote);
 	}
  	
-	public boolean removeEntryFromDB(String symbol){
+	public void removeEntryFromDB(String symbol){
 		StockQuote quote = findStockQuoteBySymbol(symbol);
 		if (quote != null)
-		{
 			mDbAdapter.removeQuoteRecord(symbol);
-			return true;
-		}
-		
-		return false;	
 	}
 	
 	public void changeStatusFromOwnedToWatch(String symbol) {

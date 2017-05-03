@@ -35,8 +35,7 @@ import android.widget.TextView;
 
 public class OwnedDetailsActivity extends GenericDetailsActivity implements AlertOkListener {
  
-	private BuyBlock mChangingBlock; 
-	private long mParentId;
+	private BuyBlock mChangingBlock;
 	private AccountSelectionFragment mAccountsFragment;
 
 	@Override
@@ -252,6 +251,7 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
     
     
     // Handle Add Another Block button
+	@SuppressWarnings("UnusedParameters")
 	public void addAnotherBlockButtonClicked(View v) {
 		Intent intent = new Intent(this, BuyBlockAddActivity.class);
 		intent.putExtra(Constants.BUY_BLOCK_SYMBOL_KEY, mQuote.mSymbol);
@@ -306,13 +306,14 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
 			e.printStackTrace();
     	}
 
-		return new BuyBlock(buyDate, numShares, buyPrice, commissionPS, 0.0f, 0.0f, accountColor);
+		return new BuyBlock(buyDate, numShares, buyPrice, commissionPS, 0.0f, accountColor);
     }	
 	
 
     
     // Handle parameter change buttons
-    public void changeButtonClicked_StrikePrice(View v) {
+    @SuppressWarnings("UnusedParameters")
+	public void changeButtonClicked_StrikePrice(View v) {
     	Intent intent = new Intent(this, ChangeParameterActivity.class);
     	intent.putExtra(Constants.SYMBOL_BUNDLE_KEY, mQuote.mSymbol);
     	intent.putExtra(Constants.PARAM_NAME_BUNDLE_KEY, "Strike Price");
@@ -320,7 +321,8 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
     	startActivityForResult(intent, Constants.PARAMETER_CHANGE_ACTIVITY);
     }
 	
-    public void changeButtonClicked_GainTarget(View v) {
+    @SuppressWarnings("UnusedParameters")
+	public void changeButtonClicked_GainTarget(View v) {
     	Intent intent = new Intent(this, ChangeParameterActivity.class);
     	intent.putExtra(Constants.SYMBOL_BUNDLE_KEY, mQuote.mSymbol);
     	intent.putExtra(Constants.PARAM_NAME_BUNDLE_KEY, "Gain Target");

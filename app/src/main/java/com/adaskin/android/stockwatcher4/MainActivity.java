@@ -70,8 +70,8 @@ public class MainActivity extends ActionBarActivity
 
 		actionBar.setDisplayShowCustomEnabled(true);
 		actionBar.setDisplayShowTitleEnabled(false);
-		LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View customTitleView = inflator.inflate(R.layout.custom_main_titlebar, null);
+		LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View customTitleView = inflater.inflate(R.layout.custom_main_titlebar, null);
 		TextView tv = (TextView) customTitleView.findViewById(R.id.custom_title);
 		tv.setText(getString(R.string.app_name));
 		actionBar.setCustomView(customTitleView);
@@ -234,13 +234,6 @@ public class MainActivity extends ActionBarActivity
 		mViewPager.setCurrentItem(0);
 	}
 
-	public void refreshButtonClicked(View view) {
-	}
-
-	public void addButtonClicked(View view) {
-	}
-
-
 	private class DoNetworkTask extends AsyncTask<String, Integer, String> {
 		
 		private final List<String> mInvalidSymbolList;
@@ -325,7 +318,7 @@ public class MainActivity extends ActionBarActivity
 	 		        .show();
 		}
 		
-		private StockQuote parseLine(String s) {
+		private void parseLine(String s) {
 
 			String[] fields = s.split(",");
 			String symbol = (String)fields[0].subSequence(1, fields[0].length()-1);
@@ -367,7 +360,6 @@ public class MainActivity extends ActionBarActivity
 			}
 			
 			dbAdapter.close();
-			return quote;
 		}
 		
 	    private float parseFloatOrNA(String field) {

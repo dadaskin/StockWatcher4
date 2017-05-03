@@ -34,8 +34,8 @@ public class WatchAddActivity extends ActionBarActivity {
 
 		actionBar.setDisplayShowCustomEnabled(true);
 		actionBar.setDisplayShowTitleEnabled(false);
-		LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View customTitleView = inflator.inflate(R.layout.custom_titlebar, null);
+		LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View customTitleView = inflater.inflate(R.layout.custom_titlebar, null);
 		TextView tv = (TextView)customTitleView.findViewById(R.id.custom_title);
 		tv.setText(getString(R.string.app_name) + getString(R.string.add_watch));
 		actionBar.setCustomView(customTitleView);
@@ -48,7 +48,8 @@ public class WatchAddActivity extends ActionBarActivity {
     	finish();
 	}
 	
-    public void doneButtonClicked(View v) {
+    @SuppressWarnings("UnusedParameters")
+	public void doneButtonClicked(View v) {
     	
     	EditText symbolField = (EditText)findViewById(R.id.watch_add_symbol);
     	EditText strikePriceField = (EditText)findViewById(R.id.watch_add_strike_price);

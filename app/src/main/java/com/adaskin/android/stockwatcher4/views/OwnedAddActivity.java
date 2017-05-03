@@ -55,8 +55,8 @@ public class OwnedAddActivity extends ActionBarActivity {
 		
 		actionBar.setDisplayShowCustomEnabled(true);
 		actionBar.setDisplayShowTitleEnabled(false);
-		LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View customTitleView = inflator.inflate(R.layout.custom_titlebar, null);
+		LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View customTitleView = inflater.inflate(R.layout.custom_titlebar, null);
 		TextView tv = (TextView)customTitleView.findViewById(R.id.custom_title);
 		tv.setText(getString(R.string.app_name) + getString(R.string.add_owned));
 		actionBar.setCustomView(customTitleView);
@@ -69,7 +69,8 @@ public class OwnedAddActivity extends ActionBarActivity {
     	finish();
 	}
 
-    public void addBlockButtonClicked(View v) {
+    @SuppressWarnings("UnusedParameters")
+	public void addBlockButtonClicked(View v) {
 	    String symbol = mSymbolField.getText().toString();
 	    
 	    if (mFromOwned) {
@@ -165,7 +166,7 @@ public class OwnedAddActivity extends ActionBarActivity {
 			e.printStackTrace();
     	}
 
-		return new BuyBlock(buyDate, numShares, buyPrice, commissionPS, 0.0f, 0.0f, accountColor);
+		return new BuyBlock(buyDate, numShares, buyPrice, commissionPS, 0.0f, accountColor);
     }
     
     private void grabInfoAndReturn() {

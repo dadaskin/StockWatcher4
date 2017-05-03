@@ -233,7 +233,7 @@ public class OwnedFragment extends ListFragmentBase {
 			e.printStackTrace();
 	   	}
 		
-		BuyBlock firstBlock = new BuyBlock(buyDate, buyNumShares, buyPPS, commission, 0.0f, 0.0f, accountColor);
+		BuyBlock firstBlock = new BuyBlock(buyDate, buyNumShares, buyPPS, commission, 0.0f, accountColor);
 		
 		DbAdapter dbAdapter = new DbAdapter(getActivity());
 		dbAdapter.open();

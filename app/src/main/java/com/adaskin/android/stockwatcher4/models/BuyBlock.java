@@ -26,13 +26,12 @@ public class BuyBlock implements Parcelable{
 	public float mPctChangeSinceBuy;
 
 	// -------- Constructor --------
-	public BuyBlock(Date buyDate, 
-			        float numShares,
-			        float buyPrice,  
-			        float buyCommissionPS, 
-			        float divPS, 
-			        float totalDividend, 
-			        int accountColor) {
+	public BuyBlock(Date buyDate,
+					float numShares,
+					float buyPrice,
+					float buyCommissionPS,
+					float divPS,
+					int accountColor) {
 		mBuyDate = buyDate;
 		mNumShares = numShares;
 		mBuyPPS = buyPrice;
@@ -50,7 +49,7 @@ public class BuyBlock implements Parcelable{
 
 	
 	// -------- Implementation of Parcelable Interface --------
-	// Constructor used when re-contructing object from a parcel
+	// Constructor used when re-constructing object from a parcel
 	private BuyBlock(Parcel in) {
 		readFromParcel(in);
 	}

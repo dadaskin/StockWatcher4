@@ -124,7 +124,7 @@
             android:text="Done"
             android:textColor="@color/button_text_color"
             android:onClick="doneButtonClicked"
-            android:layout_marginTop="50sp"            
+            android:layout_marginTop="50sp"
             />
     
 </LinearLayout>

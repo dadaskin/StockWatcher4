@@ -67,6 +67,7 @@ public class WatchDetailsActivity extends GenericDetailsActivity {
 		
 	}
 	
+    @SuppressWarnings("UnusedParameters")
     public void changeButtonClicked(View v) {
     	Intent intent = new Intent(this, ChangeParameterActivity.class);
     	intent.putExtra(Constants.SYMBOL_BUNDLE_KEY, mQuote.mSymbol);

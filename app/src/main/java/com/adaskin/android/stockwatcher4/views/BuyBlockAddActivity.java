@@ -66,8 +66,8 @@ public class BuyBlockAddActivity extends ActionBarActivity implements AlertOkLis
 
 		actionBar.setDisplayShowCustomEnabled(true);
 		actionBar.setDisplayShowTitleEnabled(false);
-		LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View customTitleView = inflator.inflate(R.layout.custom_titlebar, null);
+		LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View customTitleView = inflater.inflate(R.layout.custom_titlebar, null);
 		TextView tv = (TextView)customTitleView.findViewById(R.id.custom_title);
 		tv.setText(getString(R.string.app_name) + getString(R.string.add_buy_block) + mSymbol);
 		actionBar.setCustomView(customTitleView);
@@ -79,8 +79,9 @@ public class BuyBlockAddActivity extends ActionBarActivity implements AlertOkLis
     	setResult(Activity.RESULT_CANCELED, returnIntent);
     	finish();
 	}
-	
-    public void doneButtonClicked(View v) {
+
+    @SuppressWarnings("UnusedParameters")
+	public void doneButtonClicked(View view) {
     	
     	EditText buyPriceField = (EditText)findViewById(R.id.buy_block_price);
     	EditText numSharesField = (EditText)findViewById(R.id.buy_block_num_shares);
@@ -170,7 +171,8 @@ public class BuyBlockAddActivity extends ActionBarActivity implements AlertOkLis
     	accountColorView.setBackgroundColor(mAccountColor);
     	accountNameView.setText(accountName);
 	}
-	
+
+
 //  Do we need to handle these?   Enhancement F2.
 //	@Override
 //	protected void onPause() {

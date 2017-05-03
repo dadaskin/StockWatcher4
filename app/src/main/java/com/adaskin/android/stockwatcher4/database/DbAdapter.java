@@ -73,10 +73,9 @@ public class DbAdapter {
     	mContext = context;
     }
     
-    public DbAdapter open() throws SQLException {
+    public void open() throws SQLException {
     	mDbHelper = DbHelper.getInstance(mContext);
     	mDb = mDbHelper.getWritableDatabase();
-    	return this;
     }
     
     public void close() {
@@ -129,13 +128,13 @@ public class DbAdapter {
     
 // Create methods
  
-    public long createLastUpdateRecord(String dateString, String timeString) {
+    public void createLastUpdateRecord(String dateString, String timeString) {
     	ContentValues cv = createLastUpdateCV(dateString, timeString);
-		return mDb.insert(LAST_UPDATE_TABLE, "", cv);
+		mDb.insert(LAST_UPDATE_TABLE, "", cv);
     }
     
     // OK
-    public long createQuoteRecord(StockQuote quote) {
+    public void createQuoteRecord(StockQuote quote) {
     	quote.determineOverallAccountColor();
     	ContentValues cv = createQuoteCV(quote);
     	long newRow = mDb.insert(QUOTE_TABLE, "", cv);
@@ -144,23 +143,24 @@ public class DbAdapter {
     		   createBuyBlockRecord(bb, newRow);
     	    }
     	}
-    	return newRow;
     }
     
     // OK
-	private long createBuyBlockRecord(BuyBlock block, long parentId) {
+	private void  createBuyBlockRecord(BuyBlock block, long parentId) {
         ContentValues cv = createBuyBlockCV(block, parentId);
-		return mDb.insert(BUY_BLOCK_TABLE, "", cv);
+		mDb.insert(BUY_BLOCK_TABLE, "", cv);
     }
 
-// Read methods
-    public int getLastUpdateCount() {
-    	Cursor cursor = mDb.rawQuery("select * from " + LAST_UPDATE_TABLE, null);
-    	int n = cursor.getCount();
-    	cursor.close();
-    	return n;
-    }
-    
+// --Commented out by Inspection START (5/3/2017 11:02 AM):
+//// Read methods
+//    public int getLastUpdateCount() {
+//    	Cursor cursor = mDb.rawQuery("select * from " + LAST_UPDATE_TABLE, null);
+//    	int n = cursor.getCount();
+//    	cursor.close();
+//    	return n;
+//    }
+// --Commented out by Inspection STOP (5/3/2017 11:02 AM)
+
     // OK
     public int getQuoteCount() {
     	Cursor cursor = mDb.rawQuery("Select * from " + QUOTE_TABLE, null);
@@ -169,13 +169,15 @@ public class DbAdapter {
     	return n;
     }
     
-    // OK
-    public int getBuyBlockCount() {
-    	Cursor cursor = mDb.rawQuery("Select * from " + BUY_BLOCK_TABLE, null);
-    	int n = cursor.getCount();
-    	cursor.close();
-    	return n;
-    }
+// --Commented out by Inspection START (5/3/2017 11:02 AM):
+//    // OK
+//    public int getBuyBlockCount() {
+//    	Cursor cursor = mDb.rawQuery("Select * from " + BUY_BLOCK_TABLE, null);
+//    	int n = cursor.getCount();
+//    	cursor.close();
+//    	return n;
+//    }
+// --Commented out by Inspection STOP (5/3/2017 11:02 AM)
 
     // User must manage cursor
     public Cursor fetchLastUpdateRecord() {
@@ -207,18 +209,20 @@ public class DbAdapter {
     	return cursor;
     }
     
-    //OK
-    public String fetchQuoteSymbolFromId(long id) {
-    	String[] params = new String[] { String.valueOf(id) };
-    	String sql = "select " + Q_SYMBOL + " from " + QUOTE_TABLE + " where " + Q_ROW_ID + "=?";
-    	Cursor cursor = mDb.rawQuery(sql, params);
-    	cursor.moveToFirst();
-    	int idx = cursor.getColumnIndex(Q_SYMBOL);
-    	String name = cursor.getString(idx);
-    	cursor.close();
-    	return name;
-    }
-    
+// --Commented out by Inspection START (5/3/2017 11:03 AM):
+//    //OK
+//    public String fetchQuoteSymbolFromId(long id) {
+//    	String[] params = new String[] { String.valueOf(id) };
+//    	String sql = "select " + Q_SYMBOL + " from " + QUOTE_TABLE + " where " + Q_ROW_ID + "=?";
+//    	Cursor cursor = mDb.rawQuery(sql, params);
+//    	cursor.moveToFirst();
+//    	int idx = cursor.getColumnIndex(Q_SYMBOL);
+//    	String name = cursor.getString(idx);
+//    	cursor.close();
+//    	return name;
+//    }
+// --Commented out by Inspection STOP (5/3/2017 11:03 AM)
+
     // OK
     public long fetchQuoteIdFromSymbol(String symbol) {
     	String[] params = new String[] { symbol };
@@ -249,22 +253,24 @@ public class DbAdapter {
         return makeQuoteFromCursor(qCursor);
     }
     
-    public BuyBlock fetchBuyBlockObjectFromSymbolAndDate(String symbol, String dateString) {
-    	Cursor cursor = fetchBuyBlockRecordsForThisSymbol(symbol);
-    	int buyDateIdx = cursor.getColumnIndex(B_DATE);
-    	BuyBlock thisBuyBlock = null;
-    	while (!cursor.isAfterLast()) {
-    		String thisDateString = cursor.getString(buyDateIdx);
-    		if (thisDateString.contentEquals(dateString)) {
-    			thisBuyBlock = makeBuyBlockFromCursor(cursor);
-    			break;
-    		}
-    		cursor.moveToNext();
-    	}
-    	cursor.close();
-    	return thisBuyBlock;
-    }
-    
+// --Commented out by Inspection START (5/3/2017 11:03 AM):
+//    public BuyBlock fetchBuyBlockObjectFromSymbolAndDate(String symbol, String dateString) {
+//    	Cursor cursor = fetchBuyBlockRecordsForThisSymbol(symbol);
+//    	int buyDateIdx = cursor.getColumnIndex(B_DATE);
+//    	BuyBlock thisBuyBlock = null;
+//    	while (!cursor.isAfterLast()) {
+//    		String thisDateString = cursor.getString(buyDateIdx);
+//    		if (thisDateString.contentEquals(dateString)) {
+//    			thisBuyBlock = makeBuyBlockFromCursor(cursor);
+//    			break;
+//    		}
+//    		cursor.moveToNext();
+//    	}
+//    	cursor.close();
+//    	return thisBuyBlock;
+//    }
+// --Commented out by Inspection STOP (5/3/2017 11:03 AM)
+
     
     public List<StockQuote> fetchStockQuoteList() {
     	
@@ -297,7 +303,7 @@ public class DbAdapter {
 		float numShares = bCursor.getFloat(bCursor.getColumnIndex(B_NUM_SHARES));
 		float bPPS = bCursor.getFloat(bCursor.getColumnIndex(B_PPS));
 		
-		BuyBlock bb = new BuyBlock(buyDate, numShares, bPPS, commPS, 0.0f, 0.0f, account);
+		BuyBlock bb = new BuyBlock(buyDate, numShares, bPPS, commPS, 0.0f, account);
 		bb.mEffDivYield = effYield;
 		bb.mPctChangeSinceBuy = changeVsBuy;
     	return bb;
@@ -358,7 +364,7 @@ public class DbAdapter {
     
 // Update methods
     // OK
-    public int changeQuoteRecord(long id, StockQuote newQuote) {
+    public void changeQuoteRecord(long id, StockQuote newQuote) {
     	ContentValues quoteCV = createQuoteCV(newQuote);
     	for (BuyBlock bb : newQuote.mBuyBlockList)
     	{
@@ -370,22 +376,24 @@ public class DbAdapter {
     				   new String[] { String.valueOf(id), dateString });
     	}
 
-		return mDb.update(QUOTE_TABLE,
-                                  quoteCV,
-                                  Q_ROW_ID + "=?",
-                                  new String[] {String.valueOf(id)});
+		mDb.update(QUOTE_TABLE,
+                   quoteCV,
+                   Q_ROW_ID + "=?",
+                   new String[] {String.valueOf(id)});
     }
     
     
-    public int changeBuyBlockRecord(long parentId, BuyBlock newBuyBlock) {
-    	ContentValues bbCV = createBuyBlockCV(newBuyBlock, parentId);
-    	String dateString = bbCV.getAsString(B_DATE);
-		return mDb.update(BUY_BLOCK_TABLE,
-			                 bbCV,
-				             B_PARENT + "=? and " + B_DATE + "=?",
-				             new String[] { String.valueOf(parentId), dateString });
-    }
-    
+// --Commented out by Inspection START (5/3/2017 11:03 AM):
+//    public int changeBuyBlockRecord(long parentId, BuyBlock newBuyBlock) {
+//    	ContentValues bbCV = createBuyBlockCV(newBuyBlock, parentId);
+//    	String dateString = bbCV.getAsString(B_DATE);
+//		return mDb.update(BUY_BLOCK_TABLE,
+//			                 bbCV,
+//				             B_PARENT + "=? and " + B_DATE + "=?",
+//				             new String[] { String.valueOf(parentId), dateString });
+//    }
+// --Commented out by Inspection STOP (5/3/2017 11:03 AM)
+
  // Delete methods
     
     public void removeLastUpdateRecord() {
@@ -402,22 +410,24 @@ public class DbAdapter {
     	mDb.delete(QUOTE_TABLE, Q_ROW_ID + "=?", new String[] {String.valueOf(id)});
     }
 
-    // OK
-    public void removeBuyBlockRecord(String symbol, Date buyDate) {
-
-    	// Get QuoteId corresponding to symbol
-    	long parentId = this.fetchQuoteIdFromSymbol(symbol);
-    	
-    	// Convert Date into dateString
-    	SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.US);
-		String dateString = sdf.format(buyDate);
-		
-    	// Delete the BB from the BB table that corresponds to 
-    	//       B_DATE == dateString && B_PARENT == QuoteID.      
-		String whereClause = B_DATE + "=? and " +  B_PARENT + "=?";
-		String[] whereArgs = new String[] { dateString, String.valueOf(parentId) };
-        mDb.delete(BUY_BLOCK_TABLE, whereClause, whereArgs);
-    }
+// --Commented out by Inspection START (5/3/2017 11:03 AM):
+//    // OK
+//    public void removeBuyBlockRecord(String symbol, Date buyDate) {
+//
+//    	// Get QuoteId corresponding to symbol
+//    	long parentId = this.fetchQuoteIdFromSymbol(symbol);
+//
+//    	// Convert Date into dateString
+//    	SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.US);
+//		String dateString = sdf.format(buyDate);
+//
+//    	// Delete the BB from the BB table that corresponds to
+//    	//       B_DATE == dateString && B_PARENT == QuoteID.
+//		String whereClause = B_DATE + "=? and " +  B_PARENT + "=?";
+//		String[] whereArgs = new String[] { dateString, String.valueOf(parentId) };
+//        mDb.delete(BUY_BLOCK_TABLE, whereClause, whereArgs);
+//    }
+// --Commented out by Inspection STOP (5/3/2017 11:03 AM)
 
     public void removeBuyBlockRecord(String symbol, String dateString) {
 

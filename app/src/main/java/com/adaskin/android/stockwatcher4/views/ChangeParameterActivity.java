@@ -44,8 +44,8 @@ public class ChangeParameterActivity extends ActionBarActivity {
 
 		actionBar.setDisplayShowCustomEnabled(true);
 		actionBar.setDisplayShowTitleEnabled(false);
-		LayoutInflater inflator = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View customTitleView = inflator.inflate(R.layout.custom_titlebar, null);
+		LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View customTitleView = inflater.inflate(R.layout.custom_titlebar, null);
 		TextView tv = (TextView)customTitleView.findViewById(R.id.custom_title);
 		tv.setText(getString(R.string.app_name) + getString(R.string.change_parameter));
 		actionBar.setCustomView(customTitleView);
@@ -73,7 +73,8 @@ public class ChangeParameterActivity extends ActionBarActivity {
     	oldValueView.setText("Old Value: " + String.format(Locale.US,format, oldValue));
     }
     
-    public void doneButtonClicked(View v) {
+    @SuppressWarnings("UnusedParameters")
+	public void doneButtonClicked(View v) {
     	EditText newValueField = (EditText)findViewById(R.id.param_change_new_value);
     	float newValue;
     	try {

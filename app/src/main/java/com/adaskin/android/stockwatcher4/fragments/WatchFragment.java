@@ -48,7 +48,7 @@ public class WatchFragment extends ListFragmentBase {
 		try {
 			activityCallback = (ListFragmentListener)activity;
 		} catch (ClassCastException e) {
-			throw new ClassCastException(activity.toString() + " must implment ListFragmentListener");
+			throw new ClassCastException(activity.toString() + " must implement ListFragmentListener");
 		}
 	}
 

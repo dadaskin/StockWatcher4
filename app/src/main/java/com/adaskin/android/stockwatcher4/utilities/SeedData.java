@@ -7,6 +7,7 @@ import com.adaskin.android.stockwatcher4.database.DbAdapter;
 import com.adaskin.android.stockwatcher4.models.BuyBlock;
 import com.adaskin.android.stockwatcher4.models.StockQuote;
 
+@SuppressWarnings("SpellCheckingInspection")
 public class SeedData {
 
 	public SeedData(DbAdapter dba) {
@@ -78,7 +79,7 @@ public class SeedData {
 		
 	    Date date0 = (new GregorianCalendar(2000, 5, 2)).getTime(); // Actually: 2000-06-02
 
-		BuyBlock bb0 = new BuyBlock(date0,  10.0f, 19.80f, 0.07f, divPS, 0.0f, Constants.ACCOUNT_JOINT);
+		BuyBlock bb0 = new BuyBlock(date0,  10.0f, 19.80f, 0.07f, divPS, Constants.ACCOUNT_JOINT);
 		
 		StockQuote q = new StockQuote("A", pps, divPS, 200f);
 		q.mFullName = "Agilent Technologies";
@@ -93,8 +94,8 @@ public class SeedData {
 			Date date0 = (new GregorianCalendar(2003, 0, 22)).getTime();  // Actually: 2003,  1, 22
 			Date date1 = (new GregorianCalendar(2009, 7, 10)).getTime();  // Actually: 2009,  8, 10
 			
-			BuyBlock bb0 = new BuyBlock(date0, 100.0f, 23.66f, 0.07f, divPS, 0.0f, Constants.ACCOUNT_JOINT);
-			BuyBlock bb1 = new BuyBlock(date1,  99.0f,  3.22f, 0.07f, divPS, 0.0f, Constants.ACCOUNT_JOINT);
+			BuyBlock bb0 = new BuyBlock(date0, 100.0f, 23.66f, 0.07f, divPS, Constants.ACCOUNT_JOINT);
+			BuyBlock bb1 = new BuyBlock(date1,  99.0f,  3.22f, 0.07f, divPS, Constants.ACCOUNT_JOINT);
 			
 			StockQuote q = new StockQuote("ACAS", pps, divPS, 20f);
 			q.mFullName = "American Capital, Ltd";
@@ -107,13 +108,13 @@ public class SeedData {
 			float pps = 8.00f;
 			float divPS = 0.0f;
 			
-			Date date0 = new Date(107,  2,  1);  // Actually: 2007, 03, 1
-			Date date1 = new Date(107,  3, 30);  // Actually: 2007, 04, 30
-			Date date2 = new Date(107,  9, 31);  // Actually: 2007, 10, 31
+			Date date0 = (new GregorianCalendar(2007, 2, 1)).getTime();  // Actually: 2007, 03, 1
+			Date date1 = (new GregorianCalendar(2007, 3, 30)).getTime();  // Actually: 2007, 04, 30
+			Date date2 = (new GregorianCalendar(2007, 9, 31)).getTime();  // Actually: 2007, 10, 31
 		
-			BuyBlock bb0 = new BuyBlock(date0,  55.3942f, 45.13f, 0.10f, divPS, 0.0f, Constants.ACCOUNT_ESPP);
-			BuyBlock bb1 = new BuyBlock(date1, 419.7476f, 12.54f, 0.10f, divPS, 0.0f, Constants.ACCOUNT_ESPP);
-			BuyBlock bb2 = new BuyBlock(date2, 528.1954f, 10.034f, 0.10f, divPS, 0.0f, Constants.ACCOUNT_ESPP);
+			BuyBlock bb0 = new BuyBlock(date0,  55.3942f, 45.13f, 0.10f, divPS, Constants.ACCOUNT_ESPP);
+			BuyBlock bb1 = new BuyBlock(date1, 419.7476f, 12.54f, 0.10f, divPS, Constants.ACCOUNT_ESPP);
+			BuyBlock bb2 = new BuyBlock(date2, 528.1954f, 10.034f, 0.10f, divPS, Constants.ACCOUNT_ESPP);
 			
 			StockQuote q = new StockQuote("ACCL", pps, divPS, 10f);
 			q.mFullName = "Accelrys";
@@ -132,11 +133,11 @@ public class SeedData {
 //		}
 		
 		private StockQuote createAZNSeed() {
-			Date date0 = new Date(112,  1,  21);  // Actually: 2012,  2, 21
-			Date date1 = new Date(112,  4,   2);  // Actually: 2012,  5,  2
+			Date date0 = (new GregorianCalendar(2012, 1, 21)).getTime();  // Actually: 2012,  2, 21
+			Date date1 = (new GregorianCalendar(2012, 4, 2)).getTime();  // Actually: 2012,  5,  2
 			
-			BuyBlock bb0 = new BuyBlock(date0, 200f, 45.09f, 0.08f, 0f ,0f, Constants.ACCOUNT_IRA);
-			BuyBlock bb1 = new BuyBlock(date1, 100f, 43.93f, 0.08f, 0f ,0f, Constants.ACCOUNT_IRA);
+			BuyBlock bb0 = new BuyBlock(date0, 200f, 45.09f, 0.08f, 0f , Constants.ACCOUNT_IRA);
+			BuyBlock bb1 = new BuyBlock(date1, 100f, 43.93f, 0.08f, 0f , Constants.ACCOUNT_IRA);
 			
 			StockQuote q = new StockQuote("AZN", 0f, 0f, 25f);
 			
@@ -162,11 +163,11 @@ public class SeedData {
 			float pps = 101.5f;
 			float divPS = 2.85f;
 			
-			Date date0 = new Date(109, 5, 4);  // Actually: 2009, 6, 4
-			Date date1 = new Date(110, 5, 4);  // Actually: 2010, 6, 4
+			Date date0 = (new GregorianCalendar(2009, 5, 4)).getTime();  // Actually: 2009, 6, 4
+			Date date1 = (new GregorianCalendar(2010, 5, 4)).getTime();  // Actually: 2010, 6, 4
 			
-			BuyBlock bb0 = new BuyBlock(date0, 100.0f, 55.10f, 0.08f, divPS, 0.0f, Constants.ACCOUNT_IRA);
-			BuyBlock bb1 = new BuyBlock(date1, 100.0f, 62.00f, 0.08f, divPS, 0.0f, Constants.ACCOUNT_JOINT);
+			BuyBlock bb0 = new BuyBlock(date0, 100.0f, 55.10f, 0.08f, divPS, Constants.ACCOUNT_IRA);
+			BuyBlock bb1 = new BuyBlock(date1, 100.0f, 62.00f, 0.08f, divPS, Constants.ACCOUNT_JOINT);
 					
 			StockQuote q = new StockQuote("BTI", pps, divPS, 120f);
 			q.mFullName = "British-American Tobacco";
@@ -191,11 +192,11 @@ public class SeedData {
 		}
 
 		private StockQuote createCMISeed() {
-			Date date0 = new Date(112,  4,  3);  // Actually: 2012,  5,  3
-			Date date1 = new Date(113,  4,  3);  // Actually: 2013,  5,  3
+			Date date0 = (new GregorianCalendar(2012, 4, 3)).getTime();  // Actually: 2012,  5,  3
+			Date date1 = (new GregorianCalendar(2013, 4, 3)).getTime();  // Actually: 2013,  5,  3
 			
-			BuyBlock bb0 = new BuyBlock(date0,  50f, 111.27f, 0.07f, 0f ,0f, Constants.ACCOUNT_JOINT);
-			BuyBlock bb1 = new BuyBlock(date1, 100f, 111.27f, 0.07f, 0f ,0f, Constants.ACCOUNT_ROTH);
+			BuyBlock bb0 = new BuyBlock(date0,  50f, 111.27f, 0.07f, 0f , Constants.ACCOUNT_JOINT);
+			BuyBlock bb1 = new BuyBlock(date1, 100f, 111.27f, 0.07f, 0f , Constants.ACCOUNT_ROTH);
 
 			StockQuote q = new StockQuote("CMI", 0f, 0f, 25f);
 			
@@ -218,15 +219,15 @@ public class SeedData {
 		}
 		
 		private StockQuote createDALSeed() {
-			Date date0 = new Date(112,  1, 22);  // Actually: 2012,  2, 22
-			Date date1 = new Date(113,  1, 22);  // Actually: 2013,  2, 22
-			Date date2 = new Date(113,  4, 1);  // Actually: 2013,  5, 01
-			Date date3 = new Date(113,  9, 1);  // Actually: 2013, 10, 01
+			Date date0 = (new GregorianCalendar(2012, 1, 22)).getTime();  // Actually: 2012,  2, 22
+			Date date1 = (new GregorianCalendar(2013, 1, 22)).getTime();  // Actually: 2013,  2, 22
+			Date date2 = (new GregorianCalendar(2013, 1, 1)).getTime();  // Actually: 2013,  5, 01
+			Date date3 = (new GregorianCalendar(2013, 9, 1)).getTime();  // Actually: 2013, 10, 01
 			
-			BuyBlock bb0 = new BuyBlock(date0, 200f, 9.99f, 0.07f, 0f, 0f, Constants.ACCOUNT_IRA);
-			BuyBlock bb1 = new BuyBlock(date1, 200f, 7.99f, 0.07f, 0f, 0f, Constants.ACCOUNT_JOINT);
-			BuyBlock bb2 = new BuyBlock(date2, 100f, 13.0f, 0.07f, 0f, 0f, Constants.ACCOUNT_ROTH);
-			BuyBlock bb3 = new BuyBlock(date3, 500f, 10.18f, 0.07f, 0f, 0f, Constants.ACCOUNT_IRA);
+			BuyBlock bb0 = new BuyBlock(date0, 200f, 9.99f, 0.07f, 0f, Constants.ACCOUNT_IRA);
+			BuyBlock bb1 = new BuyBlock(date1, 200f, 7.99f, 0.07f, 0f, Constants.ACCOUNT_JOINT);
+			BuyBlock bb2 = new BuyBlock(date2, 100f, 13.0f, 0.07f, 0f, Constants.ACCOUNT_ROTH);
+			BuyBlock bb3 = new BuyBlock(date3, 500f, 10.18f, 0.07f, 0f, Constants.ACCOUNT_IRA);
 			
 			StockQuote q = new StockQuote("DAL", 0f, 0f, 25f);
 			
@@ -252,13 +253,13 @@ public class SeedData {
 			return q;
 		}
 		
-		private StockQuote createDDSeed() {
-			Date date0 = new Date(111,   2, 16);  // Actually: 2011,  3, 16
-			BuyBlock bb0 = new BuyBlock(date0, 200f, 51.79f, 0.08f, 0f, 0f, Constants.ACCOUNT_IRA);
-			StockQuote q = new StockQuote("DD", 0f, 0f, 25f);
-			q.mBuyBlockList.add(bb0);
-			return q;
-		}
+//		private StockQuote createDDSeed() {
+//			Date date0 = new Date(111,   2, 16);  // Actually: 2011,  3, 16
+//			BuyBlock bb0 = new BuyBlock(date0, 200f, 51.79f, 0.08f, 0f, Constants.ACCOUNT_IRA);
+//			StockQuote q = new StockQuote("DD", 0f, 0f, 25f);
+//			q.mBuyBlockList.add(bb0);
+//			return q;
+//		}
 		
 //		private StockQuote createDOVSeed() {
 //			Date date0 = new Date(112,  5, 26);  // Actuall: 2012,  6, 26
@@ -272,9 +273,9 @@ public class SeedData {
 			float pps = 62.00f;
 			float divPS = 3.06f;
 			
-			Date date0 = new Date(104, 7, 9);  // Actually: 2004, 8, 9
+			Date date0 = (new GregorianCalendar(2004, 7, 9)).getTime();  // Actually: 2004, 8, 9
 		
-			BuyBlock bb0 = new BuyBlock(date0, 33.0f, 44.13f, 0.07f, divPS, 0.0f, Constants.ACCOUNT_IRA);
+			BuyBlock bb0 = new BuyBlock(date0, 33.0f, 44.13f, 0.07f, divPS, Constants.ACCOUNT_IRA);
 			
 			StockQuote q = new StockQuote("DUK", pps, divPS, 100f);
 			q.mFullName = "Duke Energy";
@@ -286,11 +287,11 @@ public class SeedData {
 			float pps = 22.00f;
 			float divPS = 0.68f;
 			
-			Date date0 = new Date(109, 11,  8);  // Actually 2009, 12, 08
-			Date date1 = new Date(112,  4,  1);  // Actually 2012,  5,  1
+			Date date0 = (new GregorianCalendar(2009, 11, 8)).getTime();  // Actually 2009, 12, 08
+			Date date1 = (new GregorianCalendar(2012, 4, 1)).getTime();  // Actually 2012,  5,  1
 			
-			BuyBlock bb0 = new BuyBlock(date0, 100f, 16.86f, 0.08f, divPS, 0.0f, Constants.ACCOUNT_IRA);
-			BuyBlock bb1 = new BuyBlock(date1, 100f, 17.28f, 0.08f, divPS, 0.0f, Constants.ACCOUNT_IRA);
+			BuyBlock bb0 = new BuyBlock(date0, 100f, 16.86f, 0.08f, divPS, Constants.ACCOUNT_IRA);
+			BuyBlock bb1 = new BuyBlock(date1, 100f, 17.28f, 0.08f, divPS, Constants.ACCOUNT_IRA);
 			
 			StockQuote q = new StockQuote("ECOL", pps, divPS, 30f);
 		    q.mFullName = "US Ecology";
@@ -303,9 +304,9 @@ public class SeedData {
 	    	float pps = 10.36f;
 	    	float divPS = 0.20f;
 	    	
-	    	Date date0 = new Date(112,  5, 27);  // Actually 2012, 6, 27
+	    	Date date0 = (new GregorianCalendar(2012, 5, 27)).getTime();  // Actually 2012, 6, 27
 	    	
-	    	BuyBlock bb0 = new BuyBlock(date0, 1000.0f, 9.99f, 0.07f, divPS, 100.0f, Constants.ACCOUNT_IRA);
+	    	BuyBlock bb0 = new BuyBlock(date0, 1000.0f, 9.99f, 0.07f, divPS, Constants.ACCOUNT_IRA);
     	
 	    	StockQuote q = new StockQuote("F", pps, divPS, 25f);
 	    	q.mFullName = "Ford Motor Co.";
@@ -337,9 +338,9 @@ public class SeedData {
 		
 		
 	    private StockQuote createGESeed() {
-			Date date0 = new Date(111, 7, 3);  // Actually 2011,  8,  3
+			Date date0 = (new GregorianCalendar(2011, 7, 3)).getTime();  // Actually 2011,  8,  3
 			
-			BuyBlock bb0 = new BuyBlock(date0, 200f, 17.32f, 0.07f, 0f, 0f, Constants.ACCOUNT_IRA);
+			BuyBlock bb0 = new BuyBlock(date0, 200f, 17.32f, 0.07f, 0f, Constants.ACCOUNT_IRA);
 			
 			StockQuote q = new StockQuote("GE", 0.0f, 0.0f, 25f);
 			q.mBuyBlockList.add(bb0);
@@ -355,8 +356,8 @@ public class SeedData {
 //		}
 	    
 	    private StockQuote createHISeed() {
-	    	Date date0 = new Date(110,  7, 10);  // Actually 2010,  8, 10
-	    	BuyBlock bb0 = new BuyBlock(date0, 200f, 20.73f, 0.07f, 0f, 0f, Constants.ACCOUNT_IRA);
+	    	Date date0 = (new GregorianCalendar(2010, 7, 10)).getTime();  // Actually 2010,  8, 10
+	    	BuyBlock bb0 = new BuyBlock(date0, 200f, 20.73f, 0.07f, 0f, Constants.ACCOUNT_IRA);
 	    	StockQuote q = new StockQuote("HI", 0f, 0f, 25f);
 	    	q.mBuyBlockList.add(bb0);
 	    	return q;
@@ -395,23 +396,23 @@ public class SeedData {
 //	    }
 	    
 		private StockQuote createLSRCXSeed() {
-		    	Date date0 = new Date(101,  0,  9); // Actually: 2001,  1,  9
-		    	Date date1 = new Date(101, 11, 13); // Actually: 2001, 12, 13
-		    	Date date2 = new Date(102, 11, 13); // Actually: 2002, 12, 13
-		    	Date date3 = new Date(103, 11, 12); // Actually: 2003, 12, 12
-		    	Date date4 = new Date(104, 11, 14); // Actually: 2004, 12, 14
-		    	Date date5 = new Date(105, 11, 14); // Actually: 2005, 12, 14
-		    	Date date6 = new Date(106, 11, 15); // Actually: 2006, 12, 15
-		    	Date date7 = new Date(107, 11, 16); // Actually: 2007, 12, 16
+		    	Date date0 = (new GregorianCalendar(2001, 0, 9)).getTime(); // Actually: 2001,  1,  9
+		    	Date date1 = (new GregorianCalendar(2001, 11, 13)).getTime(); // Actually: 2001, 12, 13
+		    	Date date2 = (new GregorianCalendar(2002, 11, 13)).getTime(); // Actually: 2002, 12, 13
+		    	Date date3 = (new GregorianCalendar(2003, 11, 12)).getTime(); // Actually: 2003, 12, 12
+		    	Date date4 = (new GregorianCalendar(2004, 11, 14)).getTime(); // Actually: 2004, 12, 14
+		    	Date date5 = (new GregorianCalendar(2005, 11, 14)).getTime(); // Actually: 2005, 12, 14
+		    	Date date6 = (new GregorianCalendar(2006, 11, 15)).getTime(); // Actually: 2006, 12, 15
+		    	Date date7 = (new GregorianCalendar(2007, 11, 16)).getTime(); // Actually: 2007, 12, 16
 		    	
-		    	BuyBlock bb0 = new BuyBlock(date0, 98.8630f, 20.23f, 0.07f, 10.5f, 0f, Constants.ACCOUNT_UNKNOWN);
-		    	BuyBlock bb1 = new BuyBlock(date1, 5.7552f,  20.27f, 0.07f, 10.5f, 0f, Constants.ACCOUNT_MIXED);
-		    	BuyBlock bb2 = new BuyBlock(date2, 7.8787f,  17.82f, 0.07f, 10.5f, 0f, Constants.ACCOUNT_JOINT);
-		    	BuyBlock bb3 = new BuyBlock(date3, 8.0194f,  23.02f, 0.07f, 11.0f, 0f, Constants.ACCOUNT_IRA);
-		    	BuyBlock bb4 = new BuyBlock(date4, 12.6590f, 25.20f, 0.07f, 11.5f, 0f, Constants.ACCOUNT_ROTH);
-		    	BuyBlock bb5 = new BuyBlock(date5, 14.3030f, 26.75f, 0.07f, 12.0f, 0f, Constants.ACCOUNT_ESPP);
-		    	BuyBlock bb6 = new BuyBlock(date6, 24.4850f, 24.80f, 0.07f, 12.0f, 0f, Constants.ACCOUNT_DRIP);
-		    	BuyBlock bb7 = new BuyBlock(date7, 33.8120f, 24.46f, 0.07f, 13.0f, 0f, Constants.ACCOUNT_UNKNOWN);
+		    	BuyBlock bb0 = new BuyBlock(date0, 98.8630f, 20.23f, 0.07f, 10.5f, Constants.ACCOUNT_UNKNOWN);
+		    	BuyBlock bb1 = new BuyBlock(date1, 5.7552f,  20.27f, 0.07f, 10.5f, Constants.ACCOUNT_MIXED);
+		    	BuyBlock bb2 = new BuyBlock(date2, 7.8787f,  17.82f, 0.07f, 10.5f, Constants.ACCOUNT_JOINT);
+		    	BuyBlock bb3 = new BuyBlock(date3, 8.0194f,  23.02f, 0.07f, 11.0f, Constants.ACCOUNT_IRA);
+		    	BuyBlock bb4 = new BuyBlock(date4, 12.6590f, 25.20f, 0.07f, 11.5f, Constants.ACCOUNT_ROTH);
+		    	BuyBlock bb5 = new BuyBlock(date5, 14.3030f, 26.75f, 0.07f, 12.0f, Constants.ACCOUNT_ESPP);
+		    	BuyBlock bb6 = new BuyBlock(date6, 24.4850f, 24.80f, 0.07f, 12.0f, Constants.ACCOUNT_DRIP);
+		    	BuyBlock bb7 = new BuyBlock(date7, 33.8120f, 24.46f, 0.07f, 13.0f, Constants.ACCOUNT_UNKNOWN);
 		    	
 		    	StockQuote q = new StockQuote("LSRCX", 0.0f, 0.0f, 25f);
 		    	q.mBuyBlockList.add(bb0);
@@ -437,17 +438,17 @@ public class SeedData {
 			float pps = 20.00f;
 		 	float divPS = 1.50f;
 			
-			Date date0 = new Date(101, 10, 19);  // Actually: 2001, 11, 19
-			Date date1 = new Date(109, 1, 16);   // Actually: 2009,  2, 16
-			Date date2 = new Date(109, 10, 19);  // Actually: 2009, 11, 19
-			Date date3 = new Date(111, 0, 27);   // Actually: 2011,  1, 27
-			Date date4 = new Date(111, 0, 31);   // Actually: 2011,  1, 31
+			Date date0 = (new GregorianCalendar(2001, 10, 19)).getTime();  // Actually: 2001, 11, 19
+			Date date1 = (new GregorianCalendar(2009, 1, 16)).getTime();   // Actually: 2009,  2, 16
+			Date date2 = (new GregorianCalendar(2009, 10, 19)).getTime();  // Actually: 2009, 11, 19
+			Date date3 = (new GregorianCalendar(2011, 0, 27)).getTime();   // Actually: 2011,  1, 27
+			Date date4 = (new GregorianCalendar(2011, 0, 31)).getTime();   // Actually: 2011,  1, 31
 			
-			BuyBlock bb0 = new BuyBlock(date0, 100.0f,  8.61f, 0.07f, divPS, 0.0f, Constants.ACCOUNT_ROTH);
-			BuyBlock bb1 = new BuyBlock(date1, 100.0f, 15.69f, 0.08f, divPS, 0.0f, Constants.ACCOUNT_ROTH);
-			BuyBlock bb2 = new BuyBlock(date2, 400.0f, 19.25f, 0.08f, divPS, 0.0f, Constants.ACCOUNT_ROTH);
-			BuyBlock bb3 = new BuyBlock(date3, 100.0f, 24.06f, 0.08f, divPS, 0.0f, Constants.ACCOUNT_ROTH);
-			BuyBlock bb4 = new BuyBlock(date4, 100.0f, 23.53f, 0.08f, divPS, 0.0f, Constants.ACCOUNT_ROTH);
+			BuyBlock bb0 = new BuyBlock(date0, 100.0f,  8.61f, 0.07f, divPS, Constants.ACCOUNT_ROTH);
+			BuyBlock bb1 = new BuyBlock(date1, 100.0f, 15.69f, 0.08f, divPS, Constants.ACCOUNT_ROTH);
+			BuyBlock bb2 = new BuyBlock(date2, 400.0f, 19.25f, 0.08f, divPS, Constants.ACCOUNT_ROTH);
+			BuyBlock bb3 = new BuyBlock(date3, 100.0f, 24.06f, 0.08f, divPS, Constants.ACCOUNT_ROTH);
+			BuyBlock bb4 = new BuyBlock(date4, 100.0f, 23.53f, 0.08f, divPS, Constants.ACCOUNT_ROTH);
 			
 			StockQuote q = new StockQuote("MO", pps, divPS, 300f);
 			q.mFullName = "Altria";
@@ -468,21 +469,21 @@ public class SeedData {
 //		}
 		
 		private StockQuote createMSFTSeed() {
-			Date date0 = new Date(99,  3, 27);  // Actually: 1999,  4, 27
-			BuyBlock bb0 = new BuyBlock(date0, 50f, 42.48f, 0.07f, 0f, 0f, Constants.ACCOUNT_ROTH);
+			Date date0 = (new GregorianCalendar(1999, 3, 27)).getTime();  // Actually: 1999,  4, 27
+			BuyBlock bb0 = new BuyBlock(date0, 50f, 42.48f, 0.07f, 0f, Constants.ACCOUNT_ROTH);
 			StockQuote q = new StockQuote("MSFT", 0f, 0f, 10f);
 			q.mBuyBlockList.add(bb0);
 			return q;
 		}
 
 		private StockQuote createOSeed() {
-			Date date0 = new Date(107,  4, 15);  // Actually: 2007,  5, 15
-			Date date1 = new Date(109,  9,  7);  // Actually: 2009, 10,  7
-			Date date2 = new Date(112, 10,  1);  // Actually: 2012, 11,  1
+			Date date0 = (new GregorianCalendar(2007, 4, 15)).getTime();  // Actually: 2007,  5, 15
+			Date date1 = (new GregorianCalendar(2009, 9, 7)).getTime();  // Actually: 2009, 10,  7
+			Date date2 = (new GregorianCalendar(2012, 10, 1)).getTime();  // Actually: 2012, 11,  1
 			
-			BuyBlock bb0 = new BuyBlock(date0, 200f, 28.04f, 0.07f, 0f, 0f, Constants.ACCOUNT_JOINT);
-			BuyBlock bb1 = new BuyBlock(date1, 500f, 23.52f, 0.08f, 0f, 0f, Constants.ACCOUNT_JOINT);
-			BuyBlock bb2 = new BuyBlock(date2, 100f, 39.64f, 0.07f, 0f, 0f, Constants.ACCOUNT_JOINT);
+			BuyBlock bb0 = new BuyBlock(date0, 200f, 28.04f, 0.07f, 0f, Constants.ACCOUNT_JOINT);
+			BuyBlock bb1 = new BuyBlock(date1, 500f, 23.52f, 0.08f, 0f, Constants.ACCOUNT_JOINT);
+			BuyBlock bb2 = new BuyBlock(date2, 100f, 39.64f, 0.07f, 0f, Constants.ACCOUNT_JOINT);
 			
 			StockQuote q = new StockQuote("O", 0f, 0f, 100f);
 			q.mBuyBlockList.add(bb0);
@@ -518,13 +519,13 @@ public class SeedData {
 //		}
 		
 		private StockQuote createPHKSeed() {
-			Date date0 = new Date(104,  6, 27);  // Actually: 2004,  7, 27
-			Date date1 = new Date(110,  3, 16);  // Actually: 2010,  4, 16)
-			Date date2 = new Date(112,  9, 25);  // Actually: 2012, 10, 25)
+			Date date0 = (new GregorianCalendar(2004, 6, 27)).getTime();  // Actually: 2004,  7, 27
+			Date date1 = (new GregorianCalendar(2010, 3, 16)).getTime();  // Actually: 2010,  4, 16)
+			Date date2 = (new GregorianCalendar(2012, 9, 25)).getTime();  // Actually: 2012, 10, 25)
 			
-			BuyBlock bb0 =  new BuyBlock(date0, 200f, 13.96f, 0.07f, 0f, 0f, Constants.ACCOUNT_JOINT);
-			BuyBlock bb1 =  new BuyBlock(date1, 500f, 12.04f, 0.07f, 0f, 0f, Constants.ACCOUNT_JOINT);
-			BuyBlock bb2 =  new BuyBlock(date2, 500f, 11.84f, 0.08f, 0f, 0f, Constants.ACCOUNT_JOINT);
+			BuyBlock bb0 =  new BuyBlock(date0, 200f, 13.96f, 0.07f, 0f, Constants.ACCOUNT_JOINT);
+			BuyBlock bb1 =  new BuyBlock(date1, 500f, 12.04f, 0.07f, 0f, Constants.ACCOUNT_JOINT);
+			BuyBlock bb2 =  new BuyBlock(date2, 500f, 11.84f, 0.08f, 0f, Constants.ACCOUNT_JOINT);
 			
 			StockQuote q = new StockQuote("PHK", 0f, 0f, 50f);
 			q.mBuyBlockList.add(bb0);
@@ -534,8 +535,8 @@ public class SeedData {
 		}
 		
 		private StockQuote createPMSeed() {
-			Date date0 = new Date(108,  2, 28);  // Actually: 2008,  3, 28
-			BuyBlock bb0 = new BuyBlock(date0, 100f, 19.61f, 0.07f, 0f, 0f, Constants.ACCOUNT_JOINT);
+			Date date0 = (new GregorianCalendar(2008, 2, 28)).getTime();  // Actually: 2008,  3, 28
+			BuyBlock bb0 = new BuyBlock(date0, 100f, 19.61f, 0.07f, 0f, Constants.ACCOUNT_JOINT);
 			StockQuote q = new StockQuote("PM", 0f, 0f, 100f);
 			q.mBuyBlockList.add(bb0);
 			return q;
@@ -583,9 +584,9 @@ public class SeedData {
 			float pps = 43.0f;
 			float divPS = 1.53f;
 			
-			Date date0 = new Date(112, 11, 21);  // Actually: 2012, 12, 21
+			Date date0 = (new GregorianCalendar(2012, 11, 21)).getTime();  // Actually: 2012, 12, 21
 			
-			BuyBlock bb0 = new BuyBlock(date0, 100.0f, 43.27f, 0.07f, divPS, 0.0f, Constants.ACCOUNT_JOINT);
+			BuyBlock bb0 = new BuyBlock(date0, 100.0f, 43.27f, 0.07f, divPS, Constants.ACCOUNT_JOINT);
 			
 			StockQuote q = new StockQuote("RGR", pps, divPS, 10f);
 			q.mFullName = "Sturm, Ruger & Co.";
@@ -613,9 +614,9 @@ public class SeedData {
 			float pps = 8.0f;
 			float divPS = 0.0f;
 			
-			Date date0 = new Date(112, 11, 21);  // Actually: 2012, 12, 21
+			Date date0 = (new GregorianCalendar(2012, 11, 21)).getTime();  // Actually: 2012, 12, 21
 			
-			BuyBlock bb0 = new BuyBlock(date0, 100.0f, 8.12f, 0.07f, divPS, 0.0f, Constants.ACCOUNT_JOINT);
+			BuyBlock bb0 = new BuyBlock(date0, 100.0f, 8.12f, 0.07f, divPS, Constants.ACCOUNT_JOINT);
 			
 			StockQuote q = new StockQuote("SWHC", pps, divPS, 10f);
 			q.mFullName = "Smith & Wesson Holding Company";
@@ -648,9 +649,9 @@ public class SeedData {
 			float pps = 22.22f;
 			float divPS = 0.0f;
 			
-			Date date0 = new Date(112, 1, 22);  // Actually: 2012,  2, 22
+			Date date0 = (new GregorianCalendar(2012, 1, 22)).getTime();  // Actually: 2012,  2, 22
 			
-			BuyBlock bb0 = new BuyBlock(date0, 100.0f, 21.27f, 0.07f, divPS, 0.0f, Constants.ACCOUNT_JOINT);
+			BuyBlock bb0 = new BuyBlock(date0, 100.0f, 21.27f, 0.07f, divPS, Constants.ACCOUNT_JOINT);
 			
 			StockQuote q = new StockQuote("UAL", pps, divPS, 25f);
 			q.mFullName = "United Continental";
@@ -670,13 +671,13 @@ public class SeedData {
 			float pps = 5.0f;
 			float divPS = 0.7f;
 			
-			Date date0 = new Date(111, 4, 26);  // Actually 2011, 5, 26
-			Date date1 = new Date(112, 1, 21);  // Actually 2012, 2, 21
-			Date date2 = new Date(112, 4,  4);  // Actually 2012, 5,  4
+			Date date0 = (new GregorianCalendar(2011, 4, 26)).getTime();  // Actually 2011, 5, 26
+			Date date1 = (new GregorianCalendar(2012, 1, 21)).getTime();  // Actually 2012, 2, 21
+			Date date2 = (new GregorianCalendar(2012, 4, 4)).getTime();  // Actually 2012, 5,  4
 			
-			BuyBlock bb0 = new BuyBlock(date0, 300f, 18.93f, 0.08f, divPS, 0.0f, Constants.ACCOUNT_JOINT);
-			BuyBlock bb1 = new BuyBlock(date1, 100f, 14.89f, 0.08f, divPS, 0.0f, Constants.ACCOUNT_JOINT);
-			BuyBlock bb2 = new BuyBlock(date2, 100f, 11.98f, 0.08f, divPS, 0.0f, Constants.ACCOUNT_JOINT);
+			BuyBlock bb0 = new BuyBlock(date0, 300f, 18.93f, 0.08f, divPS, Constants.ACCOUNT_JOINT);
+			BuyBlock bb1 = new BuyBlock(date1, 100f, 14.89f, 0.08f, divPS, Constants.ACCOUNT_JOINT);
+			BuyBlock bb2 = new BuyBlock(date2, 100f, 11.98f, 0.08f, divPS, Constants.ACCOUNT_JOINT);
 			
 			StockQuote q = new StockQuote("VLCCF", pps, divPS, 25f);
 			q.mFullName = "Knightsbridge Tankers, Ltd";
@@ -690,13 +691,13 @@ public class SeedData {
 	    	float pps = 29.28f;
 	    	float divPS = 1.40f;
 	    	
-	    	Date date0 = new Date(108,  1, 28);  // Actually: 2008, 2, 28
-	    	Date date1 = new Date(109,  7,  3);  // Actually: 2009, 7, 3
-	    	Date date2 = new Date(110, 11,  7);  // Actually: 2010, 12, 7
+	    	Date date0 = (new GregorianCalendar(2008, 1, 28)).getTime();  // Actually: 2008, 2, 28
+	    	Date date1 = (new GregorianCalendar(2009, 6, 3)).getTime();  // Actually: 2009, 7, 3
+	    	Date date2 = (new GregorianCalendar(2010, 11, 7)).getTime();  // Actually: 2010, 12, 7
 	    	
-	    	BuyBlock bb0 = new BuyBlock(date0, 100.0f, 26.607f, 0.07f, divPS, 613.0f, Constants.ACCOUNT_JOINT);
-	    	BuyBlock bb1 = new BuyBlock(date1, 100.0f, 23.848f, 0.07f, divPS, 447.50f, Constants.ACCOUNT_JOINT);
-	    	BuyBlock bb2 = new BuyBlock(date2, 100.0f, 25.089f, 0.07f, divPS, 243.05f, Constants.ACCOUNT_JOINT);
+	    	BuyBlock bb0 = new BuyBlock(date0, 100.0f, 26.607f, 0.07f, divPS, Constants.ACCOUNT_JOINT);
+	    	BuyBlock bb1 = new BuyBlock(date1, 100.0f, 23.848f, 0.07f, divPS, Constants.ACCOUNT_JOINT);
+	    	BuyBlock bb2 = new BuyBlock(date2, 100.0f, 25.089f, 0.07f, divPS, Constants.ACCOUNT_JOINT);
 	        
 	    	StockQuote q = new StockQuote("VVC", pps, divPS, 25f);
 	    	q.mFullName = "Vectren Corporation";

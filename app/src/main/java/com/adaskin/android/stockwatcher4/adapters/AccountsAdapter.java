@@ -15,7 +15,7 @@ import com.adaskin.android.stockwatcher4.utilities.Constants;
 
 public class AccountsAdapter extends ArrayAdapter<AccountModel> {
 
-	public AccountsAdapter(Context context, int index, List<AccountModel> accounts) {
+	public AccountsAdapter(Context context, List<AccountModel> accounts) {
 		// Do something with default item
 		
 		super(context, 0, accounts);

@@ -7,6 +7,7 @@ import com.adaskin.android.stockwatcher4.utilities.Constants;
 
 final public class AccountModel {
 
+	@SuppressWarnings("unused")
 	public static String getNameFromColor(int color) {
 		switch(color) {
 		case Constants.ACCOUNT_UNKNOWN: return "Unassigned"; 

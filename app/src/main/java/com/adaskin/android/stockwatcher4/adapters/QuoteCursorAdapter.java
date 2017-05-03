@@ -124,7 +124,7 @@ public class QuoteCursorAdapter extends SimpleCursorAdapter {
 	}
 
 	private void showZeroWithoutSign(TextView view, float value) {
-		if ((value < Constants.POSITVE_ONE_DECIMAL_LIMIT) &&
+		if ((value < Constants.POSITIVE_ONE_DECIMAL_LIMIT) &&
         	(value > Constants.NEGATIVE_ONE_DECIMAL_LIMIT))	{
 			view.setText(String.format(Locale.US,Constants.PERCENTAGE_FORMAT, 0.0f));
         } else {
@@ -133,7 +133,7 @@ public class QuoteCursorAdapter extends SimpleCursorAdapter {
 	}
 
 	private void adjustChangeSinceBuyFieldColor(TextView view, float changeSinceBuy, float gainTarget) {
-		if (changeSinceBuy > Constants.POSITVE_ONE_DECIMAL_LIMIT) {
+		if (changeSinceBuy > Constants.POSITIVE_ONE_DECIMAL_LIMIT) {
 			view.setTextColor(mPositiveDayChangeTextColor);
 		} else if (changeSinceBuy < Constants.NEGATIVE_ONE_DECIMAL_LIMIT){
 			view.setTextColor(mNegativeTextColor);
@@ -151,7 +151,7 @@ public class QuoteCursorAdapter extends SimpleCursorAdapter {
 
 	private void adjustChangeSinceLastCloseFieldColor(TextView view,
 			float chngVsClose) {
-		if (chngVsClose > Constants.POSITVE_ONE_DECIMAL_LIMIT) {
+		if (chngVsClose > Constants.POSITIVE_ONE_DECIMAL_LIMIT) {
         	view.setTextColor(mPositiveDayChangeTextColor);
         } else if (chngVsClose  < Constants.NEGATIVE_ONE_DECIMAL_LIMIT){
         	view.setTextColor(mNegativeTextColor);

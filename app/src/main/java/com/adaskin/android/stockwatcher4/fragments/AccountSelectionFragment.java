@@ -50,13 +50,13 @@ public class AccountSelectionFragment extends DialogFragment {
         int accountColor = bundle.getInt("color");
         int index = AccountModel.getBlockColorIndex(accountColor);
         
-		LayoutInflater inflator = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View layout = inflator.inflate(R.layout.account_list, null);
+		LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View layout = inflater.inflate(R.layout.account_list, null);
 		mLv = (ListView)layout.findViewById(R.id.account_list);
 
 		mLv.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
-		AccountsAdapter accountsAdapter = new AccountsAdapter(getActivity(), index, getAccountModelList());
+		AccountsAdapter accountsAdapter = new AccountsAdapter(getActivity(), getAccountModelList());
 		mLv.setAdapter(accountsAdapter);
 		mLv.setItemChecked(index, true);
 		

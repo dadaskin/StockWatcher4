@@ -3,9 +3,6 @@ package com.adaskin.android.stockwatcher4.utilities;
 public class Constants {
 
 	public static final String SYMBOL_BUNDLE_KEY = "TheSymbol";
-	public static final String IS_INVALID_BUNDLE_KEY = "SymbolIsInvalid";
-	public static final String STATUS_BUNDLE_KEY = "TheStatus";
-	public static final String BlOCK_DATE_BUNDLE_KEY = "TheBlockDate";
 	public static final String WATCH_ADD_SYMBOL_BUNDLE_KEY = "WatchAddSymbolBundleKey";
 	public static final String WATCH_ADD_STRIKE_PRICE_BUNDLE_KEY = "WatchAddStrikePriceBundleKey";
 	public static final String OWNED_ADD_SYMBOL_BUNDLE_KEY = "OwnedAddSymbolBundleKey";
@@ -16,8 +13,6 @@ public class Constants {
 	public static final String BUY_BLOCK_DATE_KEY = "BuyBlockDateKey";
 	public static final String BUY_BLOCK_PRICE_KEY = "BuyBlockPriceKey";
 	public static final String BUY_BLOCK_NUM_KEY = "BuyBlockNumKey";
-	public static final String BUY_BLOCK_TARGET_KEY = "BuyBlockTargetKey";
-	public static final String SELL_BLOCK_BUNDLE_KEY = "SellBlockBundleKey";
 	public static final String PARAM_NAME_BUNDLE_KEY = "ParameterNameBundleKey";
 	public static final String PARAM_NEW_VALUE_BUNDLE_KEY = "ParameterNewValueBundleKey";
 	public static final String OLD_VALUE_BUNDLE_KEY = "OldValueBundleKey";
@@ -34,19 +29,11 @@ public class Constants {
 	public static final int OWNED_ADD_ACTIVITY = 0;
 	public static final int WATCH_ADD_ACTIVITY = 1;
 	public static final int BUY_BLOCK_ADD_ACTIVITY = 2;
-	public static final int SELL_BLOCK_ACTIVITY = 3;
 	public static final int PARAMETER_CHANGE_ACTIVITY = 4;
 	public static final int OWNED_DETAIL_ACTIVITY=5;
 	public static final int WATCH_DETAIL_ACTIVITY=6;
 	
-	public static final int DATE_PICKER_DIALOG = 0;
-	public static final int CONFIRM_DELETE_QUOTE_DIALOG = 1;
-	public static final int CONFIRM_DELETE_BLOCK_DIALOG = 2;
-	public static final int ALERT_INVALID_SYMBOL_DIALOG = 3;
-	public static final int ALERT_DUPLICATE_SYMBOL_DIALOG = 4;
-	public static final int ACCOUNT_SELECTION_DIALOG = 5;
-	
-	public static final float POSITVE_ONE_DECIMAL_LIMIT = 0.05f;
+	public static final float POSITIVE_ONE_DECIMAL_LIMIT = 0.05f;
 	public static final float NEGATIVE_ONE_DECIMAL_LIMIT = -0.049f;
 	
 	public static final String EMPTY_FIELD_ERR_MSG = "Please enter a value in every field.";
@@ -54,8 +41,7 @@ public class Constants {
 	public static final float MINIMUM_SIGNIFICANT_VALUE = 0.005f;
 	
 	public static final int SYMBOL_VIEW_IN_QUOTE = 1;  // 0-based index of symbol field in quote_row
-	public static final int COLOR_VIEW_IN_BLOCK = 0;
-	public static final int DATE_VIEW_IN_BLOCK = 1; 
+	public static final int DATE_VIEW_IN_BLOCK = 1;
 	public static final int NUM_SHARES_VIEW_IN_BLOCK = 2;
 	
 	

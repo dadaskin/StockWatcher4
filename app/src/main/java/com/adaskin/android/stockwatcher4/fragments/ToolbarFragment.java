@@ -89,6 +89,7 @@ public class ToolbarFragment extends Fragment {
 	}
 
 	
+	@SuppressWarnings("UnusedParameters")
 	private void addButtonClicked(View v) {
 		activityCallback.addButtonClicked();
 	}

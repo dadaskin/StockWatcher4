@@ -99,7 +99,7 @@ public class BuyBlockCursorAdapter extends SimpleCursorAdapter{
 	    
 	    // Effective Yield
 	    float effYield = cursor.getFloat(mEffYieldIdx);
-	    if (effYield > Constants.POSITVE_ONE_DECIMAL_LIMIT) {
+	    if (effYield > Constants.POSITIVE_ONE_DECIMAL_LIMIT) {
    		    holder.effYieldView.setText(String.format(Locale.US,Constants.PERCENTAGE_FORMAT, effYield));
 	    } else {
 	    	holder.effYieldView.setText("--");
@@ -107,7 +107,7 @@ public class BuyBlockCursorAdapter extends SimpleCursorAdapter{
 	}
 
 	private void showZeroWithoutSign(TextView view, float value) {
-		if ((value < Constants.POSITVE_ONE_DECIMAL_LIMIT) &&
+		if ((value < Constants.POSITIVE_ONE_DECIMAL_LIMIT) &&
         	(value > Constants.NEGATIVE_ONE_DECIMAL_LIMIT))	{
 			view.setText(String.format(Locale.US,Constants.PERCENTAGE_FORMAT, 0.0f));
         } else {
@@ -124,7 +124,7 @@ public class BuyBlockCursorAdapter extends SimpleCursorAdapter{
         int neutralTextColor = resources.getColor(R.color.neutral_text_color);
         int negativeTextColor = resources.getColor(R.color.negative_text_color);
 		
-		if (value > Constants.POSITVE_ONE_DECIMAL_LIMIT) {
+		if (value > Constants.POSITIVE_ONE_DECIMAL_LIMIT) {
 	    	view.setTextColor(positiveTextColor);
 	    } else if (value < Constants.NEGATIVE_ONE_DECIMAL_LIMIT) {
 	    	view.setTextColor(negativeTextColor);

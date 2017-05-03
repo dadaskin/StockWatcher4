@@ -180,12 +180,12 @@
         "source": "C:\\Users\\Dave\\.android\\build-cache\\ea3548368ac2d3f761245df73bde1fb7545bac71\\output\\res\\drawable-mdpi\\abc_textfield_search_selected_holo_light.9.png"
     },
     {
-        "merged": "C:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_ic_clear_search_api_holo_light.png",
-        "source": "C:\\Users\\Dave\\.android\\build-cache\\ea3548368ac2d3f761245df73bde1fb7545bac71\\output\\res\\drawable-mdpi\\abc_ic_clear_search_api_holo_light.png"
-    },
-    {
         "merged": "C:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_textfield_search_right_default_holo_dark.9.png",
         "source": "C:\\Users\\Dave\\.android\\build-cache\\ea3548368ac2d3f761245df73bde1fb7545bac71\\output\\res\\drawable-mdpi\\abc_textfield_search_right_default_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_ic_clear_search_api_holo_light.png",
+        "source": "C:\\Users\\Dave\\.android\\build-cache\\ea3548368ac2d3f761245df73bde1fb7545bac71\\output\\res\\drawable-mdpi\\abc_ic_clear_search_api_holo_light.png"
     },
     {
         "merged": "C:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_cab_background_top_holo_dark.9.png",
