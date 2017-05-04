@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:2:1-46:12
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:2:1-48:12
 	package
 		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:3:5-48
 		INJECTED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml
@@ -30,70 +30,78 @@ uses-permission#android.permission.INTERNET
 ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:10:5-67
 	android:name
 		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:10:22-64
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:11:5-80
+	android:name
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:11:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:12:22-78
 application
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:11:5-44:19
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:13:5-46:19
 MERGED from [com.android.support:appcompat-v7:18.0.0] C:\Users\Dave\.android\build-cache\ea3548368ac2d3f761245df73bde1fb7545bac71\output\AndroidManifest.xml:19:5-20
 	android:label
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:14:9-41
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:16:9-41
 	android:allowBackup
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:14:9-35
 	android:icon
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:13:9-45
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:15:9-45
 	android:theme
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:15:9-53
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:17:9-53
 activity#com.adaskin.android.stockwatcher4.MainActivity
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:16:9-24:20
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:18:9-26:20
 	android:label
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:18:13-45
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:20:13-45
 	android:name
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:17:13-74
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:19:13-74
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:19:13-23:29
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:21:13-25:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:20:17-69
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:22:17-77
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:22:27-74
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:24:27-74
 activity#com.adaskin.android.stockwatcher4.views.OwnedAddActivity
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:25:9-27:20
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:27:9-29:20
 	android:label
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:26:19-51
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:28:19-51
 	android:name
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:25:19-57
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:27:19-57
 activity#com.adaskin.android.stockwatcher4.views.OwnedDetailsActivity
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:28:9-30:20
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:30:9-32:20
 	android:label
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:29:19-51
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:31:19-51
 	android:name
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:28:19-61
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:30:19-61
 activity#com.adaskin.android.stockwatcher4.views.WatchAddActivity
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:31:9-33:20
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:33:9-35:20
 	android:label
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:32:19-51
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:34:19-51
 	android:name
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:31:19-57
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:33:19-57
 activity#com.adaskin.android.stockwatcher4.views.WatchDetailsActivity
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:34:9-36:20
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:36:9-38:20
 	android:label
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:35:19-51
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:37:19-51
 	android:name
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:34:19-61
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:36:19-61
 activity#com.adaskin.android.stockwatcher4.views.BuyBlockAddActivity
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:37:9-39:20
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:39:9-41:20
 	android:label
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:38:19-51
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:40:19-51
 	android:name
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:37:19-60
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:39:19-60
 activity#com.adaskin.android.stockwatcher4.views.ChangeParameterActivity
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:40:9-42:20
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:42:9-44:20
 	android:label
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:41:19-51
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:43:19-51
 	android:name
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:40:19-64
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:42:19-64
 activity#com.adaskin.android.stockwatcher4.views.GenericDetailsActivity
-ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:43:9-66
+ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:45:9-66
 	android:name
-		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:43:19-63
+		ADDED from C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\src\main\AndroidManifest.xml:45:19-63
