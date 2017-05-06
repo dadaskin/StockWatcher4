@@ -7,4 +7,10 @@
         app:showAsAction="never"
         android:title="@string/action_settings"/>
 
+    <item
+        android:title="Import DB"
+        app:showAsAction="never"
+        android:onClick="ImportCommand"
+        android:orderInCategory="200"/>
+
 </menu>

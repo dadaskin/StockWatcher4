@@ -37,6 +37,7 @@ import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -234,7 +235,20 @@ public class MainActivity extends ActionBarActivity
 		mViewPager.setCurrentItem(0);
 	}
 
-	private class DoNetworkTask extends AsyncTask<String, Integer, String> {
+    public void ImportCommand(MenuItem item) {
+		DbAdapter dbAdapter = new DbAdapter(this);
+		dbAdapter.open();
+		boolean isSurccessful = dbAdapter.importDB();
+		dbAdapter.close();
+
+		CharSequence msg = "Database imported";
+		if (!isSurccessful)
+			msg = "Import error.";
+		Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+
+	}
+
+    private class DoNetworkTask extends AsyncTask<String, Integer, String> {
 		
 		private final List<String> mInvalidSymbolList;
         private final Context mContext;

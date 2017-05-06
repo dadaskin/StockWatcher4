@@ -15,7 +15,7 @@ DONE  - Using an emulator set up for API 18 (Jellybean 4.3.x) doesn't show any o
 ?	  - Can't push to GitHub, but I do have the local Git repository.
 DONE  - Code Analysis shows a few errors and >100 warnings.  Fix these.
 x	  Test, Test, Test on Tablet
-	  Add database import/export/file management code to StockWatcher per
+DONE  Add database import/export/file management code to StockWatcher per
             http://stackoverflow.com/questions/6540906/simple-export-and-import-of-a-sqlite-database-on-android
 			http://stackoverflow.com/questions/13502223/backup-restore-sqlite-db-in-android
 	  Test, Test, Test.

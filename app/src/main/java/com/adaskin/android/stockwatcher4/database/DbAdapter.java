@@ -526,10 +526,34 @@ public class DbAdapter {
 		return status;
 	}
 
+	public boolean importDB()
+	{
+		boolean result = false;
+        try  {
+			String srcFileName = Environment.getExternalStorageDirectory() + "/stockwatcher4_backup.db";
+			File srcFile = new File(srcFileName);
+			File dstFile = mContext.getDatabasePath(DbAdapter.DATABASE_NAME);
+
+			FileChannel src = new FileInputStream(srcFile).getChannel();
+			FileChannel dst = new FileOutputStream(dstFile).getChannel();
+
+            dst.transferFrom(src, 0, src.size());
+			src.close();
+			dst.close();
+
+			result = true;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
     private void exportDB()
 	{
 		try {
-			String dstFileName = Environment.getExternalStorageDirectory() + "/sw4_backup3.db";
+			String dstFileName = Environment.getExternalStorageDirectory() + "/stockwatcher4_backup.db";
 			File dstFile = new File(dstFileName);
 			File srcFile = mContext.getDatabasePath(DbAdapter.DATABASE_NAME);
 
