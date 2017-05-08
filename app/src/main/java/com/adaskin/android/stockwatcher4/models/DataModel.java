@@ -23,8 +23,7 @@ public class DataModel implements Parcelable{
 		
         if (mDbAdapter.getQuoteCount() <= 0)
         {
-            /* SeedData seedData = */ new SeedData(mDbAdapter);
-            //seedData.testSeedData();
+            new SeedData(mDbAdapter);
         }
         mMasterList = mDbAdapter.fetchStockQuoteList(); 
 	}
@@ -39,25 +38,6 @@ public class DataModel implements Parcelable{
 		q.mBuyBlockList.add(firstBuyBlock);
 		addNewStockQuote(q);
 	}
-	
-//	public void addOwned(String symbol, float gainTargetPct, String buyDateString, float buyPPS, float buyNumShares) {
-//		float commissionPS = 0.07f;  
-//		
-//    	SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.US);
-//    	Date buyDate = new Date();
-//    	try {
-//    	    buyDate = sdf.parse(buyDateString);
-//    	} catch(ParseException e) {
-//			e.printStackTrace();
-//    	}
-//		
-//		BuyBlock firstBuyBlock = new BuyBlock(buyDate, buyNumShares, buyPPS, commissionPS, 0.0f, 0.0f, Constants.ACCOUNT_UNKNOWN);
-//		
-//		StockQuote q = new StockQuote(symbol, 0.0f, 0.0f, gainTargetPct);
-//		q.mBuyBlockList.add(firstBuyBlock);
-//		
-//		addNewStockQuote(q);
-//	}
 	
 	public void addOrOverwriteWatch(String symbol, float strikePrice) {
 		StockQuote newQuote = new StockQuote(symbol, 0.0f, strikePrice, 0.0f, 0.0f, 0.0f);

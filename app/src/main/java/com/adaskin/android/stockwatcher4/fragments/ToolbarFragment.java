@@ -37,7 +37,7 @@ public class ToolbarFragment extends Fragment {
 		try {
 			activityCallback = (ToolbarListener)activity;
 		} catch (ClassCastException e) {
-			throw new ClassCastException(activity.toString() + " nust implement ToolbarListener");
+			throw new ClassCastException(activity.toString() + " must implement ToolbarListener");
 		}
 	}
 

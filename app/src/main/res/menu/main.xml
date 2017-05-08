@@ -8,6 +8,12 @@
         android:title="@string/action_settings"/>
 
     <item
+        android:title="Export DB"
+        app:showAsAction="never"
+        android:onClick="ExportCommand"
+        android:orderInCategory="200"/>
+
+    <item
         android:title="Import DB"
         app:showAsAction="never"
         android:onClick="ImportCommand"

@@ -235,17 +235,33 @@ public class MainActivity extends ActionBarActivity
 		mViewPager.setCurrentItem(0);
 	}
 
-    public void ImportCommand(MenuItem item) {
+	@SuppressWarnings("UnusedParameters")
+	public void ExportCommand(MenuItem item) {
 		DbAdapter dbAdapter = new DbAdapter(this);
 		dbAdapter.open();
-		boolean isSurccessful = dbAdapter.importDB();
+		boolean isSuccessful = dbAdapter.exportDB();
+		dbAdapter.close();
+
+		CharSequence msg = "Database exported";
+		if (!isSuccessful)
+			msg = "Export error.";
+		Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+	}
+
+    @SuppressWarnings("UnusedParameters")
+	public void ImportCommand(MenuItem item) {
+		DbAdapter dbAdapter = new DbAdapter(this);
+		dbAdapter.open();
+		boolean isSuccessful = dbAdapter.importDB();
 		dbAdapter.close();
 
 		CharSequence msg = "Database imported";
-		if (!isSurccessful)
+		if (!isSuccessful)
 			msg = "Import error.";
 		Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
 
+		if (isSuccessful)
+		    quoteAddedOrMoved();
 	}
 
     private class DoNetworkTask extends AsyncTask<String, Integer, String> {

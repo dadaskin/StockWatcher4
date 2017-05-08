@@ -2,10 +2,7 @@ package com.adaskin.android.stockwatcher4.database;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,7 +11,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import com.adaskin.android.stockwatcher4.MainActivity;
 import com.adaskin.android.stockwatcher4.models.BuyBlock;
 import com.adaskin.android.stockwatcher4.models.StockQuote;
 import com.adaskin.android.stockwatcher4.utilities.Constants;
@@ -22,14 +18,12 @@ import com.adaskin.android.stockwatcher4.utilities.Status;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Environment;
-import android.util.Log;
-import android.widget.Toast;
+
 
 public class DbAdapter {
 	
@@ -156,7 +150,7 @@ public class DbAdapter {
     	    }
     	}
 
-    	backupDbToFile();
+    	//backupDbToFile();
     }
     
     // OK
@@ -396,7 +390,7 @@ public class DbAdapter {
                    Q_ROW_ID + "=?",
                    new String[] {String.valueOf(id)});
 
-		backupDbToFile();
+		//backupDbToFile();
     }
     
     
@@ -426,7 +420,7 @@ public class DbAdapter {
     	mDb.delete(BUY_BLOCK_TABLE, B_PARENT  + "=?", new String[] {String.valueOf(id)});
     	mDb.delete(QUOTE_TABLE, Q_ROW_ID + "=?", new String[] {String.valueOf(id)});
 
-		backupDbToFile();
+		//backupDbToFile();
     }
 
 // --Commented out by Inspection START (5/3/2017 11:03 AM):
@@ -459,7 +453,7 @@ public class DbAdapter {
 		String[] whereArgs = new String[] { dateString, String.valueOf(parentId) };
         mDb.delete(BUY_BLOCK_TABLE, whereClause, whereArgs);
 
-		backupDbToFile();
+		//backupDbToFile();
     }
 
     
@@ -550,8 +544,9 @@ public class DbAdapter {
 		return result;
 	}
 
-    private void exportDB()
+	public boolean exportDB()
 	{
+		boolean result = false;
 		try {
 			String dstFileName = Environment.getExternalStorageDirectory() + "/stockwatcher4_backup.db";
 			File dstFile = new File(dstFileName);
@@ -565,40 +560,15 @@ public class DbAdapter {
 			src.close();
 			dst.close();
 
-		} catch (Exception e) {
+			result = true;
+
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
+
+		return result;
 	}
 
-	private void backupDbToFile()
-	{
-		exportDB();
-//		File n = mContext.getDatabasePath(DbAdapter.DATABASE_NAME);
-//		String backupFileName = Environment.getExternalStorageDirectory() + "/sw4_backup2";
-//
-//		try {
-//			FileInputStream fis = new FileInputStream(n);
-//
-//			// Open backup file
-//			File backupFile = new File(backupFileName) ;
-//			if (!backupFile.exists())
-//				backupFile.createNewFile();
-//			OutputStream os = new FileOutputStream(backupFile);
-//
-//			// Transfer bytes from db to backup
-//			byte[] buffer = new byte[1024];
-//			int length;
-//		    while ((length = fis.read(buffer)) >  0) {
-//		        os.write(buffer, 0, length);
-//	        }
-//
-//	        os.flush();
-//			os.close();
-//			fis.close();
-//
-//		} catch (Exception ex0) {
-//			Log.v("backup", ex0.getMessage(), ex0);
-//			ex0.printStackTrace();
-//		}
-	}
+
+
 }
