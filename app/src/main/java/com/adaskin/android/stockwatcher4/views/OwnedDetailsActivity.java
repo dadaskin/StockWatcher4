@@ -183,6 +183,10 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
 		dbAdapter.open();
 		
 		dbAdapter.removeBuyBlockRecord(mSymbol, dateString);
+
+		long parentId = dbAdapter.fetchQuoteIdFromSymbol(mSymbol);
+		mQuote = dbAdapter.fetchQuoteObjectFromId(parentId);
+
 		dbAdapter.close();
 		
 		fillData();
