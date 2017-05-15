@@ -14,6 +14,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import com.adaskin.android.stockwatcher4.javamail.Mail;
 import com.adaskin.android.stockwatcher4.adapters.NonSwipableViewPager;
 import com.adaskin.android.stockwatcher4.adapters.SectionsPagerAdapter;
 import com.adaskin.android.stockwatcher4.database.DbAdapter;
@@ -29,12 +30,16 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.Settings;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
+import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -129,7 +134,6 @@ public class MainActivity extends ActionBarActivity
 	public void onTabUnselected(Tab tab, FragmentTransaction arg1) {
 	}
 
-	
 	// Handle Toolbar buttons
 	@Override
 	public void addButtonClicked() {
@@ -173,7 +177,6 @@ public class MainActivity extends ActionBarActivity
         toolbarFragment.updateLastUpdateStrings();
     }
 
-
 	// Development Note 06Dec13:   At first I tried to put the suffix characters in their own 
 	//    variable and then increment the urlString with that variable.  This left out the 
 	//    "&" character.   
@@ -197,8 +200,6 @@ public class MainActivity extends ActionBarActivity
     	urlString += "&f=sl1kjdpn";
 		return urlString;
 	}
-	
-	
 
 	private void UpdateDateStringsInDB() {
 		
@@ -215,9 +216,7 @@ public class MainActivity extends ActionBarActivity
 		dbAdapter.removeLastUpdateRecord();
 		dbAdapter.createLastUpdateRecord(dateString, timeString);
 		dbAdapter.close();
-		
 	}
-
 
 	@Override
 	public void quoteAddedOrMoved() {
@@ -225,9 +224,7 @@ public class MainActivity extends ActionBarActivity
 		    ListFragmentBase fragment = mPagerAdapter.getItem(i);
 	        fragment.redisplayList();
 		}
-		
 	}
-
 
 	@Override
 	public void moveToOwned(Intent data) {
@@ -241,12 +238,54 @@ public class MainActivity extends ActionBarActivity
 		dbAdapter.open();
 		boolean isSuccessful = dbAdapter.exportDB();
 		dbAdapter.close();
+        sendEmail();
 
 		CharSequence msg = "Database exported";
 		if (!isSuccessful)
 			msg = "Export error.";
 		Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
 	}
+
+	private void sendEmail()
+    {
+        String attachmentFileName = Environment.getExternalStorageDirectory() + "/stockwatcher4_backup.db";
+		String message = Build.MODEL + "  "  + Build.SERIAL;
+        String[] emailParameters = new String[] {attachmentFileName, message};
+        new SendEmailTask().execute(emailParameters);
+    }
+
+    private class SendEmailTask extends AsyncTask<String,Void,String> {
+
+        @Override
+        protected String doInBackground(String... inputStrings) {
+            String senderUsername = "executive@adaskin.com";
+            String senderPassword = "~.^voA^ZVsMD";
+            Mail m = new Mail(senderUsername, senderPassword);
+            String[] recipientArray = {"dave@adaskin.com"};
+            m.sendTo(recipientArray);
+            m.sendFrom(senderUsername);
+            m.setSubject("Stockwatcher4 DB update from: " + inputStrings[1]);
+            m.setBody("<See attachment>");
+
+            String result = "Email: ";
+            try {
+                 m.addAttachment(inputStrings[0]);
+                if (m.send()) {
+                    result += "sent";
+                } else {
+                    result += "not sent";
+                }
+            } catch (Exception e) {
+                result +=  e.toString();
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
+        }
+    }
 
     @SuppressWarnings("UnusedParameters")
 	public void ImportCommand(MenuItem item) {
@@ -264,12 +303,13 @@ public class MainActivity extends ActionBarActivity
 		    quoteAddedOrMoved();
 	}
 
+
+
     private class DoNetworkTask extends AsyncTask<String, Integer, String> {
 		
 		private final List<String> mInvalidSymbolList;
         private final Context mContext;
-		
-		
+
 		public DoNetworkTask(Context context) {
 			mContext = context;
 			mInvalidSymbolList = new ArrayList<String>();
