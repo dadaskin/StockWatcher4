@@ -1,0 +1,134 @@
+Stock Watcher App
+==================
+A. Refactoring
+A1.      Put java.util.Date <=> DateString code in one place.
+A2.      Clean up DbAdapter.  Remove unneeded methods, consolidate methods where necessary.
+A3. DONE Clean up DataModel classes.  Get rid of BuyInfo.
+A4.      Use a better class for dates.  (java Calendar?)
+A5. DONE Clean up CursorAdapter colors.
+A6. DONE Clean up StockWatcherApplication class.
+A7. DONE Split up TabbedListPresenter class
+
+B. Android Upgrades
+B1. N/A  How does existing version behave in newer versions of Android?
+B2. DONE Switch from Tabs to Fragments
+
+C. New Features (w/o DB schema change)
+C1. DONE Add About box menu item.
+C2. DONE Get the full name corresponding to the symbol from some other place.
+C3. DONE Add analyst's opinion
+C4.      When buying the second block of any stock allow user to choose how to display changeVsBuy on the owned list row: Best Block, Weighted Average.
+C5.      Better representation of dividend: Now: sum of last year's pmts  Better: Last one * frequency/yr.
+C6. DONE Put progress indicator on Refresh button
+C7.      Add Sold Block functionality
+
+D.  UI Improvements
+D1. DONE Last update times between 12:00 and 12:59  show up as 0:00 to 0:59.  
+D2. DONE Implement strike price color on Owned list, too
+D3. DONE Add strike price to owned details list, changeable like on Watch list.
+D4. DONE Add Green text for positive on QuoteRow, change to white text on Green background to highlight possible sales.
+D5. DONE Make main Add and Refresh buttons smaller.
+D6. DONE Add item to long press menu for BuyBlock to allow user to change number of shares.
+D7       Make Tab widgets pretty & Add Icons??  Make them take up less space, too.
+D8.      Add Column Headers to both list classes
+D9.      Allow display of non-integer num shares (in smaller typeSize) in buyBlockList.
+D10.DONE Change text color limits to 0.05f/-0.049f.
+D11.DONE Improve Refresh icon (gray on top not white).
+D12.DONE Have duplicate symbol message when user tries to enter an owned symbol from the watch list.
+D13.DONE Have different titles for each activity in ActionBar.
+
+E. DB Schema Change
+E1. DONE Figure out how to upgrade DB without losing all previous data.
+E2. DONE Add field on BuyBlock Row (and DB & model) for account descriptor
+E3. DONE When adding account information remember to adjust the hard coded commissionPS accordingly.
+E4.      Add a small indicator in the BuyBlock row to indicate short-term investment in non-tax-advantaged accounts.
+E5. DONE Remove total dividend field.
+E6.      Add field on Watch for Sector/Industry info.  One field will do.
+E7. DONE Add field in main list (& DB, ec) to show account.  Include value for blocks in multiple accounts.
+E8.      Add Accounts table in DB to allow adding/modifying/removing accounts.
+              Fields: Account Name, Commission, color of indicator, tax-advantaged
+E9.      Add activities to create, view, change, remove accounts. (and adjust fields in other
+              tables accordingly).              
+
+F. Robustness
+F1.      Test the situation where yahoo.com doesn't respond.
+F2.      Do we need Pause/Resume?  Test situation where a call comes in as user is entering a BuyBlock.
+F3. DONE What happens if I add a symbol that isn't a valid ticker symbol? Removed from list.
+F4. DONE What happens if I leave any field blank?
+F5.      Protect user from adding more than one block of the same date to the same symbol.
+F6.      Understand what to put in place of null in: View customTitleView = inflator.inflate(R.layout.custom_titlebar, null);
+ 
+G. Performance
+G1. DONE FindViewById() is slow (I think).  Is there a better way?  (Answer: This isn't a problem.)
+
+H. Correctness
+H1. DONE If the value of % change (vs buy or vs last) is 0.0, make sure it has no '-' in front.
+H2. DONE In all entry screens validate the entries before returning to the previous Activity.
+         (Don't allow blank fields to be returned.)
+H3.      Trim the text of any char field so that "ABC"  and "ABC   " are seen as the same.
+H4. DONE Date Widget, change, back, Date Widget: date is changed, should be original value.
+         
+I. Automated testing for Android 4.3 version
+I1.      TabbedListPresenter
+I2.      OwnedDetailsActiivty
+I3.      WatchDetailsActivity
+I4.      OwnedAddActivity
+I5.      WatchAddActivity
+I6.      BuyBlockAddActivity
+I7.      ChangeParameterActivity
+
+
+
+
+List from first release
+4 Jan 2013
+----------------------------
+1. DONE  Fix delete action.
+2. DONE  Add BuyBlockCursorAdapter.
+3. DONE  Add live quote data
+4. DONE  Get ViewHolders working on both CursorAdapters
+5. DONE  Store values as "real" in DB, not "integer".
+6. DONE  Set up color changing on CursorAdapters. (Use commission in calculations)
+7. DONE  Make sure data is passed to/from Detail Activities correctly.
+8. DONE  Make BuyBlock date not wrap
+9. DONE  Add EffDiv to BuyBlock row
+10.DONE  Add more seed data
+11.DONE  Make sure acquisition date/time is updated
+12.DONE  Why does MO crash?  (Comma in full name.  Re-arranged items in the list to fix.)
+13.DONE  Put each list in alpha order by Symbol
+14.DONE  If there is no dividend put "-" in display.
+15.DONE  Is there a maximum limit to the number of items in a list?
+16.DONE  Persist the update date/time in the DB
+17.DONE  I want visible scroll bars when the list exceeds the display size.
+18.DONE  Make Strike Price / Gain Target changeable from details views.
+19.DONE  Get rid of secondary gain target.
+20.DONE  In OwnedDetails Activity add a button to "Buy Another Block" that goes to the BuyBlockAddActivity. 
+21.DONE  Make WatchAddActivity able to be cancelled.
+22.DONE  SWHC/VLCCF chgVsBuy on Owned list is wrong:  PPS: 8.03  ChngVsBuy shown as 0.0% should be -1.1%.  Other examples of this?
+23.DONE  Make sure % sign shows for 3 digit gainers in OwnedDetails.
+24.DONE  Streamline "buying" a stock from Owned list or Watch list.
+25.DONE  Add automatic refresh on startup or adding a symbol to either list.
+26.DONE  Add Button to allow user to change Gain Target and Strike Price.
+27.DONE  Display negative numbers in red in all views.
+28.DONE  Add current yield in () after div in both detail views.
+29.DONE  Remove all auto-refresh.
+
+
+
+From original list on 25 Jul 2012
+1.  DONE  Create the real project  
+2.  DONE  Expand Model & View Model  
+2.  ~~~~  Add DB support, pass cursors to presenter vs String[].
+3.  ~~~~  Set up complex row display XML
+4.        Add code for views to do color changes, etc.
+5.  ~~~~  Add Edit activity: Presenter & View
+6.  ~~~~  Add Detail acivity: Presenter & View
+7.  DONE  Expand ListPresenter view to have Add button, Refresh button, "Last update" text box
+8.        Make TabWidgets pretty
+9.        Put progress indicator on Refresh button.
+10. DONE  Add custom title
+11.       Add Icons to app & TabWidgets
+12.       Add Preferences (overall gain target, etc)
+13.       Add Sell Activity (ask for sell date, sell price & comm., find total dividend, compute %return)
+14. ~~~~  Add Delete option to longpress menu.
+
