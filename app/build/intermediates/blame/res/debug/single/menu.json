@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\res\\merged\\debug\\menu\\longpress_buyblock.xml",
+        "source": "C:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\src\\main\\res\\menu\\longpress_buyblock.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "C:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\res\\merged\\debug\\menu\\longpress_watch.xml",
+        "source": "C:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\src\\main\\res\\menu\\longpress_watch.xml"
+    },
+    {
+        "merged": "C:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\res\\merged\\debug\\menu\\longpress_owned.xml",
+        "source": "C:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\src\\main\\res\\menu\\longpress_owned.xml"
+    }
+]

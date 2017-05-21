@@ -1,0 +1,28 @@
+0000000000000000000000000000000000000000 ed413bee7ed055392e8ca800b07789edcd170932 dadaskin <dave@adaskin.com> 1493582265 -0700	commit (initial): Initial commit of StockWatcher4 to Git
+ed413bee7ed055392e8ca800b07789edcd170932 17edb6763a7e30be0a006e6937861605fa4e837f dadaskin <dave@adaskin.com> 1493582269 -0700	commit (amend): Initial commit of StockWatcher4 to Git
+17edb6763a7e30be0a006e6937861605fa4e837f 6be7abb606daf98604e236ae391963e1528a2f65 dadaskin <dave@adaskin.com> 1493582271 -0700	commit (amend): Initial commit of StockWatcher4 to Git
+6be7abb606daf98604e236ae391963e1528a2f65 e579d21bd8ee0c49a0f810079af74282ba64037f dadaskin <dave@adaskin.com> 1493582274 -0700	commit (amend): Initial commit of StockWatcher4 to Git
+e579d21bd8ee0c49a0f810079af74282ba64037f fed7a127be9c223f17a4c255c61e0c579cf7d924 dadaskin <dave@adaskin.com> 1493582278 -0700	commit (amend): Initial commit of StockWatcher4 to Git
+fed7a127be9c223f17a4c255c61e0c579cf7d924 4ba2e360ad463b7727c96bbda5806da89d218ac2 dadaskin <dave@adaskin.com> 1493582281 -0700	commit (amend): Initial commit of StockWatcher4 to Git
+4ba2e360ad463b7727c96bbda5806da89d218ac2 36f616f6ebb75b24f4d2a7c816dc34821fcf62ca dadaskin <dave@adaskin.com> 1493582283 -0700	commit (amend): Initial commit of StockWatcher4 to Git
+36f616f6ebb75b24f4d2a7c816dc34821fcf62ca 8080e012464ee20d9b29d7739da5fb8fcaf87f61 dadaskin <dave@adaskin.com> 1493582285 -0700	commit (amend): Initial commit of StockWatcher4 to Git
+8080e012464ee20d9b29d7739da5fb8fcaf87f61 6f283c52865dab0951e0f85ec43122cbf68f6964 dadaskin <dave@adaskin.com> 1493582287 -0700	commit (amend): Initial commit of StockWatcher4 to Git
+6f283c52865dab0951e0f85ec43122cbf68f6964 3a1690036d9e7656579b197cd263dc291d797a3f dadaskin <dave@adaskin.com> 1493582289 -0700	commit (amend): Initial commit of StockWatcher4 to Git
+3a1690036d9e7656579b197cd263dc291d797a3f d0afb65505cc1679f5e157efe905d232503899db dadaskin <dave@adaskin.com> 1493582292 -0700	commit (amend): Initial commit of StockWatcher4 to Git
+d0afb65505cc1679f5e157efe905d232503899db 8d60b8eeeff958eed2d48e2ee6c014ad43839d05 dadaskin <dave@adaskin.com> 1493584667 -0700	commit: Initial commit of StockWatcher4 to Git
+8d60b8eeeff958eed2d48e2ee6c014ad43839d05 a3698afe805d3cbbbcbbbd91652cfaa18598e21a dadaskin <dave@adaskin.com> 1493595540 -0700	commit: Fix some warnings found during Code Analysis.
+a3698afe805d3cbbbcbbbd91652cfaa18598e21a 482b038560fcfd346376baf097aaacf98e8bd8e8 dadaskin <dave@adaskin.com> 1493595545 -0700	commit (amend): Fix some warnings found during Code Analysis.
+482b038560fcfd346376baf097aaacf98e8bd8e8 c92b2082931ce4522604f86f928c22ad6d930706 dadaskin <dave@adaskin.com> 1493595549 -0700	commit (amend): Fix some warnings found during Code Analysis.
+c92b2082931ce4522604f86f928c22ad6d930706 6ed2a9beed2b0febdef9a52498bc6062dbee8972 dadaskin <dave@adaskin.com> 1493595552 -0700	commit (amend): Fix some warnings found during Code Analysis.
+6ed2a9beed2b0febdef9a52498bc6062dbee8972 e00bfceb948933ce8b0d5a26e97e125502e3357e dadaskin <dave@adaskin.com> 1493595554 -0700	commit (amend): Fix some warnings found during Code Analysis.
+e00bfceb948933ce8b0d5a26e97e125502e3357e 00052db68f267aa768c005aa1ed22b78d1cad29a dadaskin <dave@adaskin.com> 1493595555 -0700	commit (amend): Fix some warnings found during Code Analysis.
+00052db68f267aa768c005aa1ed22b78d1cad29a cbc66db630d31db0873a6269cadf8cbd142df7b9 dadaskin <dave@adaskin.com> 1493703151 -0700	commit: Fix more warnings found during Code Analysis.
+cbc66db630d31db0873a6269cadf8cbd142df7b9 9cee593d3563b560a7800510cdb76e51ef39fc0a dadaskin <dave@adaskin.com> 1493788820 -0700	commit: Fix yet more warnings found during Code Analysis.
+9cee593d3563b560a7800510cdb76e51ef39fc0a 743e402e694e7055c7b819db0dd4c4436728fb56 dadaskin <dave@adaskin.com> 1493837207 -0700	commit: Fixed as many warnings as possible. Down to 52.
+743e402e694e7055c7b819db0dd4c4436728fb56 721445e1d3a81586209fb9350abc8a0297b7c213 dadaskin <dave@adaskin.com> 1493873466 -0700	commit: 3.1.5 Added exportDb() method. Exports an accessable file on the Tablet.
+721445e1d3a81586209fb9350abc8a0297b7c213 316f92e3181c02cb0dcbde1da065a30c4c9ebc30 dadaskin <dave@adaskin.com> 1494041683 -0700	commit: 3.1.7 Added import method. Backup/Restore seems to work on Tablet.
+316f92e3181c02cb0dcbde1da065a30c4c9ebc30 4baa64b96b11008e6004c094d7baef7829c5bade dadaskin <dave@adaskin.com> 1494220247 -0700	commit: 3.1.8 Changed to explicit export workflow.
+4baa64b96b11008e6004c094d7baef7829c5bade 4b05987a37ec7b39c88f3ee15283dc106da62ba2 dadaskin <dave@adaskin.com> 1494302585 -0700	commit: 3.1.9 Fix bug in OwnedDetailsActivity where deleted block comes back when new block is added. This bug wasn't related to the recent refactoring/cleanup.
+4b05987a37ec7b39c88f3ee15283dc106da62ba2 e0fc7227cbb871bcb1e173fd01881a7bb0673386 dadaskin <dave@adaskin.com> 1494825320 -0700	commit: 3.2.3 Add feature to email backed up DB.
+e0fc7227cbb871bcb1e173fd01881a7bb0673386 e0fc7227cbb871bcb1e173fd01881a7bb0673386 dadaskin <dave@adaskin.com> 1495336513 -0700	checkout: moving from master to Branch1
+e0fc7227cbb871bcb1e173fd01881a7bb0673386 79d396425c05be740c08110c44aab94c74953391 dadaskin <dave@adaskin.com> 1495336604 -0700	commit: Initial commit to Branch 1
