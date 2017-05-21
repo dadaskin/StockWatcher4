@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/action_settings"/>
+
+    <item
+        android:title="Export DB"
+        app:showAsAction="never"
+        android:onClick="ExportCommand"
+        android:orderInCategory="200"/>
+
+    <item
+        android:title="Import DB"
+        app:showAsAction="never"
+        android:onClick="ImportCommand"
+        android:orderInCategory="200"/>
+
+</menu>
