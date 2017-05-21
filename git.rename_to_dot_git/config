@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[gui]
+	wmstate = normal
+	geometry = 1458x733+25+25 815 319
+[remote "origin"]
+	url = https://gethub.com/dadaskin/StockWatcher4.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
