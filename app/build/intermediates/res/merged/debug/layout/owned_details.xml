@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="vertical"
                 android:paddingBottom="@dimen/activity_vertical_margin"
@@ -16,103 +17,113 @@
                    android:layout_height="wrap_content"
                    android:orientation="vertical" 
                    android:layout_alignParentTop="true"
-
-                   >           
+                   >
                 
         <!-- Full Name -->
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"  
                   android:id="@+id/owned_full_name_field"
                   android:textColor="@color/normal_text_color"
-                  android:textSize="20sp"/>
+                  android:textSize="20sp"
+                />
     
         <!-- PPS -->
         <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-                      android:orientation="horizontal">
+                      android:orientation="horizontal"
+                    >
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textColor="@color/normal_text_color"
-                      android:text="PPS: "/>                      
+                      android:text="PPS: "
+                    />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"  
                       android:textColor="@color/normal_text_color"
                       android:id="@+id/owned_pps_field"
-                      android:paddingLeft="10sp"/>
+                      android:paddingLeft="@dimen/details_padding_left"
+                    />
          </LinearLayout>    
 
         <!-- DivPerShare -->
         <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-                      android:orientation="horizontal">
+                      android:orientation="horizontal"
+                    >
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textColor="@color/normal_text_color"
-                      android:text="Div/Share: "/>
+                      android:text="Div/Share: "
+                    />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"  
                       android:textColor="@color/normal_text_color"
                       android:id="@+id/owned_divps_field"
-                      android:paddingLeft="10sp"/>
+                      android:paddingLeft="@dimen/details_padding_left"
+                    />
         </LinearLayout>  
     
         <!-- YearlyRange -->
         <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-                      android:orientation="horizontal">
+                      android:orientation="horizontal"
+                    >
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textColor="@color/normal_text_color"        
-                      android:text="Yearly Range: " />
+                      android:text="Yearly Range: "
+                    />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"  
                       android:id="@+id/owned_yr_min_field"
                       android:textColor="@color/normal_text_color"        
-                      android:paddingLeft="10sp" />
+                      android:paddingLeft="@dimen/details_padding_left"
+                    />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"  
                       android:textColor="@color/normal_text_color"        
-                      android:text=" - "/>
+                      android:text=" - "
+                    />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"  
                       android:textColor="@color/normal_text_color"        
-                      android:id="@+id/owned_yr_max_field"/>
+                      android:id="@+id/owned_yr_max_field"
+                    />
         </LinearLayout>  
     
         <!-- Analyst Opinion -->
         <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-                      android:orientation="horizontal">
+                      android:orientation="horizontal"
+                    >
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textColor="@color/normal_text_color"        
-                      android:text="Analysts' Opinion: "/>
+                      android:text="Analysts' Opinion: "
+                    />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"  
                       android:textColor="@color/normal_text_color"        
                       android:id="@+id/owned_anal_op_field"
-                      android:paddingLeft="10sp" />
+                      android:paddingLeft="@dimen/details_padding_left"
+                    />
         </LinearLayout>  
     
-        <!--  Strike Price -->
+        <!--  Strike Price & Gain Target -->
         <LinearLayout android:layout_width="fill_parent"  android:layout_height="wrap_content"
-                      android:orientation="horizontal">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:textColor="@color/normal_text_color"        
-                      android:text="Strike Price:" />
+                      android:orientation="horizontal"
+                    >
+            <Button android:layout_width="wrap_content"  android:layout_height="wrap_content"
+                    android:text="Strike\nPrice:"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="5sp"
+                    android:onClick="changeButtonClicked_StrikePrice"
+                  />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:id="@+id/owned_strike_price_field"
-                      android:textColor="@color/normal_text_color"        
-                      android:paddingLeft="10sp" />
-            <Button   android:layout_width="wrap_content"  android:layout_height="wrap_content"
-                      android:text="Change"
-                      android:textColor="@color/button_text_color"
-                      android:textSize="12sp"
-                      android:layout_marginLeft="5sp"
-                      android:onClick="changeButtonClicked_StrikePrice" />
-        </LinearLayout> 
-        
-        <!--  Gain Target -->
-        <LinearLayout android:layout_width="fill_parent"  android:layout_height="wrap_content"
-                      android:orientation="horizontal">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:textColor="@color/normal_text_color"        
-                      android:text="Gain Target:" />
+                      android:textColor="@color/normal_text_color"
+                      android:paddingLeft="@dimen/details_padding_left"
+                      android:layout_gravity="center_vertical"
+                  />
+            <Button android:layout_width="wrap_content"  android:layout_height="wrap_content"
+                    android:text="Gain\nTarget:"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="50sp"
+                    android:onClick="changeButtonClicked_GainTarget"
+                  />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:id="@+id/owned_gain_target_field"
-                      android:textColor="@color/normal_text_color"        
-                      android:paddingLeft="10sp" />
-            <Button   android:layout_width="wrap_content"  android:layout_height="wrap_content"
-                      android:text="Change"
-                      android:textColor="@color/button_text_color"
-                      android:textSize="12sp"
-                      android:layout_marginLeft="5sp"
-                      android:onClick="changeButtonClicked_GainTarget" />
+                      android:textColor="@color/normal_text_color"
+                      android:paddingLeft="@dimen/details_padding_left"
+                      android:layout_gravity="center_vertical"
+                  />
         </LinearLayout> 
     </LinearLayout>
     
