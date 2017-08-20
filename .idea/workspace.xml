@@ -7,15 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfaf1b99-875f-4134-b02e-f4463ebf9c1e" name="Default" comment="3.2.3 Add feature to email backed up DB.">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$dimen.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$dimen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$drawable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$integer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$layout.class" />
@@ -23,8 +21,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$style.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/R$styleable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/adapters/QuoteCursorAdapter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/adapters/QuoteCursorAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/fragments/OwnedFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/fragments/OwnedFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/fragments/ToolbarFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/fragments/ToolbarFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/fragments/WatchFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/fragments/WatchFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/views/ChangeParameterActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/views/ChangeParameterActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/views/OwnedDetailsActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/views/OwnedDetailsActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/views/OwnedDetailsActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/views/OwnedDetailsActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/views/WatchAddActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/views/WatchAddActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/views/WatchDetailsActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/adaskin/android/stockwatcher4/views/WatchDetailsActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/zip-cache/+5TzA670lE04SHS882kq9RIkTJw=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/zip-cache/+5TzA670lE04SHS882kq9RIkTJw=" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/debug_97641678568b78a2d130d17fdaf84d514d339b3d.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/debug_97641678568b78a2d130d17fdaf84d514d339b3d.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
@@ -32,21 +37,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/adaskin/android/stockwatcher4/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/adaskin/android/stockwatcher4/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sw720dp-land-v13.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-sw720dp-land-v13.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v11.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v11.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v14.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values-v14.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/file-input-save-data.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/owned_details.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/owned_details.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/adaskin/android/stockwatcher4/views/OwnedDetailsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/adaskin/android/stockwatcher4/views/OwnedDetailsActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/owned_details.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/owned_details.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="StockWatcher4.iws" />
@@ -79,55 +76,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/adaskin/android/stockwatcher4/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2839">
-              <caret line="167" column="8" selection-start-line="167" selection-start-column="8" selection-end-line="167" selection-end-column="8" />
-              <folding>
-                <element signature="class#SendEmailTask#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#ImportCommand#0;class#MainActivity#0" expanded="false" />
-                <element signature="class#DoNetworkTask#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#doInBackground#0;class#DoNetworkTask#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#handleInvalidSymbols#0;class#DoNetworkTask#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#parseLine#0;class#DoNetworkTask#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#parseFloatOrNA#0;class#DoNetworkTask#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#isSymbolValid#0;class#DoNetworkTask#0;class#MainActivity#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ThingsToDo.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ThingsToDo.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="owned_details.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/owned_details.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="117" column="48" selection-start-line="117" selection-start-column="48" selection-end-line="117" selection-end-column="48" />
+            <state relative-caret-position="742">
+              <caret line="155" column="22" selection-start-line="155" selection-start-column="22" selection-end-line="155" selection-end-column="22" />
               <folding>
                 <element signature="e#1991#2020#0" expanded="true" />
                 <element signature="e#2772#2801#0" expanded="true" />
                 <element signature="e#3574#3603#0" expanded="true" />
+                <element signature="e#4189#4952#0" expanded="false" />
                 <element signature="e#4876#4905#0" expanded="true" />
+                <element signature="e#5013#6756#0" expanded="false" />
                 <element signature="e#5842#5871#0" expanded="true" />
                 <element signature="e#6619#6648#0" expanded="true" />
               </folding>
@@ -138,21 +98,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <file leaf-file-name="OwnedDetailsActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/adaskin/android/stockwatcher4/views/OwnedDetailsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="516">
+              <caret line="165" column="33" selection-start-line="165" selection-start-column="33" selection-end-line="165" selection-end-column="33" />
+              <folding>
+                <element signature="method#updateDisplayWithExtraInfo#0;class#OwnedDetailsActivity#0" expanded="false" />
+                <element signature="method#onCreateContextMenu#0;class#OwnedDetailsActivity#0" expanded="false" />
+                <element signature="method#onContextItemSelected#0;class#OwnedDetailsActivity#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OwnedDetailsActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/adaskin/android/stockwatcher4/views/OwnedDetailsActivity.java">
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <state relative-caret-position="68">
+              <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -1938,9 +1902,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/adaskin/android/stockwatcher4/javamail/Mail.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/adaskin/android/stockwatcher4/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/adaskin/android/stockwatcher4/views/OwnedDetailsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/owned_details.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/adaskin/android/stockwatcher4/views/OwnedDetailsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       </list>
     </option>
@@ -3239,11 +3203,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThingsToDo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/adaskin/android/stockwatcher4/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2839">
+        <state relative-caret-position="2788">
           <caret line="167" column="8" selection-start-line="167" selection-start-column="8" selection-end-line="167" selection-end-column="8" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="class#SendEmailTask#0;class#MainActivity#0" expanded="false" />
             <element signature="method#ImportCommand#0;class#MainActivity#0" expanded="false" />
             <element signature="class#DoNetworkTask#0;class#MainActivity#0" expanded="false" />
@@ -3256,39 +3237,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ThingsToDo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/adaskin/android/stockwatcher4/views/OwnedDetailsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/owned_details.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="117" column="48" selection-start-line="117" selection-start-column="48" selection-end-line="117" selection-end-column="48" />
+        <state relative-caret-position="742">
+          <caret line="155" column="22" selection-start-line="155" selection-start-column="22" selection-end-line="155" selection-end-column="22" />
           <folding>
             <element signature="e#1991#2020#0" expanded="true" />
             <element signature="e#2772#2801#0" expanded="true" />
             <element signature="e#3574#3603#0" expanded="true" />
+            <element signature="e#4189#4952#0" expanded="false" />
             <element signature="e#4876#4905#0" expanded="true" />
+            <element signature="e#5013#6756#0" expanded="false" />
             <element signature="e#5842#5871#0" expanded="true" />
             <element signature="e#6619#6648#0" expanded="true" />
           </folding>
@@ -3298,10 +3257,22 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/adaskin/android/stockwatcher4/views/OwnedDetailsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="165" column="33" selection-start-line="165" selection-start-column="33" selection-end-line="165" selection-end-column="33" />
+          <folding>
+            <element signature="method#updateDisplayWithExtraInfo#0;class#OwnedDetailsActivity#0" expanded="false" />
+            <element signature="method#onCreateContextMenu#0;class#OwnedDetailsActivity#0" expanded="false" />
+            <element signature="method#onContextItemSelected#0;class#OwnedDetailsActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
           <folding />
         </state>
       </provider>

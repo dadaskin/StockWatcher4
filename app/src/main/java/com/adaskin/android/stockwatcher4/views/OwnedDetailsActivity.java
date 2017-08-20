@@ -90,6 +90,8 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
         Cursor cursor = dbAdapter.fetchBuyBlockRecordsForThisSymbol(mQuote.mSymbol);
         dbAdapter.close();
 
+		displayTotalInvestment(cursor);
+
         String[] fields = new String[] {DbAdapter.B_ACCOUNT,
         		                        DbAdapter.B_DATE, 
         		                        DbAdapter.B_NUM_SHARES,
@@ -152,7 +154,21 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
         }
 		return super.onContextItemSelected(item);
 	}
-	
+
+    private void displayTotalInvestment(Cursor cursor)
+	{
+		TextView amountView = (TextView)findViewById(R.id.owned_total_investment_amount);
+		TextView gainView = (TextView)findViewById(R.id.owned_total_investment_gain);
+		TextView divyView = (TextView)findViewById(R.id.owned_total_investment_divy);
+
+		amountView.setText("$123.45");
+		gainView.setText("23.4%");
+		divyView.setText("3.5%");
+
+	}
+
+
+
 	private String getDateStringFromRow(View v) {
 		LinearLayout ll = (LinearLayout)v;
 		TextView tv = (TextView)ll.getChildAt(Constants.DATE_VIEW_IN_BLOCK);

@@ -124,7 +124,37 @@
                       android:paddingLeft="@dimen/details_padding_left"
                       android:layout_gravity="center_vertical"
                   />
-        </LinearLayout> 
+        </LinearLayout>
+
+        <!-- Total Investment -->
+         <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+                       android:orientation="horizontal"
+                       android:paddingTop="30dp"
+                    >
+             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                       android:textColor="@color/normal_text_color"
+                       android:text="Total Investment: "
+                 android:layout_gravity="center_vertical"
+                    />
+             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                       android:textColor="@color/normal_text_color"
+                       android:id="@+id/owned_total_investment_amount"
+                       android:paddingLeft="30sp"
+                       android:layout_gravity="center_vertical"
+                    />
+             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                       android:textColor="@color/normal_text_color"
+                       android:id="@+id/owned_total_investment_gain"
+                       android:paddingLeft="30sp"
+                       android:layout_gravity="center_vertical"
+                    />
+             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textColor="@color/normal_text_color"
+                      android:id="@+id/owned_total_investment_divy"
+                      android:paddingLeft="30sp"
+                      android:layout_gravity="center_vertical"
+                    />
+         </LinearLayout>
     </LinearLayout>
     
     <!--  "Add Another Block" button  -->
@@ -144,7 +174,7 @@
 	              android:layout_width="fill_parent"
 	              android:layout_height="wrap_content"
 	              android:orientation="vertical"
-	              android:paddingTop="40dp"
+	              android:paddingTop="30dp"
     	          android:layout_below="@+id/quote_information"
 	              android:layout_above="@+id/add_another_block_button"
 	              >
