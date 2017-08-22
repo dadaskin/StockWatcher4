@@ -1,7 +1,6 @@
 package com.adaskin.android.stockwatcher4.adapters;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.LayoutInflater;
@@ -12,12 +11,13 @@ import android.widget.TextView;
 import com.adaskin.android.stockwatcher4.R;
 import com.adaskin.android.stockwatcher4.database.DbAdapter;
 import com.adaskin.android.stockwatcher4.utilities.Constants;
+import com.adaskin.android.stockwatcher4.utilities.Themes;
 
 import java.util.Locale;
 
 public class BuyBlockCursorAdapter extends SimpleCursorAdapter{
 
-	static class ViewHolder {
+	private static class ViewHolder {
 		TextView colorView;
 		TextView dateView;
 		TextView numSharesView;
@@ -95,7 +95,7 @@ public class BuyBlockCursorAdapter extends SimpleCursorAdapter{
 		// % change since buy
 	    float chngVsBuy = cursor.getFloat(mPctChangeSinceBuyIdx);
 	    showZeroWithoutSign(holder.pctChangeSinceBuyView, chngVsBuy);
-	    adjustTextColor(context, holder.pctChangeSinceBuyView, chngVsBuy);
+	    Themes.adjustBuyBlockTextColor(context, holder.pctChangeSinceBuyView, chngVsBuy, mGainTarget);
 	    
 	    // Effective Yield
 	    float effYield = cursor.getFloat(mEffYieldIdx);
@@ -113,31 +113,5 @@ public class BuyBlockCursorAdapter extends SimpleCursorAdapter{
         } else {
         	view.setText(String.format(Locale.US,Constants.PERCENTAGE_FORMAT, value));
         }
-	}
-	
-	private void adjustTextColor(Context context, TextView view, float value) {
-        Resources resources = context.getResources();
-        int normalBackgroundColor = resources.getColor(R.color.list_background_color);
-        int highlightBackgroundColor = resources.getColor(R.color.over_gain_target_color);
-        
-        int positiveTextColor = resources.getColor(R.color.positive_text_color);
-        int neutralTextColor = resources.getColor(R.color.neutral_text_color);
-        int negativeTextColor = resources.getColor(R.color.negative_text_color);
-		
-		if (value > Constants.POSITIVE_ONE_DECIMAL_LIMIT) {
-	    	view.setTextColor(positiveTextColor);
-	    } else if (value < Constants.NEGATIVE_ONE_DECIMAL_LIMIT) {
-	    	view.setTextColor(negativeTextColor);
-	    } else {
-	    	view.setTextColor(neutralTextColor);
-	    }
-		
-	    if (value > mGainTarget) {
-	    	view.setBackgroundColor(highlightBackgroundColor);
- 	       view.setTextColor(neutralTextColor);	        
-	    } else {
-	    	view.setBackgroundColor(normalBackgroundColor);
-	    }
-
 	}
 }

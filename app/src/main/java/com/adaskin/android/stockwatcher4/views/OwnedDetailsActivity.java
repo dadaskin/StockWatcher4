@@ -13,7 +13,9 @@ import com.adaskin.android.stockwatcher4.fragments.AccountSelectionFragment;
 import com.adaskin.android.stockwatcher4.fragments.AccountSelectionFragment.AlertOkListener;
 import com.adaskin.android.stockwatcher4.models.AccountModel;
 import com.adaskin.android.stockwatcher4.models.BuyBlock;
+import com.adaskin.android.stockwatcher4.models.StockQuote;
 import com.adaskin.android.stockwatcher4.utilities.Constants;
+import com.adaskin.android.stockwatcher4.utilities.Themes;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -90,7 +92,7 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
         Cursor cursor = dbAdapter.fetchBuyBlockRecordsForThisSymbol(mQuote.mSymbol);
         dbAdapter.close();
 
-		displayTotalInvestment(cursor);
+		displayTotalInvestment(cursor, mQuote);
 
         String[] fields = new String[] {DbAdapter.B_ACCOUNT,
         		                        DbAdapter.B_DATE, 
@@ -155,19 +157,36 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
 		return super.onContextItemSelected(item);
 	}
 
-    private void displayTotalInvestment(Cursor cursor)
+    private void displayTotalInvestment(Cursor cursor, StockQuote quote)
 	{
 		TextView amountView = (TextView)findViewById(R.id.owned_total_investment_amount);
 		TextView gainView = (TextView)findViewById(R.id.owned_total_investment_gain);
 		TextView divyView = (TextView)findViewById(R.id.owned_total_investment_divy);
 
-		amountView.setText("$123.45");
-		gainView.setText("23.4%");
-		divyView.setText("3.5%");
+		float totalShares = 0.0f;
+		float totalAmount = 0.0f;
 
+		while (!cursor.isAfterLast()) {
+			float numShares = cursor.getFloat(cursor.getColumnIndex(DbAdapter.B_NUM_SHARES));
+			totalShares += numShares;
+			float pps = cursor.getFloat(cursor.getColumnIndex(DbAdapter.B_PPS));
+			totalAmount += numShares * pps;
+			cursor.moveToNext();
+	    }
+
+        float overallGain = ((quote.mPPS * totalShares)/totalAmount - 1) * 100.0f;
+		float overallEffectiveDividend = ((quote.mDivPerShare * totalShares)/totalAmount) * 100.0f;
+
+		amountView.setText(String.format(Locale.US, Constants.CURRENCY_FORMAT_INTEGER, totalAmount));
+
+		gainView.setText(String.format(Locale.US, Constants.PERCENTAGE_FORMAT, overallGain));
+		Themes.adjustOverallTextColor(this, gainView, overallGain);
+
+		if (mQuote.mDivPerShare > Constants.MINIMUM_SIGNIFICANT_VALUE)
+			divyView.setText(String.format(Locale.US, Constants.PERCENTAGE_FORMAT, overallEffectiveDividend));
+		else
+			divyView.setText("--");
 	}
-
-
 
 	private String getDateStringFromRow(View v) {
 		LinearLayout ll = (LinearLayout)v;
@@ -208,7 +227,6 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
 		fillData();
 	}
 
-	
 	// Handle Change Number of Shares
     private void changeNumShares(View v) {
     	String dateString = getDateStringFromRow(v);
@@ -248,9 +266,7 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
     	mAccountsFragment.setArguments(args);
     	mAccountsFragment.show(manager, "Account Selection Dialog");
     }
-    
 
-    
 	@Override
 	public void onOkClick(int position) {
     	List<Integer> colorList = AccountModel.getBlockAccountColorList();
@@ -267,9 +283,7 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
 		dbAdapter.close();
 		fillData();
 	}
-    
-    
-    
+
     // Handle Add Another Block button
 	@SuppressWarnings("UnusedParameters")
 	public void addAnotherBlockButtonClicked(View v) {
@@ -328,9 +342,7 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
 
 		return new BuyBlock(buyDate, numShares, buyPrice, commissionPS, 0.0f, accountColor);
     }	
-	
 
-    
     // Handle parameter change buttons
     @SuppressWarnings("UnusedParameters")
 	public void changeButtonClicked_StrikePrice(View v) {
@@ -349,10 +361,4 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
     	intent.putExtra(Constants.OLD_VALUE_BUNDLE_KEY, mQuote.mPctGainTarget);
     	startActivityForResult(intent, Constants.PARAMETER_CHANGE_ACTIVITY);
     }
-
-
-
-
-
-
-}    	
+}

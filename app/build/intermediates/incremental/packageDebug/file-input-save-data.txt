@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Aug 20 12:15:39 PDT 2017
+#Sun Aug 20 15:20:50 PDT 2017
 122.file=C\:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_action_bar_decor_overlay.xml
 60.set=ANDROID_RESOURCE
 129.file=C\:\\Users\\Dave\\AndroidstudioProjects\\StockWatcher4\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ab_bottom_solid_dark_holo.9.png
