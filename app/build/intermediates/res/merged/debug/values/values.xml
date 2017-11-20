@@ -173,7 +173,7 @@
     <string name="abc_searchview_description_voice">Voice search</string>
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
-    <string name="action_settings">Build 3.3.2 \u0020\u0020\u0020 21 Aug 2017</string>
+    <string name="action_settings">Build 4.0.0 \u0020\u0020\u0020 03 Nov 2017</string>
     <string name="add_button">Add a New Stock Symbol</string>
     <string name="add_buy_block">: Buy Block of\u0020</string>
     <string name="add_owned">: Add to Owned List</string>

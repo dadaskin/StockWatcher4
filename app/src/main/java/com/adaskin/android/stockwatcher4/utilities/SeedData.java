@@ -19,27 +19,27 @@ public class SeedData {
 	       dba.createQuoteRecord(createASeed());
 	       dba.createQuoteRecord(createACCLSeed());
 	       dba.createQuoteRecord(createACASSeed());
-           dba.createQuoteRecord(createAZNSeed());
+          // dba.createQuoteRecord(createAZNSeed());
 	       dba.createQuoteRecord(createBTISeed());
-	       dba.createQuoteRecord(createCMISeed());
-	       dba.createQuoteRecord(createDALSeed());
-	       dba.createQuoteRecord(createDUKSeed());
-	       dba.createQuoteRecord(createECOLSeed());
+	       //dba.createQuoteRecord(createCMISeed());
+	       //dba.createQuoteRecord(createDALSeed());
+	       //dba.createQuoteRecord(createDUKSeed());
+	      // dba.createQuoteRecord(createECOLSeed());
 	       dba.createQuoteRecord(createFSeed());
 	       dba.createQuoteRecord(createLSRCXSeed());
 	       
 	       dba.createQuoteRecord(createGESeed());
-	       dba.createQuoteRecord(createMOSeed());
-	       dba.createQuoteRecord(createRGRSeed());
-           dba.createQuoteRecord(createSWHCSeed());
+	     //  dba.createQuoteRecord(createMOSeed());
+	     //  dba.createQuoteRecord(createRGRSeed());
+           //dba.createQuoteRecord(createSWHCSeed());
 	       dba.createQuoteRecord(createVLCCFSeed());
-	       dba.createQuoteRecord(createVVCSeed());
-	       dba.createQuoteRecord(createUALSeed());
-	       dba.createQuoteRecord(createHISeed());
-	       dba.createQuoteRecord(createMSFTSeed());
-	       dba.createQuoteRecord(createOSeed());
-	       dba.createQuoteRecord(createPHKSeed());
-	       dba.createQuoteRecord(createPMSeed());
+	      // dba.createQuoteRecord(createVVCSeed());
+	      // dba.createQuoteRecord(createUALSeed());
+	      // dba.createQuoteRecord(createHISeed());
+	      // dba.createQuoteRecord(createMSFTSeed());
+	     //  dba.createQuoteRecord(createOSeed());
+	      // dba.createQuoteRecord(createPHKSeed());
+	     //  dba.createQuoteRecord(createPMSeed());
 //	       mDbAdapter.createQuoteRecord(createSESeed());
 //	       mDbAdapter.createQuoteRecord(createTSeed());
 //	       mDbAdapter.createQuoteRecord(createTEGSeed());
@@ -66,8 +66,8 @@ public class SeedData {
 //	       mDbAdapter.createQuoteRecord(createJNJSeed());
 	       
 	       // WATCH
-	       dba.createQuoteRecord(createNLYSeed());
-	       dba.createQuoteRecord(createABTSeed());
+	       //dba.createQuoteRecord(createNLYSeed());
+	       //dba.createQuoteRecord(createABTSeed());
 	   }
 	
 

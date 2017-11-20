@@ -261,6 +261,10 @@ public class DbAdapter {
     	Cursor qCursor = fetchQuoteRecordFromId(id);
         return makeQuoteFromCursor(qCursor);
     }
+
+    public StockQuote fetchQuoteObjectFromSymbol(String symbol) {
+		return fetchQuoteObjectFromId(fetchQuoteIdFromSymbol(symbol));
+	}
     
 // --Commented out by Inspection START (5/3/2017 11:03 AM):
 //    public BuyBlock fetchBuyBlockObjectFromSymbolAndDate(String symbol, String dateString) {
