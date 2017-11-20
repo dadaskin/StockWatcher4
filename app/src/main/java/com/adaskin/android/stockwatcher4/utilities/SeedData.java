@@ -184,7 +184,7 @@ public class SeedData {
 			
 			q.mBuyBlockList.add(bb0);
 			q.mBuyBlockList.add(bb1);
-			
+
 			// Add a dummy prevClose and compute
 			q.compute(53.10f);
 			

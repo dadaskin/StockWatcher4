@@ -54,18 +54,18 @@ public class WatchDetailsActivity extends GenericDetailsActivity {
         yrMaxField.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, mQuote.mYrMax));
 		strikeField.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, mQuote.mStrikePrice));
 		
-        requestExtraQuoteInformation(mQuote.mSymbol);
+        //requestExtraQuoteInformation(mQuote.mSymbol);
     }
     
-    @Override
-	protected void updateDisplayWithExtraInfo() {
-		TextView nameField = (TextView)findViewById(R.id.watch_full_name_field);
-		TextView analOpField = (TextView)findViewById(R.id.watch_anal_op_field);
-		
-		nameField.setText(mQuote.mFullName);
-		analOpField.setText(String.format(Locale.US,Constants.OPINION_FORMAT, mQuote.mAnalystsOpinion));
-		
-	}
+//    @Override
+//	protected void updateDisplayWithExtraInfo() {
+//		TextView nameField = (TextView)findViewById(R.id.watch_full_name_field);
+//		TextView analOpField = (TextView)findViewById(R.id.watch_anal_op_field);
+//
+//		nameField.setText(mQuote.mFullName);
+//		analOpField.setText(String.format(Locale.US,Constants.OPINION_FORMAT, mQuote.mAnalystsOpinion));
+//
+//	}
 	
     @SuppressWarnings("UnusedParameters")
     public void changeButtonClicked(View v) {

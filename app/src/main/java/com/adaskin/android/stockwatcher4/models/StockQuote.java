@@ -25,8 +25,6 @@ public class StockQuote  implements Parcelable  {
      public float mYrMin;
      public float mDivPerShare;
      public float mStrikePrice;
-     
-     // Filled by special web request
      public float mAnalystsOpinion;
 	 
 	 // Calculated Fields

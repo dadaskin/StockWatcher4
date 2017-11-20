@@ -424,6 +424,7 @@ public class MainActivity extends ActionBarActivity
 
 			for (StockQuote quote : quoteList) {
 				String url = "https://finance.yahoo.com/quote/" + quote.mSymbol;
+				//Toast.makeText(mContext, quote.mSymbol, Toast.LENGTH_SHORT).show();
 				HttpGet httpGet = new HttpGet(url);
 				try {
 					HttpResponse execute = client.execute(httpGet);
@@ -484,6 +485,9 @@ public class MainActivity extends ActionBarActivity
 		}
 
 		private boolean parseYAHOOResponse(BufferedReader reader, StockQuote quote){
+			String msg = quote.mSymbol + ":\t" + quote.mPPS + "\t" + quote.mPctChangeSinceLastClose + "\t" + quote.mDivPerShare + "\t" + quote.mYrMin + "-" + quote.mYrMax + "\t" + quote.mFullName + "\t" + quote.mAnalystsOpinion;
+			Log.d("myTag", msg);
+
 			String symbol = quote.mSymbol;
 
 			String nameStart = "data-reactid=\"7\">" + symbol + " - ";
@@ -502,6 +506,11 @@ public class MainActivity extends ActionBarActivity
 			int rangeStartOffset = 20;
 			String rangeStop = "</td>";
 
+			String opinionStart = "\"recommendationMean\":{\"raw\":";
+			String opinionStop = ",\"fmt\"";
+
+			boolean isMainInformationFound = false;
+			boolean isOpinionFound = false;
 			String line;
 			String defaultNameString = "barf";
 			quote.mFullName = defaultNameString;
@@ -512,13 +521,30 @@ public class MainActivity extends ActionBarActivity
 						return false;
 					}
 
-					String remainder = findItemTrimString(line, nameStart, 0, nameStop, quote, 0);
-					remainder = findItemTrimString(remainder, ppsStart, 0, ppsStop, quote, 1);
-					remainder = findItemTrimString(remainder, ppsStart, 0, ppsStop, quote, 2);
-					remainder = findItemTrimString(remainder, rangeStart, rangeStartOffset, rangeStop, quote, 3);
-					findItemTrimString(remainder, divStart, divStartOffset, divStop, quote, 4);
+					if (line.contains(nameStart)) {
+						String remainder = findItemTrimString(line, nameStart, 0, nameStop, quote, 0);
+						remainder = findItemTrimString(remainder, ppsStart, 0, ppsStop, quote, 1);
+						remainder = findItemTrimString(remainder, ppsStart, 0, ppsStop, quote, 2);
+						remainder = findItemTrimString(remainder, rangeStart, rangeStartOffset, rangeStop, quote, 3);
+						findItemTrimString(remainder, divStart, divStartOffset, divStop, quote, 4);
+                        isMainInformationFound = true;
+					}
 
-					if(!(quote.mFullName.equals(defaultNameString)))
+
+					if (line.contains(opinionStart)) {
+						int opinionStartIdx = line.indexOf(opinionStart);
+						if (opinionStartIdx != -1){
+						    String sub = line.substring(opinionStartIdx + opinionStart.length());
+							int opinionStopIdx = sub.indexOf(opinionStop);
+							if (opinionStopIdx != -1) {
+								String opinionString = sub.substring(0, opinionStopIdx);
+								quote.mAnalystsOpinion = parseFloatOrNA(opinionString);
+								isOpinionFound = true;
+							}
+						}
+					}
+
+					if(isMainInformationFound && isOpinionFound)
 						break;
 			    }
     			for (BuyBlock block : quote.mBuyBlockList) {
@@ -526,11 +552,11 @@ public class MainActivity extends ActionBarActivity
 				}
 				quote.determineOverallAccountColor();
 
-				String msg = quote.mSymbol + ":\t" + quote.mPPS + "\t" + quote.mPctChangeSinceLastClose + "\t" + quote.mDivPerShare + "\t" + quote.mYrMin + "-" + quote.mYrMax + "\t" + quote.mFullName;
+				msg = quote.mSymbol + ":\t" + quote.mPPS + "\t" + quote.mPctChangeSinceLastClose + "\t" + quote.mDivPerShare + "\t" + quote.mYrMin + "-" + quote.mYrMax + "\t" + quote.mFullName + "\t" + quote.mAnalystsOpinion;
 				Log.d("myTag", msg);
 			} catch (IOException e) {
-				String msg = "Reading line from BufferedReader failed:\n" + e.getMessage();
-				Log.d("myTag", msg);
+				String exceptionMsg = "Reading line from BufferedReader failed:\n" + e.getMessage();
+				Log.d("myTag", exceptionMsg);
 				e.printStackTrace();
 			}
 			return true;
