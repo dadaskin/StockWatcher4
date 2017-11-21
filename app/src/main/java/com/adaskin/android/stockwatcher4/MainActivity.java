@@ -3,7 +3,6 @@ package com.adaskin.android.stockwatcher4;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,13 +36,11 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.Settings;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -53,8 +50,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import static android.util.Log.DEBUG;
 
 
 public class MainActivity extends ActionBarActivity
@@ -176,7 +171,6 @@ public class MainActivity extends ActionBarActivity
 	}
 
 	private void handleInvalidSymbols(List<String> invalidSymbolList, List<StockQuote> updatedQuoteList) {
-
 		int length = invalidSymbolList.size();
 		if (length == 0)  return;
 
@@ -233,30 +227,6 @@ public class MainActivity extends ActionBarActivity
         toolbarFragment.updateLastUpdateStrings();
     }
 
-//  Method used with Yahoo Finance < 01 Nov 2017
-//	// Development Note 06Dec13:   At first I tried to put the suffix characters in their own
-//	//    variable and then increment the urlString with that variable.  This left out the
-//	//    "&" character.
-//	private String formURLString(List<String> symbols){
-//		String urlString = "http://finance.yahoo.com/d/quotes.csv?s=";
-//		for (String symbol: symbols) {
-//		    urlString += symbol + "+";
-//		}
-//
-//		// Replace last "+" with "&"
-//		int lastIdx = urlString.lastIndexOf("+");
-//		urlString = (String)urlString.subSequence(0, lastIdx);
-//
-//    	// Flags:  s  = symbol
-//    	//         l1 = last trade price
-//    	//         k  = 52 week high
-//    	//         j  = 52 week low
-//    	//         d  = Dividend/share
-//    	//         p  = Previous close
-//    	//         n  = Full name
-//    	urlString += "&f=sl1kjdpn";
-//		return urlString;
-//	}
 	private void UpdateQuotesInDB(List<StockQuote> updatedQuoteList) {
 		DbAdapter dbAdapter = new DbAdapter(this);
 		dbAdapter.open();
@@ -267,7 +237,6 @@ public class MainActivity extends ActionBarActivity
 	}
 
 	private void UpdateDateStringsInDB() {
-		
 		Date now = new Date();
 
 		SimpleDateFormat sdf = new SimpleDateFormat(Constants.UPDATE_DATE_FORMAT, Locale.US);
@@ -311,8 +280,7 @@ public class MainActivity extends ActionBarActivity
 		Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
 	}
 
-	private void sendEmail()
-    {
+	private void sendEmail()  {
         String attachmentFileName = Environment.getExternalStorageDirectory() + "/stockwatcher4_backup.db";
 		String message = Build.MODEL + "  "  + Build.SERIAL;
         String[] emailParameters = new String[] {attachmentFileName, message};
@@ -320,7 +288,6 @@ public class MainActivity extends ActionBarActivity
     }
 
     private class SendEmailTask extends AsyncTask<String,Void,String> {
-
         @Override
         protected String doInBackground(String... inputStrings) {
             String senderUsername = "executive@adaskin.com";
@@ -371,32 +338,13 @@ public class MainActivity extends ActionBarActivity
     private class DoNetworkTask extends AsyncTask<List<StockQuote>, Integer, List<StockQuote>> {
 		
         private final Context mContext;
+		private int mTotalNumber;
 
-		public DoNetworkTask(Context context) {
+		DoNetworkTask(Context context) {
 			mContext = context;
+			mTotalNumber = 0;
 		}
 		
-		// Potentially long running task here.
-//		@Override
-//		protected String doInBackground(String... urls) {
-//			String response = "";
-//			String theURLString = urls[0];
-//			DefaultHttpClient client = new DefaultHttpClient();
-//			HttpGet httpGet = new HttpGet(theURLString);
-//			try {
-//				HttpResponse execute = client.execute(httpGet);
-//				InputStream content = execute.getEntity().getContent();
-//				BufferedReader buffer = new BufferedReader(new InputStreamReader(content));
-//				String s;
-//				while ((s = buffer.readLine()) != null){
-//					parseLine(s);
-//				}
-//			} catch(Exception e) {
-//				e.printStackTrace();
-//			}
-//			return response;
-//		}
-
 		private void writeWebResponseToFile(BufferedReader readBuffer, String fileName) {
 			String file = Environment.getExternalStorageDirectory() + "/" + fileName;
 			String line;
@@ -418,17 +366,17 @@ public class MainActivity extends ActionBarActivity
 
 		@Override
 		protected List<StockQuote> doInBackground(List<StockQuote>... params) {
-			String response = "";
 			DefaultHttpClient client = new DefaultHttpClient();
 			List<StockQuote> quoteList = params[0];
-
+			mTotalNumber = quoteList.size();
+            int count = 0;
+			publishProgress(count);
 			for (StockQuote quote : quoteList) {
 				String url = "https://finance.yahoo.com/quote/" + quote.mSymbol;
-				//Toast.makeText(mContext, quote.mSymbol, Toast.LENGTH_SHORT).show();
 				HttpGet httpGet = new HttpGet(url);
 				try {
 					HttpResponse execute = client.execute(httpGet);
-					Log.d("myTag", "Received response for: " + quote.mSymbol);
+					//Log.d("myTag", "Received response for: " + quote.mSymbol);
 					InputStream is = execute.getEntity().getContent();
 					BufferedReader buffer = new BufferedReader(new InputStreamReader(is));
 
@@ -443,6 +391,11 @@ public class MainActivity extends ActionBarActivity
 						mInvalidSymbolList.add(quote.mSymbol);
 					buffer.close();
 					is.close();
+					count++;
+					publishProgress(count, quoteList.size());
+
+					//String msg = count + ":\t" + quote.mSymbol + ":\t" + quote.mPPS + "\t" + quote.mPctChangeSinceLastClose + "\t" + quote.mDivPerShare + "\t" + quote.mYrMin + "-" + quote.mYrMax + "\t" + quote.mFullName + "\t" + quote.mAnalystsOpinion;
+					//Log.d("myTag", msg);
 				} catch (Exception e) {
 					String msg = "Sending/Receiving web request failed:\n" + e.getMessage();
 					Log.d("myTag", msg);
@@ -451,6 +404,7 @@ public class MainActivity extends ActionBarActivity
 			}
 			return quoteList;
 		}
+
 		private String findItemTrimString(String input, String startPattern, int startOffset, String stopPattern, StockQuote quote, int itemNumber) {
 			String remainder = input;
 			int startIdx = input.indexOf(startPattern);
@@ -485,9 +439,6 @@ public class MainActivity extends ActionBarActivity
 		}
 
 		private boolean parseYAHOOResponse(BufferedReader reader, StockQuote quote){
-			String msg = quote.mSymbol + ":\t" + quote.mPPS + "\t" + quote.mPctChangeSinceLastClose + "\t" + quote.mDivPerShare + "\t" + quote.mYrMin + "-" + quote.mYrMax + "\t" + quote.mFullName + "\t" + quote.mAnalystsOpinion;
-			Log.d("myTag", msg);
-
 			String symbol = quote.mSymbol;
 
 			String nameStart = "data-reactid=\"7\">" + symbol + " - ";
@@ -512,12 +463,11 @@ public class MainActivity extends ActionBarActivity
 			boolean isMainInformationFound = false;
 			boolean isOpinionFound = false;
 			String line;
-			String defaultNameString = "barf";
-			quote.mFullName = defaultNameString;
+			quote.mFullName = "barf";
 			try {
 			    while ((line = reader.readLine()) != null) {
 					if (line.contains(badSymbolPattern)){
-						Log.d("myTag", symbol + " is a bad symbol. *****");
+						//Log.d("myTag", symbol + " is a bad symbol. *****");
 						return false;
 					}
 
@@ -529,7 +479,6 @@ public class MainActivity extends ActionBarActivity
 						findItemTrimString(remainder, divStart, divStartOffset, divStop, quote, 4);
                         isMainInformationFound = true;
 					}
-
 
 					if (line.contains(opinionStart)) {
 						int opinionStartIdx = line.indexOf(opinionStart);
@@ -551,9 +500,6 @@ public class MainActivity extends ActionBarActivity
 					block.mEffDivYield = quote.mDivPerShare/block.mBuyPPS * 100.0f;
 				}
 				quote.determineOverallAccountColor();
-
-				msg = quote.mSymbol + ":\t" + quote.mPPS + "\t" + quote.mPctChangeSinceLastClose + "\t" + quote.mDivPerShare + "\t" + quote.mYrMin + "-" + quote.mYrMax + "\t" + quote.mFullName + "\t" + quote.mAnalystsOpinion;
-				Log.d("myTag", msg);
 			} catch (IOException e) {
 				String exceptionMsg = "Reading line from BufferedReader failed:\n" + e.getMessage();
 				Log.d("myTag", exceptionMsg);
@@ -563,63 +509,21 @@ public class MainActivity extends ActionBarActivity
 		}
 
 		@Override
-		protected void onPostExecute(List<StockQuote> updatedQuoteList) {
-//            handleInvalidSymbols(mInvalidSymbolList);
-//    		for (int i = 0; i < mPagerAdapter.getCount(); i++) {
-//    		    ListFragmentBase fragment = mPagerAdapter.getItem(i);
-//    	        fragment.redisplayList();
-//    		}
-    		((MainActivity)mContext).networkTaskCompleted(updatedQuoteList);
-			Toast.makeText(MainActivity.this, "Refresh Complete", Toast.LENGTH_LONG).show();
-		}
-		
+		protected void onProgressUpdate(Integer... progressIndicators) {
+			int currentSymbol = 0;
+			if (progressIndicators.length > 0)
+			   currentSymbol = progressIndicators[0];
 
-//		private void parseLine(String s) {
-//
-//			Log.d("myTag", s);
-//
-//     		String[] fields = s.split(",");
-//			String symbol = (String)fields[0].subSequence(1, fields[0].length()-1);
-//			Float pps = parseFloatOrNA(fields[1]);
-//			Float yrHi = parseFloatOrNA(fields[2]);
-//			Float yrLo = parseFloatOrNA(fields[3]);
-//			Float div = parseFloatOrNA(fields[4]);
-//			Float prevClose = parseFloatOrNA(fields[5]);
-//
-//			// FullName may have "," in it and be split
-//			String fullName = fields[6];
-//			int fieldsRead = 7;
-//			while (fields.length > fieldsRead)
-//			{
-//				fullName += fields[fieldsRead];
-//				fieldsRead++;
-//			}
-//
-//			DbAdapter dbAdapter = new DbAdapter(MainActivity.this);
-//			dbAdapter.open();
-//			long id = dbAdapter.fetchQuoteIdFromSymbol(symbol);
-//			StockQuote quote = dbAdapter.fetchQuoteObjectFromId(id);
-//			quote.mPPS = pps;
-//			quote.mYrMax = yrHi;
-//			quote.mYrMin = yrLo;
-//			quote.mDivPerShare = div;
-//			quote.mFullName = fullName;
-//
-//			if (isSymbolValid(quote, prevClose)) {
-//				for (BuyBlock block : quote.mBuyBlockList) {
-//					block.mEffDivYield = div/block.mBuyPPS * 100.0f;
-//				}
-//
-//				quote.compute(prevClose);
-//				quote.determineOverallAccountColor();
-//				dbAdapter.changeQuoteRecord(id, quote);
-//			} else {
-//				mInvalidSymbolList.add(quote.mSymbol);
-//			}
-//
-//			dbAdapter.close();
-//		}
-		
+			String msg = "Symbol " + currentSymbol + " of " + mTotalNumber;
+			Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
+		}
+
+		@Override
+		protected void onPostExecute(List<StockQuote> updatedQuoteList) {
+    		((MainActivity)mContext).networkTaskCompleted(updatedQuoteList);
+			Toast.makeText(MainActivity.this, "Refresh Complete", Toast.LENGTH_SHORT).show();
+		}
+
 	    private float parseFloatOrNA(String field) {
 	    	float parsedFloat = 0.0f;
 	    	if (!field.contains("N/A")) {
@@ -627,18 +531,5 @@ public class MainActivity extends ActionBarActivity
 	    	}
 	    	return parsedFloat;
 	    }
-		
-//	    private boolean isSymbolValid(StockQuote quote, float prevClose) {
-//			return !((quote.mPPS < Constants.MINIMUM_SIGNIFICANT_VALUE) &&
-//					(quote.mDivPerShare < Constants.MINIMUM_SIGNIFICANT_VALUE) &&
-//					(quote.mYrMin < Constants.MINIMUM_SIGNIFICANT_VALUE) &&
-//					(quote.mYrMax < Constants.MINIMUM_SIGNIFICANT_VALUE) &&
-//					(prevClose < Constants.MINIMUM_SIGNIFICANT_VALUE));
-//
-//		}
 	}
-	
-	
-
-
 }

@@ -75,8 +75,6 @@ public class StockQuote  implements Parcelable  {
 	 }
 
 
-	 
-	 
 	// -------- Methods -------- 
     public void compute(float lastClosePPS) {
     	if (mBuyBlockList != null) {
@@ -131,7 +129,6 @@ public class StockQuote  implements Parcelable  {
     			break;
     		}
     	}
-    	
     	return theBuyBlock;
     }
 	 

@@ -112,24 +112,8 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
 				= new BuyBlockCursorAdapter(this, cursor, mQuote.mPctGainTarget, fields, ids);
 
         blockListView.setAdapter(bbca);
-        
-        //requestExtraQuoteInformation(mQuote.mSymbol);
     }
 	
-//    @Override
-//	protected void updateDisplayWithExtraInfo() {
-//		TextView nameField = (TextView)findViewById(R.id.owned_full_name_field);
-//		TextView analOpField = (TextView)findViewById(R.id.owned_anal_op_field);
-//
-//		nameField.setText(mQuote.mFullName);
-//		if (mQuote.mAnalystsOpinion == 0.0f) {
-//			analOpField.setText("--");
-//		} else {
-//		    analOpField.setText(String.format(Locale.US,Constants.OPINION_FORMAT, mQuote.mAnalystsOpinion));
-//		}
-//
-//	}
-
 	// Create context menu and dispatch selections
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
