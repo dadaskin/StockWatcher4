@@ -392,7 +392,8 @@ public class MainActivity extends ActionBarActivity
 					buffer.close();
 					is.close();
 					count++;
-					publishProgress(count, quoteList.size());
+					if (count%5 == 0)
+					     publishProgress(count, quoteList.size());
 
 					//String msg = count + ":\t" + quote.mSymbol + ":\t" + quote.mPPS + "\t" + quote.mPctChangeSinceLastClose + "\t" + quote.mDivPerShare + "\t" + quote.mYrMin + "-" + quote.mYrMax + "\t" + quote.mFullName + "\t" + quote.mAnalystsOpinion;
 					//Log.d("myTag", msg);
@@ -527,7 +528,7 @@ public class MainActivity extends ActionBarActivity
 	    private float parseFloatOrNA(String field) {
 	    	float parsedFloat = 0.0f;
 	    	if (!field.contains("N/A")) {
-	    		parsedFloat = Float.valueOf(field);
+	    		parsedFloat = Float.valueOf(field.replace(",",""));
 	    	}
 	    	return parsedFloat;
 	    }
