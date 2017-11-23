@@ -66,8 +66,8 @@ public class SeedData {
 //	       mDbAdapter.createQuoteRecord(createJNJSeed());
 	       
 	       // WATCH
-	       //dba.createQuoteRecord(createNLYSeed());
-	       //dba.createQuoteRecord(createABTSeed());
+	       dba.createQuoteRecord(createNLYSeed());
+	       dba.createQuoteRecord(createABTSeed());
 	   }
 	
 
