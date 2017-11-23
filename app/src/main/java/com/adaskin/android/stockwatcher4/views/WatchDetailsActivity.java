@@ -8,17 +8,23 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
 
 public class WatchDetailsActivity extends GenericDetailsActivity {
-	
+
+	private boolean mIsButtonRotating;
+
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.watch_details);
-        
+
+		mIsButtonRotating = false;
         mSymbol = getIntent().getExtras().getString(Constants.SYMBOL_BUNDLE_KEY);
         setTitleString();
        
@@ -62,6 +68,21 @@ public class WatchDetailsActivity extends GenericDetailsActivity {
     	intent.putExtra(Constants.PARAM_NAME_BUNDLE_KEY, "Strike Price");
     	intent.putExtra(Constants.OLD_VALUE_BUNDLE_KEY, mQuote.mStrikePrice);
     	startActivityForResult(intent, Constants.PARAMETER_CHANGE_ACTIVITY);
+    }
+
+    public void watchRefreshButtonClicked(View v) {
+		Toast.makeText(this, "Refresh this Watch item!", Toast.LENGTH_LONG).show();
+
+		// Replace this with call to refresh the single quote
+		if (mIsButtonRotating) {
+            v.clearAnimation();
+			mIsButtonRotating = false;
+		} else {
+			Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate_1sec_center);
+			animation.setRepeatCount(Animation.INFINITE);
+			v.startAnimation(animation);
+			mIsButtonRotating = true;
+	    }
     }
 
 	@Override

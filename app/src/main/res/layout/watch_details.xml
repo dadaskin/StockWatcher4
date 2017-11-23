@@ -85,5 +85,37 @@
                   android:textColor="@color/normal_text_color"
                   android:text="n/a"/>
     </LinearLayout>  
-    
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="25dip"
+        >
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+            >
+            <ImageButton android:id="@+id/watch_refresh_button_stationary"
+                android:layout_width="48dip"
+                android:layout_height="48dip"
+                android:background="@android:color/transparent"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2dip"
+                android:layout_marginBottom="3dip"
+                android:src="@drawable/gradientshape"
+                android:contentDescription="@string/refresh_button_stationary"
+                />
+
+            <!--suppress AndroidMissingOnClickHandler -->
+            <ImageButton android:id="@+id/watch_refresh_button_moving"
+                android:layout_width="48dip"
+                android:layout_height="48dip"
+                android:background="@android:color/transparent"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2dip"
+                android:layout_marginBottom="3dip"
+                android:src="@drawable/refresh_arrows"
+                android:contentDescription="@string/refresh_button_moving"
+                android:onClick="watchRefreshButtonClicked"
+                />
+                </RelativeLayout>
+    </RelativeLayout>
+
 </LinearLayout>
