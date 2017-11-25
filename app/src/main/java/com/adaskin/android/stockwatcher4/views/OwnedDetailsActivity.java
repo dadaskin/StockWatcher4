@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuInflater;
@@ -46,13 +47,13 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
 		setContentView(R.layout.owned_details);
 
 		Bundle bundle = getIntent().getExtras();
-		mSymbol = bundle.getString(Constants.SYMBOL_BUNDLE_KEY);
-        setTitleString();
+		String symbol = bundle.getString(Constants.SYMBOL_BUNDLE_KEY);
+        setTitleString(symbol);
 
         DbAdapter dbAdapter = new DbAdapter(this);
         dbAdapter.open();
         
-		long parentId = dbAdapter.fetchQuoteIdFromSymbol(mSymbol);
+		long parentId = dbAdapter.fetchQuoteIdFromSymbol(symbol);
         mQuote = dbAdapter.fetchQuoteObjectFromId(parentId);
         dbAdapter.close();
         
@@ -201,9 +202,9 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
 		DbAdapter dbAdapter = new DbAdapter(this);
 		dbAdapter.open();
 		
-		dbAdapter.removeBuyBlockRecord(mSymbol, dateString);
+		dbAdapter.removeBuyBlockRecord(mQuote.mSymbol, dateString);
 
-		long parentId = dbAdapter.fetchQuoteIdFromSymbol(mSymbol);
+		long parentId = dbAdapter.fetchQuoteIdFromSymbol(mQuote.mSymbol);
 		mQuote = dbAdapter.fetchQuoteObjectFromId(parentId);
 
 		dbAdapter.close();
@@ -345,4 +346,13 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
     	intent.putExtra(Constants.OLD_VALUE_BUNDLE_KEY, mQuote.mPctGainTarget);
     	startActivityForResult(intent, Constants.PARAMETER_CHANGE_ACTIVITY);
     }
+
+    @Override
+	protected void singleSymbolUpdateCompleted(StockQuote updatedQuote) {
+		String msg = mQuote.mPPS + "\t" + mQuote.mDivPerShare + "\t" + mQuote.mAnalystsOpinion;
+		Log.d("myTag", msg);
+
+		updateQuoteInDB(updatedQuote);
+		fillData();
+	}
 }

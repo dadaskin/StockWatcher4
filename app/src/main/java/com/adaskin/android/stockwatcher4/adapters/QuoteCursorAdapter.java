@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.adaskin.android.stockwatcher4.R;
 import com.adaskin.android.stockwatcher4.database.DbAdapter;
 import com.adaskin.android.stockwatcher4.utilities.Constants;
-import com.adaskin.android.stockwatcher4.utilities.Status;
+import com.adaskin.android.stockwatcher4.utilities.QuoteStatus;
 
 import java.util.Locale;
 
@@ -87,7 +87,7 @@ public class QuoteCursorAdapter extends SimpleCursorAdapter {
         dbAdapter.open();
         
         //Status status = mDbAdapter.getStatus(cursor);
-        Status status = dbAdapter.getStatus(cursor);
+        QuoteStatus status = dbAdapter.getStatus(cursor);
         
         // Account
         int colorValue = cursor.getInt(mOverallAccountIdx);
@@ -109,7 +109,7 @@ public class QuoteCursorAdapter extends SimpleCursorAdapter {
         adjustChangeSinceLastCloseFieldColor(holder.pctChangeSinceLastCloseView, chngVsClose);
         
         // Change since buy (Owned) or Strike Price (Watch)
-        if (status == Status.WATCH) {
+        if (status == QuoteStatus.WATCH) {
         	float strike = cursor.getFloat(mStrikeIdx);
         	holder.lastQView.setText(String.format(Locale.US,Constants.CURRENCY_FORMAT, strike));
         	holder.lastQView.setBackgroundColor(mNormalBackgroundColor);

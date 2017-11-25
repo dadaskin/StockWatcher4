@@ -92,7 +92,7 @@
         <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
             >
-            <ImageButton android:id="@+id/watch_refresh_button_stationary"
+            <ImageButton android:id="@+id/detail_refresh_button_stationary"
                 android:layout_width="48dip"
                 android:layout_height="48dip"
                 android:background="@android:color/transparent"
@@ -104,7 +104,7 @@
                 />
 
             <!--suppress AndroidMissingOnClickHandler -->
-            <ImageButton android:id="@+id/watch_refresh_button_moving"
+            <ImageButton android:id="@+id/detail_refresh_button_moving"
                 android:layout_width="48dip"
                 android:layout_height="48dip"
                 android:background="@android:color/transparent"
@@ -113,7 +113,7 @@
                 android:layout_marginBottom="3dip"
                 android:src="@drawable/refresh_arrows"
                 android:contentDescription="@string/refresh_button_moving"
-                android:onClick="watchRefreshButtonClicked"
+                android:onClick="detailRefreshButtonClicked"
                 />
                 </RelativeLayout>
     </RelativeLayout>

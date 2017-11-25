@@ -9,7 +9,7 @@ import android.os.Parcelable;
 import com.adaskin.android.stockwatcher4.database.DbAdapter;
 import com.adaskin.android.stockwatcher4.utilities.Constants;
 import com.adaskin.android.stockwatcher4.utilities.SeedData;
-import com.adaskin.android.stockwatcher4.utilities.Status;
+import com.adaskin.android.stockwatcher4.utilities.QuoteStatus;
 
 public class DataModel implements Parcelable{
      
@@ -96,7 +96,7 @@ public class DataModel implements Parcelable{
 		StockQuote quote = findStockQuoteBySymbol(symbol);
 		long id = mDbAdapter.fetchQuoteIdFromSymbol(symbol);
 		
-		quote.mStatus = Status.WATCH;
+		quote.mStatus = QuoteStatus.WATCH;
 		quote.mBuyBlockList = new ArrayList<BuyBlock>();
 		mDbAdapter.changeQuoteRecord(id, quote);
 	}

@@ -14,7 +14,7 @@ import java.util.Locale;
 import com.adaskin.android.stockwatcher4.models.BuyBlock;
 import com.adaskin.android.stockwatcher4.models.StockQuote;
 import com.adaskin.android.stockwatcher4.utilities.Constants;
-import com.adaskin.android.stockwatcher4.utilities.Status;
+import com.adaskin.android.stockwatcher4.utilities.QuoteStatus;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -198,7 +198,7 @@ public class DbAdapter {
        
     // User must manage cursor
     //OK
-    public Cursor fetchAllQuoteRecordsByStatus(Status status) {
+    public Cursor fetchAllQuoteRecordsByStatus(QuoteStatus status) {
     	String statusAsString = statusAsString(status);
     	String sql = "select " + Q_ROW_ID + " as _id, * from " + QUOTE_TABLE + 
     	             " where " + Q_STATUS + "=? order by " + Q_SYMBOL; 
@@ -331,7 +331,7 @@ public class DbAdapter {
     	float opinion = qCursor.getFloat(qCursor.getColumnIndex(Q_OPINION));
         float pps = qCursor.getFloat(qCursor.getColumnIndex(Q_PPS));
         String statusStr = qCursor.getString(qCursor.getColumnIndex(Q_STATUS));
-        Status status = statusFromString(statusStr);
+		QuoteStatus status = statusFromString(statusStr);
         float strike = qCursor.getFloat(qCursor.getColumnIndex(Q_STRIKE));
         float changeVsBuy = qCursor.getFloat(qCursor.getColumnIndex(Q_CHANGE_VS_BUY));
         float yrMax = qCursor.getFloat(qCursor.getColumnIndex(Q_YR_MAX));
@@ -466,9 +466,9 @@ public class DbAdapter {
 // Converter methods
     
     // Converts DB value of status field into Status enum
-	public Status getStatus(Cursor cursor) {
+	public QuoteStatus getStatus(Cursor cursor) {
 		int idx = cursor.getColumnIndex(Q_STATUS);
-		if (cursor.isClosed()) { return Status.SOLD; }
+		if (cursor.isClosed()) { return QuoteStatus.SOLD; }
 		String statusString = cursor.getString(idx);
 		return statusFromString(statusString);
 	}
@@ -508,18 +508,18 @@ public class DbAdapter {
 	}
 	
 	// OK
-	private String statusAsString(Status status) {
-        if (status == Status.OWNED) { return ST_OWNED;}
-        else if (status == Status.WATCH) { return ST_WATCH;}
+	private String statusAsString(QuoteStatus status) {
+        if (status == QuoteStatus.OWNED) { return ST_OWNED;}
+        else if (status == QuoteStatus.WATCH) { return ST_WATCH;}
         else { return ST_SOLD;}
 	}   
 	
-	private Status statusFromString(String statusString) {
-        Status status;	
+	private QuoteStatus statusFromString(String statusString) {
+		QuoteStatus status;
 
-		if (statusString.contentEquals(ST_OWNED)) { status = Status.OWNED;}
-		else if (statusString.contentEquals(ST_WATCH)) {status = Status.WATCH; }
-		else { status = Status.SOLD; }
+		if (statusString.contentEquals(ST_OWNED)) { status = QuoteStatus.OWNED;}
+		else if (statusString.contentEquals(ST_WATCH)) {status = QuoteStatus.WATCH; }
+		else { status = QuoteStatus.SOLD; }
 		
 		return status;
 	}

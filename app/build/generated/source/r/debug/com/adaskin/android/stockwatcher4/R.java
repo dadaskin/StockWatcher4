@@ -817,6 +817,8 @@ containing a value of this type.
         public static final int custom_title=0x7f0a0059;
         public static final int date_field_id=0x7f0a0054;
         public static final int default_activity_button=0x7f0a0026;
+        public static final int detail_refresh_button_moving=0x7f0a0083;
+        public static final int detail_refresh_button_stationary=0x7f0a0082;
         public static final int dialog=0x7f0a0016;
         public static final int dialog_account_color_field=0x7f0a0044;
         public static final int dialog_account_name_text_view=0x7f0a0045;
@@ -908,8 +910,6 @@ containing a value of this type.
         public static final int watch_divps_field=0x7f0a007e;
         public static final int watch_full_name_field=0x7f0a007b;
         public static final int watch_pps_field=0x7f0a007c;
-        public static final int watch_refresh_button_moving=0x7f0a0083;
-        public static final int watch_refresh_button_stationary=0x7f0a0082;
         public static final int watch_strike_price_field=0x7f0a007d;
         public static final int watch_yr_max_field=0x7f0a0080;
         public static final int watch_yr_min_field=0x7f0a007f;
@@ -993,15 +993,8 @@ containing a value of this type.
     public static final class style {
         /**  API 11 theme customizations can go here. 
  API 14 theme customizations can go here. 
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
          */
         public static final int AppBaseTheme=0x7f080000;
-        /**  All customizations that are NOT specific to a particular API-level can go here. 
-         */
         public static final int AppTheme=0x7f08003a;
         public static final int CustomTheme=0x7f08003b;
         public static final int CustomWindowTitleBackground=0x7f08003c;

@@ -26,7 +26,7 @@ import com.adaskin.android.stockwatcher4.models.BuyBlock;
 import com.adaskin.android.stockwatcher4.models.DataModel;
 import com.adaskin.android.stockwatcher4.models.StockQuote;
 import com.adaskin.android.stockwatcher4.utilities.Constants;
-import com.adaskin.android.stockwatcher4.utilities.Status;
+import com.adaskin.android.stockwatcher4.utilities.QuoteStatus;
 import com.adaskin.android.stockwatcher4.views.OwnedDetailsActivity;
 import com.adaskin.android.stockwatcher4.views.OwnedAddActivity;
 import com.adaskin.android.stockwatcher4.R;
@@ -159,7 +159,7 @@ public class OwnedFragment extends ListFragmentBase {
 	private void fillData() {
 		DbAdapter dbAdapter = new DbAdapter(getActivity());
         dbAdapter.open();
-        Cursor cursor = dbAdapter.fetchAllQuoteRecordsByStatus(Status.OWNED);
+        Cursor cursor = dbAdapter.fetchAllQuoteRecordsByStatus(QuoteStatus.OWNED);
         dbAdapter.close();  
         
         String[] fields = new String[] { DbAdapter.Q_ACCOUNT_COLOR,

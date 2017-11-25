@@ -6,7 +6,7 @@ import com.adaskin.android.stockwatcher4.database.DbAdapter;
 import com.adaskin.android.stockwatcher4.models.DataModel;
 import com.adaskin.android.stockwatcher4.models.StockQuote;
 import com.adaskin.android.stockwatcher4.utilities.Constants;
-import com.adaskin.android.stockwatcher4.utilities.Status;
+import com.adaskin.android.stockwatcher4.utilities.QuoteStatus;
 import com.adaskin.android.stockwatcher4.views.WatchAddActivity;
 import com.adaskin.android.stockwatcher4.views.WatchDetailsActivity;
 import com.adaskin.android.stockwatcher4.views.OwnedAddActivity;
@@ -154,7 +154,7 @@ public class WatchFragment extends ListFragmentBase {
 	private void fillData() {
 		DbAdapter dbAdapter = new DbAdapter(getActivity());
         dbAdapter.open();
-        Cursor cursor = dbAdapter.fetchAllQuoteRecordsByStatus(Status.WATCH);
+        Cursor cursor = dbAdapter.fetchAllQuoteRecordsByStatus(QuoteStatus.WATCH);
         dbAdapter.close();   
         
         String[] fields = new String[] { DbAdapter.Q_SYMBOL,

@@ -2,54 +2,39 @@ package com.adaskin.android.stockwatcher4.views;
 
 import com.adaskin.android.stockwatcher4.R;
 import com.adaskin.android.stockwatcher4.database.DbAdapter;
-import com.adaskin.android.stockwatcher4.fragments.ListFragmentBase;
 import com.adaskin.android.stockwatcher4.models.StockQuote;
 import com.adaskin.android.stockwatcher4.utilities.Constants;
-import com.adaskin.android.stockwatcher4.utilities.Parsers;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Locale;
 
 
 public class WatchDetailsActivity extends GenericDetailsActivity {
 
-	//private boolean mIsButtonRotating;
-	private View mRefreshButtonView;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.watch_details);
 
-		//mIsButtonRotating = false;
-        mSymbol = getIntent().getExtras().getString(Constants.SYMBOL_BUNDLE_KEY);
-        setTitleString();
+        String symbol = getIntent().getExtras().getString(Constants.SYMBOL_BUNDLE_KEY);
+        setTitleString(symbol);
        
         DbAdapter dbAdapter = new DbAdapter(this);
         dbAdapter.open();
         
-        long id = dbAdapter.fetchQuoteIdFromSymbol(mSymbol);
+        long id = dbAdapter.fetchQuoteIdFromSymbol(symbol);
         mQuote = dbAdapter.fetchQuoteObjectFromId(id);
         dbAdapter.close();
-        
+
+        Log.d("myTag", "WatchDetailsActivity started.");
+
         fillData();
     }
     
@@ -85,6 +70,15 @@ public class WatchDetailsActivity extends GenericDetailsActivity {
     	startActivityForResult(intent, Constants.PARAMETER_CHANGE_ACTIVITY);
     }
 
+    @Override
+	protected void singleSymbolUpdateCompleted(StockQuote updatedQuote) {
+		String msg = mQuote.mPPS + "\t" + mQuote.mDivPerShare + "\t" + mQuote.mAnalystsOpinion;
+		Log.d("myTag", msg);
+
+		updateQuoteInDB(updatedQuote);
+		fillData();
+	}
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		super.onActivityResult(requestCode, resultCode, intent);
@@ -96,90 +90,6 @@ public class WatchDetailsActivity extends GenericDetailsActivity {
 			dbAdapter.createQuoteRecord(mQuote);
 			dbAdapter.close();
 			fillData();
-		}
-	}
-
-	public void watchRefreshButtonClicked(View v) {
-		Toast.makeText(this, "Refresh this Watch item!", Toast.LENGTH_LONG).show();
-
-		// Replace this with call to refresh the single quote
-//		if (mIsButtonRotating) {
-//			v.clearAnimation();
-//			mIsButtonRotating = false;
-//		} else {
-//			Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate_1sec_center);
-//			animation.setRepeatCount(Animation.INFINITE);
-//			v.startAnimation(animation);
-//			mIsButtonRotating = true;
-//		}
-
-		mRefreshButtonView = v;
-		String msg = mQuote.mPPS + "\t" + mQuote.mDivPerShare + "\t" + mQuote.mAnalystsOpinion;
-		Log.d("myTag", msg);
-
-		Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate_1sec_center);
-		animation.setRepeatCount(Animation.INFINITE);
-		mRefreshButtonView.startAnimation(animation);
-		SingleSymbolUpdateTask updateTask = new SingleSymbolUpdateTask(this);
-		updateTask.execute(mQuote);
-	}
-
-	private void singleSymbolUpdateCompleted(StockQuote updatedQuote) {
-		String msg = mQuote.mPPS + "\t" + mQuote.mDivPerShare + "\t" + mQuote.mAnalystsOpinion;
-		Log.d("myTag", msg);
-
-		updateQuoteInDB(updatedQuote);
-		fillData();
-		mRefreshButtonView.clearAnimation();
-	}
-
-	private void updateQuoteInDB(StockQuote updatedQuote) {
-		DbAdapter dbAdapter = new DbAdapter(this);
-		dbAdapter.open();
-		dbAdapter.changeQuoteRecord(dbAdapter.fetchQuoteIdFromSymbol(updatedQuote.mSymbol), updatedQuote);
-		dbAdapter.close();
-	}
-
-	private class SingleSymbolUpdateTask extends AsyncTask<StockQuote, Integer, StockQuote>  {
-
-		private final Context mContext;
-
-		SingleSymbolUpdateTask(Context context) {
-			mContext = context;
-		}
-
-		@Override
-		protected StockQuote doInBackground(StockQuote... params) {
-			DefaultHttpClient client = new DefaultHttpClient();
-			StockQuote quote = params[0];
-
-			String url = "https://finance.yahoo.com/quote/" + quote.mSymbol;
-			HttpGet httpGet = new HttpGet(url);
-			try {
-				HttpResponse response = client.execute(httpGet);
-				Log.d("myTag", "Received response for: "+ quote.mSymbol);
-				InputStream is = response.getEntity().getContent();
-				BufferedReader buffer = new BufferedReader(new InputStreamReader(is));
-
-				boolean isValidSymbol = Parsers.parseYAHOOResponse(buffer, quote);
-				if (!isValidSymbol) {
-					String msg = "Symbol: " + quote.mSymbol + " is not valid.";
-					Log.d("myTag", msg);
-				}
-				buffer.close();
-				is.close();
-			} catch (Exception e) {
-				String msg = "Sending/Receiving web request failed:\n" + e.getMessage();
-				Log.d("myTag", msg);
-				e.printStackTrace();
-			}
-
-			return quote;
-		}
-
-		@Override
-		protected void onPostExecute(StockQuote updatedQuote) {
-			((WatchDetailsActivity)mContext).singleSymbolUpdateCompleted(updatedQuote);
 		}
 	}
 }

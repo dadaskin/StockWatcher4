@@ -9,7 +9,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.adaskin.android.stockwatcher4.utilities.Constants;
-import com.adaskin.android.stockwatcher4.utilities.Status;
+import com.adaskin.android.stockwatcher4.utilities.QuoteStatus;
 
 public class StockQuote  implements Parcelable  {
      
@@ -17,7 +17,7 @@ public class StockQuote  implements Parcelable  {
 	 // Raw Fields
 	 public String mSymbol;
 	 public String mFullName;
-	 public Status mStatus;
+	 public QuoteStatus mStatus;
 	 public float mPPS;
 	 public List<BuyBlock> mBuyBlockList;
      public float mPctGainTarget;	 
@@ -41,7 +41,7 @@ public class StockQuote  implements Parcelable  {
                        ) {
 		mSymbol = symbol;
 		mFullName = "Foo Bar Incorporated";
-		mStatus = Status.OWNED;
+		mStatus = QuoteStatus.OWNED;
 		mPPS = pps;
 		mDivPerShare = divPS;
 		mPctGainTarget = pctGainTarget;
@@ -63,7 +63,7 @@ public class StockQuote  implements Parcelable  {
 		               float yrMin) {
 			mSymbol = symbol;
 			mFullName = "Foo Bar Incorporated";
-			mStatus = Status.WATCH;
+			mStatus = QuoteStatus.WATCH;
 			mPPS = pps;
 			mStrikePrice = strikePrice;
 			mDivPerShare = divPS;
@@ -166,9 +166,9 @@ public class StockQuote  implements Parcelable  {
 		mSymbol = in.readString();
 		mFullName = in.readString();
 		try {
-			mStatus = Status.valueOf(in.readString());
+			mStatus = QuoteStatus.valueOf(in.readString());
 		} catch (IllegalArgumentException e) {
-			mStatus = Status.OWNED;
+			mStatus = QuoteStatus.OWNED;
 		}
 		mPPS = in.readFloat();
 		mBuyBlockList = new ArrayList<BuyBlock>();
