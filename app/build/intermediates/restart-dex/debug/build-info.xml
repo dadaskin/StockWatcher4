@@ -6,23 +6,32 @@
     density="xxhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1511577171369"
+    timestamp="1511582010655"
     token="-6976743675164766946"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="714" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="187" />
     <task
         name="verifier"
-        duration="0" />
+        duration="372" />
 
+    <artifact
+        location="C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+        type="SPLIT" />
     <artifact
         location="C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\build\outputs\apk\app-debug.apk"
         type="SPLIT_MAIN" />
@@ -70,24 +79,17 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1511574199640"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1511576729158"
+        timestamp="1511582010655"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1511577171369"
-        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
         <artifact
             location="C:\Users\Dave\AndroidstudioProjects\StockWatcher4\app\build\outputs\apk\app-debug.apk"
             type="SPLIT_MAIN" />
