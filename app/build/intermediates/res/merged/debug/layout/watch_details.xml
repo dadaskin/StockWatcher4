@@ -14,91 +14,88 @@
               android:id="@+id/watch_full_name_field"
               android:textColor="@color/normal_text_color"
               android:textSize="20sp"/>
-    
-    <!-- PPS  -->
-    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-                  android:orientation="horizontal">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:textColor="@color/normal_text_color"
-                  android:text="PPS: "/>                      
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"  
-                  android:id="@+id/watch_pps_field"
-                  android:textColor="@color/normal_text_color"
-                  android:paddingLeft="10dp"/>
-    </LinearLayout>    
 
-    <!--  Strike Price -->
-        <LinearLayout android:layout_width="fill_parent"  android:layout_height="wrap_content"
-                      android:orientation="horizontal">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:textColor="@color/normal_text_color"
-                      android:text="Strike Price:" />
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:textColor="@color/normal_text_color"
-                      android:id="@+id/watch_strike_price_field"
-                      android:paddingLeft="10sp" />
-            <Button   android:layout_width="wrap_content"  android:layout_height="wrap_content"
-                      android:text="Change"
-                      android:textColor="@color/button_text_color"
-                      android:textSize="12sp"                      
-                      android:layout_marginLeft="5sp"
-                      android:onClick="changeButtonClicked" />
-        </LinearLayout> 
-    
-    <!-- DivPerShare -->
-    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-                  android:orientation="horizontal">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:textColor="@color/normal_text_color"
-                  android:text="Div/Share: "/>
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"  
-                  android:textColor="@color/normal_text_color"
-                  android:id="@+id/watch_divps_field" android:paddingLeft="10dp"/>
-    </LinearLayout>  
-    
-    <!-- YearlyRange -->
-    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-                  android:orientation="horizontal">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:textColor="@color/normal_text_color"
-                  android:text="Yearly Range: " />
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"  
-                  android:id="@+id/watch_yr_min_field" 
-                  android:textColor="@color/normal_text_color"
-                  android:paddingLeft="10dp" />
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"  
-                  android:textColor="@color/normal_text_color"
-                  android:text=" - "/>
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"  
-                  android:textColor="@color/normal_text_color"
-                  android:id="@+id/watch_yr_max_field"/>
-    </LinearLayout>  
-    
-    <!-- AnalOp -->
-    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-                  android:orientation="horizontal">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:textColor="@color/normal_text_color"
-                  android:text="Analysts' Opinion: "/>
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"  
-                  android:id="@+id/watch_anal_op_field"  android:paddingLeft="10dp"
-                  android:textColor="@color/normal_text_color"
-                  android:text="n/a"/>
-    </LinearLayout>  
 
-    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:layout_marginTop="25dip"
+    <GridLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:rowCount="4"
+        android:columnCount="2"
         >
-        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
+
+        <!-- PPS  -->
+        <LinearLayout android:layout_row="0" android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/normal_text_color"
+                android:text="PPS: "/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:id="@+id/watch_pps_field"
+                android:textColor="@color/normal_text_color"
+                android:paddingLeft="10dp"/>
+        </LinearLayout>
+
+        <!-- DivPerShare -->
+        <LinearLayout android:layout_row="1" android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/normal_text_color"
+                android:text="Div/Share: "/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/normal_text_color"
+                android:id="@+id/watch_divps_field" android:paddingLeft="10dp"/>
+        </LinearLayout>
+
+        <!-- YearlyRange -->
+        <LinearLayout android:layout_row="2" android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/normal_text_color"
+                android:text="Yearly Range: " />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:id="@+id/watch_yr_min_field"
+                android:textColor="@color/normal_text_color"
+                android:paddingLeft="10dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/normal_text_color"
+                android:text=" - "/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/normal_text_color"
+                android:id="@+id/watch_yr_max_field"/>
+        </LinearLayout>
+
+        <!-- AnalOp -->
+        <LinearLayout android:layout_row="3" android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/normal_text_color"
+                android:text="Analysts' Opinion: "/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:id="@+id/watch_anal_op_field"  android:paddingLeft="10dp"
+                android:textColor="@color/normal_text_color"
+                android:text="n/a"/>
+        </LinearLayout>
+
+        <!-- Refresh Button -->
+        <RelativeLayout android:layout_row="0" android:layout_column="1" android:layout_rowSpan="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             >
             <ImageButton android:id="@+id/detail_refresh_button_stationary"
                 android:layout_width="48dip"
                 android:layout_height="48dip"
                 android:background="@android:color/transparent"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="2dip"
-                android:layout_marginBottom="3dip"
+                android:layout_centerInParent="true"
                 android:src="@drawable/gradientshape"
                 android:contentDescription="@string/refresh_button_stationary"
                 />
@@ -108,14 +105,33 @@
                 android:layout_width="48dip"
                 android:layout_height="48dip"
                 android:background="@android:color/transparent"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="2dip"
-                android:layout_marginBottom="3dip"
+                android:layout_centerInParent="true"
                 android:src="@drawable/refresh_arrows"
                 android:contentDescription="@string/refresh_button_moving"
                 android:onClick="detailRefreshButtonClicked"
                 />
-                </RelativeLayout>
-    </RelativeLayout>
+        </RelativeLayout>
+
+    </GridLayout>
+
+    <!--  Strike Price: Change Button and Value-->
+    <LinearLayout android:layout_width="fill_parent"  android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20sp"
+        >
+        <Button android:layout_width="wrap_content"  android:layout_height="wrap_content"
+            android:text="Strike\nPrice:"
+            android:textColor="@color/button_text_color"
+            android:textSize="12sp"
+            android:layout_marginLeft="5sp"
+            android:onClick="changeButtonClicked"
+            />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/watch_strike_price_field"
+            android:textColor="@color/normal_text_color"
+            android:paddingLeft="@dimen/details_padding_left"
+            android:layout_gravity="center_vertical"
+            />
+    </LinearLayout>
 
 </LinearLayout>
