@@ -336,6 +336,15 @@ public class MainActivity extends ActionBarActivity
 		    quoteAddedOrMoved();
 	}
 
+	private Toast mToast;
+	private void display(String msg) {
+		if (mToast == null) {
+			mToast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
+		}
+		mToast.setText(msg);
+		mToast.show();
+	}
+
     private class DoNetworkTask extends AsyncTask<List<StockQuote>, Integer, List<StockQuote>> {
 		
         private final Context mContext;
@@ -393,8 +402,7 @@ public class MainActivity extends ActionBarActivity
 					buffer.close();
 					is.close();
 					count++;
-					if (count%5 == 0)
-					     publishProgress(count, quoteList.size());
+			        publishProgress(count, quoteList.size());
 
 					//String msg = count + ":\t" + quote.mSymbol + ":\t" + quote.mPPS + "\t" + quote.mPctChangeSinceLastClose + "\t" + quote.mDivPerShare + "\t" + quote.mYrMin + "-" + quote.mYrMax + "\t" + quote.mFullName + "\t" + quote.mAnalystsOpinion;
 					//Log.d("myTag", msg);
@@ -414,13 +422,14 @@ public class MainActivity extends ActionBarActivity
 			   currentSymbol = progressIndicators[0];
 
 			String msg = "Symbol " + currentSymbol + " of " + mTotalNumber;
-			Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
+			//Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
+			display(msg);
 		}
 
 		@Override
 		protected void onPostExecute(List<StockQuote> updatedQuoteList) {
     		((MainActivity)mContext).networkTaskCompleted(updatedQuoteList);
-			Toast.makeText(MainActivity.this, "Refresh Complete", Toast.LENGTH_SHORT).show();
+			display("Refresh Complete");
 		}
 
 

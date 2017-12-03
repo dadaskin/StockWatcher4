@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">StockWatcher4</string>
-    <string name="action_settings">Build 4.1.0 \u0020\u0020\u0020 24 Nov 2017</string>
+    <string name="action_settings">Build 4.1.1 \u0020\u0020\u0020 01 Dec 2017</string>
     <string name="add_button">Add a New Stock Symbol</string>
     <string name="add_owned">: Add to Owned List</string>
     <string name="add_watch">: Add to Watch List</string>
