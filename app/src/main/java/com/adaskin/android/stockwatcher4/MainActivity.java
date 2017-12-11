@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -25,7 +26,6 @@ import com.adaskin.android.stockwatcher4.fragments.ListFragmentBase;
 import com.adaskin.android.stockwatcher4.fragments.ListFragmentBase.ListFragmentListener;
 import com.adaskin.android.stockwatcher4.fragments.ToolbarFragment;
 import com.adaskin.android.stockwatcher4.fragments.ToolbarFragment.ToolbarListener;
-import com.adaskin.android.stockwatcher4.models.BuyBlock;
 import com.adaskin.android.stockwatcher4.models.StockQuote;
 import com.adaskin.android.stockwatcher4.utilities.Constants;
 import com.adaskin.android.stockwatcher4.utilities.Parsers;
@@ -354,7 +354,7 @@ public class MainActivity extends ActionBarActivity
 			mContext = context;
 			mTotalNumber = 0;
 		}
-		
+
 		private void writeWebResponseToFile(BufferedReader readBuffer, String fileName) {
 			String file = Environment.getExternalStorageDirectory() + "/" + fileName;
 			String line;
@@ -381,7 +381,24 @@ public class MainActivity extends ActionBarActivity
 			mTotalNumber = quoteList.size();
             int count = 0;
 			publishProgress(count);
+
+
+			long lastTime = Calendar.getInstance().getTimeInMillis();
+			long latency;
+			String latencyMsg;
+			String latencyFile = Environment.getExternalStorageDirectory() + "/LatencyTimes";
+			BufferedWriter latencyWriter = null;
+			try {
+				latencyWriter = new BufferedWriter(new FileWriter(latencyFile));
+			} catch (IOException e) {
+				String msg = "Exception opening latency file: " + e.getMessage();
+				Log.d("myTag", msg);
+				e.printStackTrace();
+			}
+
+
 			for (StockQuote quote : quoteList) {
+				lastTime = Calendar.getInstance().getTimeInMillis();
 				String url = "https://finance.yahoo.com/quote/" + quote.mSymbol;
 				HttpGet httpGet = new HttpGet(url);
 				try {
@@ -404,6 +421,14 @@ public class MainActivity extends ActionBarActivity
 					count++;
 			        publishProgress(count, quoteList.size());
 
+
+                    latency = Calendar.getInstance().getTimeInMillis() - lastTime;
+					lastTime = latency;
+                    latencyMsg = quote.mSymbol + "," + latency + "\n";
+					if (latencyWriter != null)
+						latencyWriter.write(latencyMsg);
+
+
 					//String msg = count + ":\t" + quote.mSymbol + ":\t" + quote.mPPS + "\t" + quote.mPctChangeSinceLastClose + "\t" + quote.mDivPerShare + "\t" + quote.mYrMin + "-" + quote.mYrMax + "\t" + quote.mFullName + "\t" + quote.mAnalystsOpinion;
 					//Log.d("myTag", msg);
 				} catch (Exception e) {
@@ -412,6 +437,20 @@ public class MainActivity extends ActionBarActivity
 					e.printStackTrace();
 				}
 			}
+
+
+			if (latencyWriter != null) {
+				try {
+					latencyWriter.flush();
+					latencyWriter.close();
+				} catch(IOException e) {
+					String msg = "Exception flushing and closing latency file: " + e.getMessage();
+					Log.d("myTag", msg);
+					e.printStackTrace();
+				}
+			}
+
+
 			return quoteList;
 		}
 
@@ -422,7 +461,6 @@ public class MainActivity extends ActionBarActivity
 			   currentSymbol = progressIndicators[0];
 
 			String msg = "Symbol " + currentSymbol + " of " + mTotalNumber;
-			//Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
 			display(msg);
 		}
 
