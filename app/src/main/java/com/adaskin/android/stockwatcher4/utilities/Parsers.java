@@ -11,27 +11,25 @@ import java.io.IOException;
 
 public class Parsers {
 
+    private static final String nameStartFormat = "data-reactid=\"7\">%s - ";
+    private static final String nameStop = "</h1>";
+    private static final String badSymbolPattern = "<title>Symbol Lookup from Yahoo! Finance";
+    private static final String ppsStart = "<!-- react-text: 15 -->";
+    private static final String ppsStop = "<!--";
+    private static final String divStart = "DIVIDEND_AND_YIELD-value";
+    private static final String divStop = " (";
+    private static final String rangeStart = "FIFTY_TWO_WK_RANGE-value";
+    private static final String rangeStop = "</td>";
+    private static final String opinionStart = "\"recommendationMean\":{\"raw\":";
+    private static final String opinionStop = ",\"fmt\"";
+
+    private static final int divStartOffset = 20;
+    private static final int rangeStartOffset = 20;
+
     public static boolean parseYAHOOResponse(BufferedReader reader, StockQuote quote){
         String symbol = quote.mSymbol;
 
-        String nameStart = "data-reactid=\"7\">" + symbol + " - ";
-        String nameStop = "</h1>";
-
-        String badSymbolPattern = "<title>Symbol Lookup from Yahoo! Finance";
-
-        String ppsStart = "<!-- react-text: 15 -->";
-        String ppsStop = "<!--";
-
-        String divStart = "DIVIDEND_AND_YIELD-value";
-        int divStartOffset = 20;
-        String divStop = " (";
-
-        String rangeStart = "FIFTY_TWO_WK_RANGE-value";
-        int rangeStartOffset = 20;
-        String rangeStop = "</td>";
-
-        String opinionStart = "\"recommendationMean\":{\"raw\":";
-        String opinionStop = ",\"fmt\"";
+        String nameStart = String.format(nameStartFormat, symbol);
 
         boolean isMainInformationFound = false;
         boolean isOpinionFound = false;
@@ -74,8 +72,8 @@ public class Parsers {
             }
             quote.determineOverallAccountColor();
         } catch (IOException e) {
-            String exceptionMsg = "Reading line from BufferedReader failed:\n" + e.getMessage();
-            Log.d("myTag", exceptionMsg);
+//            String exceptionMsg = "Reading line from BufferedReader failed:\n" + e.getMessage();
+//            Log.d("myTag", exceptionMsg);
             e.printStackTrace();
         }
         return true;

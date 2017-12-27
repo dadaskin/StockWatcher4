@@ -158,7 +158,7 @@ public class MainActivity extends ActionBarActivity
 	}
 
 	private void refreshQuotes() {
-		Log.d("myTag", "Start refreshQuotes()");
+		//Log.d("myTag", "Start refreshQuotes()");
 		DbAdapter dbAdapter = new DbAdapter(this);
 		dbAdapter.open();
 
@@ -168,7 +168,7 @@ public class MainActivity extends ActionBarActivity
 		DoNetworkTask task = new DoNetworkTask(this);
 		task.execute(quoteList);
 
-		Log.d("myTag", "Finish refreshQuotes()");
+		//Log.d("myTag", "Finish refreshQuotes()");
 	}
 
 	private void handleInvalidSymbols(List<String> invalidSymbolList, List<StockQuote> updatedQuoteList) {
@@ -355,24 +355,24 @@ public class MainActivity extends ActionBarActivity
 			mTotalNumber = 0;
 		}
 
-		private void writeWebResponseToFile(BufferedReader readBuffer, String fileName) {
-			String file = Environment.getExternalStorageDirectory() + "/" + fileName;
-			String line;
-
-			try {
-				BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-				while ((line = readBuffer.readLine()) != null) {
-					writer.write(line);
-					writer.write("\nxxx\n");
-				}
-				writer.flush();
-				writer.close();
-			}catch(IOException e){
-				String msg = "Exception in writeWebResponseToFile(): " + e.getMessage();
-				Log.d("myTag", msg);
-				e.printStackTrace();
-			}
-		}
+//		private void writeWebResponseToFile(BufferedReader readBuffer, String fileName) {
+//			String file = Environment.getExternalStorageDirectory() + "/" + fileName;
+//			String line;
+//
+//			try {
+//				BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+//				while ((line = readBuffer.readLine()) != null) {
+//					writer.write(line);
+//					writer.write("\nxxx\n");
+//				}
+//				writer.flush();
+//				writer.close();
+//			}catch(IOException e){
+////				String msg = "Exception in writeWebResponseToFile(): " + e.getMessage();
+////				Log.d("myTag", msg);
+//				e.printStackTrace();
+//			}
+//		}
 
 		@Override
 		protected List<StockQuote> doInBackground(List<StockQuote>... params) {
@@ -382,8 +382,6 @@ public class MainActivity extends ActionBarActivity
             int count = 0;
 			publishProgress(count);
 
-
-			long lastTime = Calendar.getInstance().getTimeInMillis();
 			long latency;
 			String latencyMsg;
 			String latencyFile = Environment.getExternalStorageDirectory() + "/LatencyTimes";
@@ -391,14 +389,14 @@ public class MainActivity extends ActionBarActivity
 			try {
 				latencyWriter = new BufferedWriter(new FileWriter(latencyFile));
 			} catch (IOException e) {
-				String msg = "Exception opening latency file: " + e.getMessage();
-				Log.d("myTag", msg);
+//				String msg = "Exception opening latency file: " + e.getMessage();
+//				Log.d("myTag", msg);
 				e.printStackTrace();
 			}
 
 
 			for (StockQuote quote : quoteList) {
-				lastTime = Calendar.getInstance().getTimeInMillis();
+				long lastTime = Calendar.getInstance().getTimeInMillis();
 				String url = "https://finance.yahoo.com/quote/" + quote.mSymbol;
 				HttpGet httpGet = new HttpGet(url);
 				try {
@@ -432,20 +430,19 @@ public class MainActivity extends ActionBarActivity
 					//String msg = count + ":\t" + quote.mSymbol + ":\t" + quote.mPPS + "\t" + quote.mPctChangeSinceLastClose + "\t" + quote.mDivPerShare + "\t" + quote.mYrMin + "-" + quote.mYrMax + "\t" + quote.mFullName + "\t" + quote.mAnalystsOpinion;
 					//Log.d("myTag", msg);
 				} catch (Exception e) {
-					String msg = "Sending/Receiving web request failed:\n" + e.getMessage();
-					Log.d("myTag", msg);
+//					String msg = "Sending/Receiving web request failed:\n" + e.getMessage();
+//					Log.d("myTag", msg);
 					e.printStackTrace();
 				}
 			}
-
 
 			if (latencyWriter != null) {
 				try {
 					latencyWriter.flush();
 					latencyWriter.close();
 				} catch(IOException e) {
-					String msg = "Exception flushing and closing latency file: " + e.getMessage();
-					Log.d("myTag", msg);
+//					String msg = "Exception flushing and closing latency file: " + e.getMessage();
+//					Log.d("myTag", msg);
 					e.printStackTrace();
 				}
 			}
@@ -469,7 +466,6 @@ public class MainActivity extends ActionBarActivity
     		((MainActivity)mContext).networkTaskCompleted(updatedQuoteList);
 			display("Refresh Complete");
 		}
-
 
 	}
 }

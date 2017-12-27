@@ -47,11 +47,9 @@ public abstract class GenericDetailsActivity extends ActionBarActivity {
 	}
 
 	public void detailRefreshButtonClicked(View v) {
-		Toast.makeText(this, "Refresh this Watch item!", Toast.LENGTH_LONG).show();
-
 		mRefreshButtonView = v;
-		String msg = mQuote.mPPS + "\t" + mQuote.mDivPerShare + "\t" + mQuote.mAnalystsOpinion;
-		Log.d("myTag", msg);
+//		String msg = mQuote.mPPS + "\t" + mQuote.mDivPerShare + "\t" + mQuote.mAnalystsOpinion;
+//		Log.d("myTag", msg);
 
 		Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate_1sec_center);
 		animation.setRepeatCount(Animation.INFINITE);
@@ -80,20 +78,20 @@ public abstract class GenericDetailsActivity extends ActionBarActivity {
 			HttpGet httpGet = new HttpGet(url);
 			try {
 				HttpResponse response = client.execute(httpGet);
-				Log.d("myTag", "Received response for: "+ quote.mSymbol);
+//				Log.d("myTag", "Received response for: "+ quote.mSymbol);
 				InputStream is = response.getEntity().getContent();
 				BufferedReader buffer = new BufferedReader(new InputStreamReader(is));
 
 				boolean isValidSymbol = Parsers.parseYAHOOResponse(buffer, quote);
-				if (!isValidSymbol) {
-					String msg = "Symbol: " + quote.mSymbol + " is not valid.";
-					Log.d("myTag", msg);
-				}
+//				if (!isValidSymbol) {
+//					String msg = "Symbol: " + quote.mSymbol + " is not valid.";
+//					Log.d("myTag", msg);
+//				}
 				buffer.close();
 				is.close();
 			} catch (Exception e) {
-				String msg = "Sending/Receiving web request failed:\n" + e.getMessage();
-				Log.d("myTag", msg);
+//				String msg = "Sending/Receiving web request failed:\n" + e.getMessage();
+//				Log.d("myTag", msg);
 				e.printStackTrace();
 			}
 

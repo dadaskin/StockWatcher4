@@ -349,8 +349,8 @@ public class OwnedDetailsActivity extends GenericDetailsActivity implements Aler
 
     @Override
 	protected void singleSymbolUpdateCompleted(StockQuote updatedQuote) {
-		String msg = mQuote.mPPS + "\t" + mQuote.mDivPerShare + "\t" + mQuote.mAnalystsOpinion;
-		Log.d("myTag", msg);
+//		String msg = mQuote.mPPS + "\t" + mQuote.mDivPerShare + "\t" + mQuote.mAnalystsOpinion;
+//		Log.d("myTag", msg);
 
 		updateQuoteInDB(updatedQuote);
 		fillData();
