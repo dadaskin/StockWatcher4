@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 18
-    buildToolsVersion '25'
+    compileSdkVersion 25
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.adaskin.android.stockwatcher4"
-        minSdkVersion 14
-        targetSdkVersion 18
+        minSdkVersion 25
+        targetSdkVersion 25
     }
 
     buildTypes {
@@ -19,9 +19,10 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:18.0.0'
-    compile 'com.android.support:appcompat-v7:18.0.0'
-    compile files('libs/mail.jar')
-    compile files('libs/activation.jar')
-    compile files('libs/additionnal.jar')
+    implementation 'com.android.support:support-v4:25.3.1'
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    api files('libs/mail.jar')
+    api files('libs/activation.jar')
+    api files('libs/additionnal.jar')
+    api files('libs/org.apache.http.legacy.jar')
 }
